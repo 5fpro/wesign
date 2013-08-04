@@ -63,3 +63,7 @@ group :development, :test do
 end
 
 gem 'anjlab-bootstrap-rails', '>= 2.3', :require => 'bootstrap-rails'
+gem 'settingslogic'
+gem 'devise', '~> 2.2.3'
+gem 'omniauth'
+gem 'omniauth-facebook'

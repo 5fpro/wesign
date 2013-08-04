@@ -1,4 +1,13 @@
 CompaignTw::Application.routes.draw do
+
+  match '/users/auth/:provider/callback', :to => "users/omniauth_callbacks#callback"
+  match '/users/auth/failure' => "users/omniauth_callbacks#failure", :as => :auth_failure
+
+  Setting.providers.each do |provider|
+    match "/users/auth/#{provider}", :as => "user_auth_#{provider}"
+  end
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
