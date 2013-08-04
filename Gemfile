@@ -74,3 +74,5 @@ gem 'carrierwave-meta', '~> 0.0.4'
 gem 'fog'
 gem 'jquery-ui-rails', '~> 4.0.3'
 gem 'chosen-rails', '~> 0.9.15'
+gem 'redis', '~> 3.0.2'
+gem 'redis-objects', :require => "redis/objects"

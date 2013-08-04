@@ -170,6 +170,9 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.4)
+    redis-objects (0.7.0)
+      redis (>= 3.0.2)
     ref (1.0.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -257,6 +260,8 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   rails (= 3.2.13)
+  redis (~> 3.0.2)
+  redis-objects
   rspec
   rspec-rails
   sass-rails (~> 3.2.3)

@@ -1,4 +1,10 @@
 defaults: &defaults
+  redis: 
+
+    host: localhost
+    port: 6379
+    db: 0
+
   aws_host_carrierwave: ""
 
   aws_region_carrierwave: ""
