@@ -1,4 +1,12 @@
 defaults: &defaults
+  aws_host_carrierwave: ""
+
+  aws_region_carrierwave: ""
+
+  aws_bucket_carrierwave: ""
+
+  aws_access_key_id: ""
+  aws_secret_access_key: ""
 # --- venus:omniauth START ---
   providers: ["facebook"]
   facebook_token: "267188576687915"

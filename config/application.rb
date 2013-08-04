@@ -70,5 +70,10 @@ module CompaignTw
       g.fixture_replacement :factory_girl, :dir => "spec/factories" 
     end    
 
+
+    setting = YAML.load(File.open("#{Rails.root}/config/setting.yml"))[Rails.env]
+    config.action_mailer.default_url_options = { :host => setting["host"] }
+    config.action_mailer.delivery_method = :amazon_ses
+
   end
 end
