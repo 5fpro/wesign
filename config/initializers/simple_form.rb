@@ -139,4 +139,29 @@ SimpleForm.setup do |config|
 
   # Cache SimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
+  config.label_class = "control-label"
+  config.form_class = "form-horizontal"
+
+  config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
+    b.use :placeholder
+    b.use :label, :wrap_with => { :class => 'control-label' }
+    b.wrapper :tag => 'div', :class => 'controls' do |ba|
+      ba.use :input
+      ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
+    end
+  end
+
+
+  config.wrappers :admin, :tag => :div, :class => 'control-group' do |b|
+    b.use :placeholder
+    b.use :label, :wrap_with => { :class => 'control-label', :tag => false }
+    b.wrapper :tag => :div, :class => 'controls' do |ba|
+      ba.use :input
+      ba.use :hint, :wrap_with => { :tag => :span, :class => 'help-block' }
+      ba.use :error, :wrap_with => { :tag => :span, :class => 'help-inline' }
+    end
+  end
+
+
 end

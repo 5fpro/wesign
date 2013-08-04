@@ -61,3 +61,5 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'turn', '~> 0.8.3', :require => false
 end
+
+gem 'anjlab-bootstrap-rails', '>= 2.3', :require => 'bootstrap-rails'
