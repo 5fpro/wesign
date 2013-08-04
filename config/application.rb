@@ -58,5 +58,22 @@ module CompaignTw
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    # disable some file generators
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helper = false
+    config.generators.helper_specs = false
+
+    # factory gilr
+    config.generators do |g|
+      g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl
+      g.fixture_replacement :factory_girl, :dir => "spec/factories" 
+    end    
+
+
+    setting = YAML.load(File.open("#{Rails.root}/config/setting.yml"))[Rails.env]
+    config.action_mailer.default_url_options = { :host => setting["host"] }
+    config.action_mailer.delivery_method = :amazon_ses
+
   end
 end
