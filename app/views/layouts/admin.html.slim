@@ -16,11 +16,11 @@ html
             i.icon.icon-user
             span.text Setting
         li.btn.btn-inverse
-          = link_to( "#", :method => :delete) do
+          = link_to( destroy_user_session_path, :method => :delete) do
             i.icon.icon-share-alt
             span.text Logout
         li.btn.btn-inverse
-          = link_to "Login", "#"
+          = link_to "Login", user_auth_facebook_path
     #sidebar
       = render :partial => "admin/sidebar/admin_menu"
     #content
