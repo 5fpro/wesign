@@ -76,3 +76,7 @@ gem 'jquery-ui-rails', '~> 4.0.3'
 gem 'chosen-rails', '~> 0.9.15'
 gem 'redis', '~> 3.0.2'
 gem 'redis-objects', :require => "redis/objects"
+gem 'sidekiq', '~> 2.12.4'
+gem 'slim'
+gem 'sinatra', '>= 1.3.0'
+gem 'devise-async', '~> 0.7.0'

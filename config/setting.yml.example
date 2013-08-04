@@ -1,4 +1,8 @@
 defaults: &defaults
+  sidekiq: 
+    redis: "redis://127.0.0.1:6379/0"
+    namespace: "compaign-tw"
+
   redis: 
 
     host: localhost

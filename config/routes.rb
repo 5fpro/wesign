@@ -1,4 +1,13 @@
+
+require 'sidekiq/web'
+
 CompaignTw::Application.routes.draw do
+
+    # see more devise authentication: https://github.com/mperham/sidekiq/wiki/Monitoring
+  sidekiq_constraints = lambda{ |req| req.env['warden'].authenticate!({ :scope => :user }) }
+  constraints sidekiq_constraints do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   match '/users/auth/:provider/callback', :to => "users/omniauth_callbacks#callback"
   match '/users/auth/failure' => "users/omniauth_callbacks#failure", :as => :auth_failure
