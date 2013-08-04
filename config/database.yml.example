@@ -1,0 +1,16 @@
+development: &default
+  adapter: mysql2
+  encoding: utf8
+  database: compaign-tw_development
+  host: localhost
+  username: 'root'
+  password: ''
+
+test: &TEST
+  <<: *default
+  database: compaign-tw_test
+
+production:
+  <<: *default
+  database: compaign-tw_production
+

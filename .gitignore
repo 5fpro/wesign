@@ -17,3 +17,6 @@
 config/database.yml
 config/setting.yml
 .DS_Store
+
+/public/assets
+/config/setting.yml
