@@ -66,6 +66,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     connection_pool (1.1.0)
+    crummy (1.7.2)
     devise (2.2.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -271,6 +272,7 @@ DEPENDENCIES
   carrierwave-meta (~> 0.0.4)
   chosen-rails (~> 0.9.15)
   coffee-rails (~> 3.2.1)
+  crummy (~> 1.7.2)
   devise (~> 2.2.3)
   devise-async (~> 0.7.0)
   factory_girl_rails
