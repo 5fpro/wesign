@@ -50,6 +50,10 @@ GEM
       activesupport (>= 3.0)
       carrierwave (>= 0.5.7)
       mime-types
+    chosen-rails (0.9.15)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     chronic (0.9.1)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -238,6 +242,7 @@ DEPENDENCIES
   better_errors
   carrierwave (~> 0.8.0)
   carrierwave-meta (~> 0.0.4)
+  chosen-rails (~> 0.9.15)
   coffee-rails (~> 3.2.1)
   devise (~> 2.2.3)
   factory_girl_rails

@@ -9,4 +9,6 @@
  *= require jquery.ui.slider
  *= require jquery.timepicker
 
+ *= require chosen
+
  */
