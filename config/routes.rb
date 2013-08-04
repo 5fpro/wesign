@@ -17,6 +17,10 @@ CompaignTw::Application.routes.draw do
   end
   devise_for :users
 
+  namespace :admin do
+    root :to => 'base#index'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

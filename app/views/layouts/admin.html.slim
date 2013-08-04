@@ -1,0 +1,44 @@
+doctype
+html
+  head
+    title compaign-tw
+    meta content="width=(device-width,)initial-scale=1.0" name="viewport"
+    = stylesheet_link_tag    "admin"
+    = javascript_include_tag "admin"
+    = csrf_meta_tags
+  body
+    #header
+      h1= link_to "compaign TW", admin_root_path
+    #user-nav.navbar.navbar-inverse
+      ul.nav.btn-group
+        li.btn.btn-inverse
+          = link_to("#") do
+            i.icon.icon-user
+            span.text Setting
+        li.btn.btn-inverse
+          = link_to( "#", :method => :delete) do
+            i.icon.icon-share-alt
+            span.text Logout
+        li.btn.btn-inverse
+          = link_to "Login", "#"
+    #sidebar
+      = render :partial => "admin/sidebar/admin_menu"
+    #content
+      #content-header
+        h1 Page Title
+        .btn-group
+          a.btn.btn-primary href="#" Buttons#1
+          a.btn.btn-primary href="#" Buttons#2
+      #breadcrumb
+        = render_crumbs separator: ' '
+
+      .container-fluid
+        .row-fluid
+          - flash.each do |k, message|
+            div class ="alert fade in alert-# k"
+              a.close data-dismiss="alert" href="#"
+              = message
+          = yield
+        .row-fluid
+          #footer.span12
+            | Footer
