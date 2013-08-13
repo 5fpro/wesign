@@ -7,7 +7,7 @@ class Admin::TimelinesController < Admin::BaseController
   end
 
   def index
-    @timelines = @petition.timelines.scoped
+    @timelines = @petition.timelines.order("happened_at DESC")
     add_crumb("所有連署", admin_petitions_url)
     @admin_page_title = "#{@petition.name}下的所有時間軸"
     add_crumb(@admin_page_title, "#")

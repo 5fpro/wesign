@@ -5,7 +5,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def index
-    @categories = Category.scoped
+    @categories = Category.order("weight DESC")
     @admin_page_title = "所有連署分類"
     add_crumb(@admin_page_title, "#")
   end
