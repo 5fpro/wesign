@@ -27,6 +27,7 @@ CompaignTw::Application.routes.draw do
       resources :timelines
     end
     resources :tags
+    resources :users
   end
 
   # The priority is based upon order of creation:

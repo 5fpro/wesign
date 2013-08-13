@@ -1,0 +1,22 @@
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 
+      th 會員名稱
+      th e-mail
+      th 最後登入時間
+      th 
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = user.id
+        td
+          = user.name
+        td
+          = user.email
+        td
+          = user.last_sign_in_at
+        td
+          = link_to "詳細資料", admin_user_path(user), :class => "btn btn-small btn-primary"
+          = link_to "刪除會員", admin_user_path(user), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除會員 - #{user.name} 嗎？"
