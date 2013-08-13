@@ -1,0 +1,25 @@
+- content_for :btns do
+  = link_to "新增連署分類", new_admin_category_path, :class => "btn btn-primary"
+
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 
+      th 分類名稱
+      th 置頂權重
+      th 連署數量
+      th 
+  tbody
+    - @categories.each do |category|
+      tr
+        td
+          = category.id
+        td
+          = category.name
+        td
+          = category.weight
+        td
+          = category.petitions_count
+        td
+          = link_to "編輯連署分類", edit_admin_category_path(category), :class => "btn btn-small btn-info"
+          = link_to "刪除連署分類", admin_category_path(category), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除連署分類 - #{category.name} 嗎？"
