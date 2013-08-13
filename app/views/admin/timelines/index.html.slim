@@ -1,0 +1,22 @@
+- content_for :btns do
+  = link_to "新增時間軸", new_admin_petition_timeline_path(:timeline => {:petition_id => @petition.id}), :class => "btn btn-primary"
+
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 
+      th 時間軸標題
+      th 時間
+      th 
+  tbody
+    - @timelines.each do |timeline|
+      tr
+        td
+          = timeline.id
+        td
+          = timeline.title
+        td
+          = timeline.happened_at
+        td
+          = link_to "編輯時間軸", edit_admin_petition_timeline_path(@petition, timeline), :class => "btn btn-small btn-info"
+          = link_to "刪除時間軸", admin_petition_timeline_path(@petition, timeline), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除時間軸 - #{timeline.title} 嗎？"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813100852) do
+ActiveRecord::Schema.define(:version => 20130813102847) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(:version => 20130813100852) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "timelines", :force => true do |t|
+    t.integer  "petition_id"
+    t.datetime "happened_at"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "timelines", ["petition_id"], :name => "index_timelines_on_petition_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

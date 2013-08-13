@@ -3,6 +3,7 @@ class Petition < ActiveRecord::Base
   belongs_to :category
   has_many :tags, :through => :petition_tags
   has_many :petition_tags
+  has_many :timelines
 
   validates_uniqueness_of :name
   validates_presence_of :name

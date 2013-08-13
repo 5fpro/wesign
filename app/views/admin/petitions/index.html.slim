@@ -21,6 +21,7 @@ table.table.table-bordered.table-striped.table-hover
         td
           = petition.signs_count
         td
+          = link_to "所屬時間軸一覽", admin_petition_timelines_path(petition), :class => "btn btn-small btn-primary"
           -if params[:category_id]
             = link_to "編輯連署", edit_admin_category_petition_path(@category, petition), :class => "btn btn-small btn-info"
             = link_to "刪除連署", admin_category_petition_path(@category, petition), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除連署 - #{petition.name} 嗎？"

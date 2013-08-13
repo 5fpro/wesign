@@ -24,7 +24,7 @@ CompaignTw::Application.routes.draw do
       resources :petitions
     end
     resources :petitions do
-      resources :timeline
+      resources :timelines
     end
     resources :tags
   end
