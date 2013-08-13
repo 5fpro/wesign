@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe PetitionTag do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "FactoryGirl" do
+    FactoryGirl.create(:petition_tag).new_record?.should be_false
+  end
 end

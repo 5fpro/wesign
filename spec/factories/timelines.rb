@@ -2,5 +2,11 @@
 
 FactoryGirl.define do
   factory :timeline do
+    petition do
+      FactoryGirl.create :petition
+    end
+    happened_at Time.now
+    title "titletitletitle"
+    content "contentcontentcontentcontent"
   end
 end

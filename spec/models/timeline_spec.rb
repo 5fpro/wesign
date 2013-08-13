@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Timeline do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "FactoryGirl" do
+    FactoryGirl.create(:timeline).new_record?.should be_false
+  end
 end

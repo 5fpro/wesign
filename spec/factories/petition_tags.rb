@@ -2,5 +2,11 @@
 
 FactoryGirl.define do
   factory :petition_tag do
+    petition do
+      FactoryGirl.create :petition
+    end
+    tag do
+      FactoryGirl.create :tag
+    end
   end
 end
