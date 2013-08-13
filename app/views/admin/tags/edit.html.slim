@@ -1,0 +1,3 @@
+.span12
+  = simple_form_for @tag, :url => admin_tag_path(@tag), :wrapper => :admin, :html => { :class => "form-horizontal" } do |f|
+    = render :partial => "form", :locals => { :f => f }

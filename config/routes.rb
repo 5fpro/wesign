@@ -23,7 +23,10 @@ CompaignTw::Application.routes.draw do
     resources :categories do
       resources :petitions
     end
-    resources :petitions
+    resources :petitions do
+      resources :timeline
+    end
+    resources :tags
   end
 
   # The priority is based upon order of creation:
