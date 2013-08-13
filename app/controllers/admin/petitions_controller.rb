@@ -11,11 +11,13 @@ class Admin::PetitionsController < Admin::BaseController
   end
 
   def index
-    @petitions = Petition.scoped
     if params[:category_id]
+      @petitions = @category.petitions.scoped
       @admin_page_title = "#{@category.name}下的所有連署"
+      add_crumb("所有分類", admin_categories_url)
       add_crumb(@admin_page_title, "#")
     else
+      @petitions = Petition.scoped
       @admin_page_title = "所有連署"
       add_crumb(@admin_page_title, "#")
     end

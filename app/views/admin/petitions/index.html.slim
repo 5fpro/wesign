@@ -1,5 +1,8 @@
 - content_for :btns do
-  = link_to "新增連署", new_admin_petition_path, :class => "btn btn-primary"
+  -if params[:category_id]
+    = link_to "新增連署", new_admin_category_petition_path(:petition => {:category_id => @category.id}), :class => "btn btn-primary"
+  -else
+    = link_to "新增連署", new_admin_petition_path, :class => "btn btn-primary"
 
 table.table.table-bordered.table-striped.table-hover
   thead
