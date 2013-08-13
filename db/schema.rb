@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813081918) do
+ActiveRecord::Schema.define(:version => 20130813085019) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(:version => 20130813081918) do
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["weight"], :name => "index_categories_on_weight"
+
+  create_table "petitions", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "target"
+    t.text     "intro"
+    t.text     "content"
+    t.string   "signed_mail_title"
+    t.text     "signed_mail_body"
+    t.integer  "signs_count"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "petitions", ["category_id"], :name => "index_petitions_on_category_id"
+  add_index "petitions", ["name"], :name => "index_petitions_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

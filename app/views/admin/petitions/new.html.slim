@@ -1,0 +1,7 @@
+.span12
+  -if params[:category_id]
+    = simple_form_for @petition, :url => admin_category_petitions_path(@category), :wrapper => :admin, :html => { :class => "form-horizontal" } do |f|
+      = render :partial => "form", :locals => { :f => f }
+  -else
+    = simple_form_for @petition, :url => admin_petitions_path, :wrapper => :admin, :html => { :class => "form-horizontal" } do |f|
+      = render :partial => "form", :locals => { :f => f }
