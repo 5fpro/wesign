@@ -1,4 +1,4 @@
-doctype
+doctype html
 html
   head
     title compaign-tw
@@ -25,10 +25,8 @@ html
       = render :partial => "admin/sidebar/admin_menu"
     #content
       #content-header
-        h1 Page Title
-        .btn-group
-          a.btn.btn-primary href="#" Buttons#1
-          a.btn.btn-primary href="#" Buttons#2
+        h1= @admin_page_title
+        .btn-group= yield :btns
       #breadcrumb
         = render_crumbs separator: ' '
 
