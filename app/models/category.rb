@@ -4,4 +4,9 @@ class Category < ActiveRecord::Base
   
   validates_uniqueness_of :name
   validates_presence_of :name
+
+  def can_delete?
+    petitions_count == 0
+  end
+  
 end
