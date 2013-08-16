@@ -1,0 +1,6 @@
+= f.input :name, :label => "連署分類名稱"
+= f.input :weight, :label => "置頂權重", :hint => "數字越大 = 權重越高 = 排序越前面"
+
+.form-actions
+  = f.submit :value => "送出", :disable_with => "送出中", :class => "btn btn-primary"
+  = link_to "取消", admin_categories_url, :class => "btn"

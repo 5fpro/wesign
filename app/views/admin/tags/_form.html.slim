@@ -1,0 +1,5 @@
+= f.input :name, :label => "tag 名稱"
+
+.form-actions
+  = f.submit :value => "送出", :disable_with => "送出中", :class => "btn btn-primary"
+  = link_to "取消", admin_tags_url, :class => "btn"

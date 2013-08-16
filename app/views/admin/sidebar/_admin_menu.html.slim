@@ -3,9 +3,13 @@
   span Dashboard
 ul
   li
-    a href="/admin"
-      i.icon.icon-home
-      span Dashboard
+    = link_to "連署分類管理", admin_categories_path
+  li
+    = link_to "連署管理", admin_petitions_path
+  li
+    = link_to "tag 管理", admin_tags_path
+  li
+    = link_to "會員管理", admin_users_path
   li
     li.submenu
       a href="#"

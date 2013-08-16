@@ -1,0 +1,30 @@
+- content_for :btns do
+  = link_to "刪除會員", admin_user_path(@user), :method => :delete, :class => "btn", :confirm => "確定要刪除會員 - #{@user.name} 嗎？"
+
+table.table.table-striped
+  tbody
+    tr
+      td.muted 會員名稱
+      td
+        = @user.name
+    tr
+      td.muted email
+      td
+        = @user.email
+    tr
+      td.muted 登入次數
+      td
+        = @user.sign_in_count
+    tr
+      td.muted 最後登入時間
+      td
+        = @user.current_sign_in_at
+    tr
+      td.muted 註冊時間
+      td
+        = @user.created_at
+
+.row
+  .span12
+    .form-actions
+      = link_to "回到會員列表", admin_users_path, :class => "btn btn-primary"

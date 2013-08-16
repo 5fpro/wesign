@@ -1,0 +1,23 @@
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 
+      th 連署分類
+      th 連署名稱
+      th 已連署人數
+      th 
+  tbody
+    - @petitions.each do |petition|
+      tr
+        td
+          = petition.id
+        td
+          = petition.category.name
+        td
+          = petition.name
+        td
+          = petition.signs_count
+        td
+          = link_to "所屬時間軸一覽", admin_petition_timelines_path(petition), :class => "btn btn-small btn-primary"
+          = link_to "編輯連署", edit_admin_petition_path(petition), :class => "btn btn-small btn-info"
+          = link_to "刪除連署", admin_petition_path(petition), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除連署 - #{petition.name} 嗎？"

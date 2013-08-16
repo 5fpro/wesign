@@ -1,0 +1,19 @@
+- content_for :btns do
+  = link_to "新增 tag", new_admin_tag_path, :class => "btn btn-primary"
+
+table.table.table-bordered.table-striped.table-hover
+  thead
+    tr
+      th 
+      th tag 名稱
+      th 
+  tbody
+    - @tags.each do |tag|
+      tr
+        td
+          = tag.id
+        td
+          = tag.name
+        td
+          = link_to "編輯 tag", edit_admin_tag_path(tag), :class => "btn btn-small btn-info"
+          = link_to "刪除 tag", admin_tag_path(tag), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除 tag - #{tag.name} 嗎？"

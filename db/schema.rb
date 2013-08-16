@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804070151) do
+ActiveRecord::Schema.define(:version => 20130816101909) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,6 +25,51 @@ ActiveRecord::Schema.define(:version => 20130804070151) do
 
   add_index "authorizations", ["auth_type", "auth_id"], :name => "index_authorizations_on_auth_type_and_auth_id"
   add_index "authorizations", ["provider", "uid"], :name => "index_authorizations_on_provider_and_uid"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "weight"
+    t.integer  "petitions_count", :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name"
+  add_index "categories", ["weight"], :name => "index_categories_on_weight"
+
+  create_table "petitions", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "target"
+    t.text     "intro"
+    t.text     "content"
+    t.string   "signed_mail_title"
+    t.text     "signed_mail_body"
+    t.integer  "signs_count",       :default => 0
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "petitions", ["category_id"], :name => "index_petitions_on_category_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "timelines", :force => true do |t|
+    t.integer  "petition_id"
+    t.datetime "happened_at"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "timelines", ["petition_id"], :name => "index_timelines_on_petition_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
