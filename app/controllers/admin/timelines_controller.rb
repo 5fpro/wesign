@@ -13,20 +13,6 @@ class Admin::TimelinesController < Admin::BaseController
     add_crumb(@admin_page_title, "#")
   end
 
-  def new
-    @admin_page_title = "新增時間軸"
-    add_crumb(@admin_page_title, "#")
-  end
-
-  def create
-    if @timeline.save
-      redirect_to admin_petition_timelines_path(@petition), :flash => { :success => "已新增" }
-    else
-      flash[:error] = @timeline.errors.full_messages
-      render :new
-    end
-  end
-
   def edit
     @admin_page_title = "編輯時間軸 - #{@timeline.title}"
     add_crumb(@admin_page_title, "#")

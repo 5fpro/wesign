@@ -20,9 +20,7 @@ CompaignTw::Application.routes.draw do
   namespace :admin do
     devise_for :users
     root :to => 'base#index'
-    resources :categories do
-      resources :petitions
-    end
+    resources :categories
     resources :petitions do
       resources :timelines
     end
