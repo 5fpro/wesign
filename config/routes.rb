@@ -20,6 +20,12 @@ CompaignTw::Application.routes.draw do
   namespace :admin do
     devise_for :users
     root :to => 'base#index'
+    resources :categories
+    resources :petitions do
+      resources :timelines
+    end
+    resources :tags
+    resources :users
   end
 
   # The priority is based upon order of creation:
