@@ -17,6 +17,9 @@ CompaignTw::Application.routes.draw do
   end
   devise_for :users
 
+  root :to => 'users#index'
+  resources :users
+
   namespace :admin do
     devise_for :users
     root :to => 'base#index'

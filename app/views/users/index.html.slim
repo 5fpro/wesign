@@ -1,0 +1,17 @@
+= render :partial => "layouts/user_sign_in"
+
+table
+  thead
+    tr
+      th id
+      th 會員名稱
+      th
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = user.id
+        td
+          = user.name
+        td
+          = link_to "編輯會員基本資料", edit_user_path(user)
