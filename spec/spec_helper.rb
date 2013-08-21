@@ -37,4 +37,7 @@ RSpec.configure do |config|
   config.order = "random"
   config.mock_with :rspec
 
+  config.include Devise::TestHelpers, :type => :controller
+  config.include RequestClient, :type => :request
+
 end
