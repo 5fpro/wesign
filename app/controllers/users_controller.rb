@@ -1,25 +1,21 @@
 class UsersController < ApplicationController
-  before_filter :find_user
+  before_filter :authenticate_user!, :only => [:index]
 
   def index
     @users = User.scoped
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
     if @user.update_attributes params[:user]
       redirect_to users_path, :flash => { :success => "已更新" }
     else
       flash[:error] = @user.errors.full_messages
       render :edit
     end
-  end
-
-  private
-
-  def find_user
-    @user = params[:id] ? User.find(params[:id]) : User.new(params[:user])
   end
 end

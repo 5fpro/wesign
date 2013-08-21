@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20130820164201) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "name"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "location"
     t.date     "birthday"
     t.string   "job"
