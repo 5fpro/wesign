@@ -1,0 +1,10 @@
+.span12
+  = simple_form_for @user, :url => user_path(@user) do |f|
+    = f.input :name, :label => "會員名稱"
+    = f.input :email, :label => "e-mail", :hint => "不可更改", :input_html => { :disabled => true }
+    = f.input :phone, :label => "行動電話"
+    = f.input :location, :label => "居住地"
+    = f.input :birthday, :label => "生日"
+    = f.input :job, :label => "職業"
+    .form-actions
+      = f.submit :value => "送出", :disable_with => "送出中"

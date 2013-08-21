@@ -1,0 +1,8 @@
+- if user_signed_in?
+  | Hello,
+  = current_user.name
+  div
+    = link_to "logout", destroy_user_session_path, :method => :delete
+- else 
+  = link_to "login", user_auth_facebook_path
+br
