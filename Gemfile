@@ -1,29 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'turbo-sprockets-rails3'
-
   gem 'therubyracer', :platforms => :ruby
-
   gem 'sass-rails',   '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.1'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   #breadcrumbs
-  gem "crummy", "~> 1.7.2"
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -57,6 +48,7 @@ gem 'whenever', '~> 0.8.4'
 gem 'simple_form', '~> 2.1.0'
 gem 'nested_form', '~> 0.3.2'
 gem 'mysql2'
+
 group :development, :test do
   gem "rspec", '~> 2.14.1'
   gem "rspec-rails", '~> 2.14.0'
@@ -83,3 +75,4 @@ gem 'sidekiq', '~> 2.13.0'
 gem 'slim', "~> 2.0.1"
 gem 'sinatra', '>= 1.4.3'
 gem 'devise-async', '~> 0.7.0'
+gem "crummy", "~> 1.7.2"
