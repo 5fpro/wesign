@@ -315,7 +315,6 @@ DEPENDENCIES
   crummy (~> 1.7.2)
   devise (~> 2.2.5)
   devise-async (~> 0.7.0)
-  execjs
   factory_girl_rails
   fog
   jquery-rails

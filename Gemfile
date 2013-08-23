@@ -9,12 +9,11 @@ gem 'rails', '3.2.14'
 # in production environments by default.
 group :assets do
   gem 'turbo-sprockets-rails3'
-  gem 'therubyracer', :platforms => :ruby
   gem 'sass-rails',   '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.1'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-  gem 'execjs'
+  # gem 'execjs'
   gem 'uglifier', '>= 1.0.3'
 end
 
