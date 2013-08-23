@@ -1,30 +1,31 @@
 defaults: &defaults
-  sidekiq: 
-    redis: "redis://127.0.0.1:6379/0"
-    namespace: "compaign-tw"
-
-  redis: 
-
-    host: localhost
-    port: 6379
-    db: 0
-
-  aws_host_carrierwave: ""
-
-  aws_region_carrierwave: ""
-
-  aws_bucket_carrierwave: ""
-
-  aws_access_key_id: ""
-  aws_secret_access_key: ""
 # --- venus:omniauth START ---
-  providers: ["facebook"]
+  providers: ["facebook", "twitter", "google_oauth2"]
   facebook_token: "267188576687915"
   facebook_secret: "84f72292e1f6b299f4a668f12ed1a7f2"
   facebook_auth_options:
     :scope: "email"
+#  twitter_token: ""
+#  twitter_secret: ""
+#  twitter_auth_options:
+#    :scope: "email"
+  google_oauth2_token: "435467283040.apps.googleusercontent.com"
+  google_oauth2_secret: "mbH4YxQuRRakaKDyyxGkwVTA"
+  google_oauth2_auth_options:
+    :scope: "userinfo.email,userinfo.profile"
 # --- venus:omniauth END ---
-
+  sidekiq: 
+    redis: "redis://127.0.0.1:6379/0"
+    namespace: "compaign-tw"
+  redis: 
+    host: localhost
+    port: 6379
+    db: 0
+  aws_host_carrierwave: ""
+  aws_region_carrierwave: ""
+  aws_bucket_carrierwave: ""
+  aws_access_key_id: ""
+  aws_secret_access_key: ""
   app_name: ""
   host: "localhost"
   admin_emails: 
