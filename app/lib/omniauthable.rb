@@ -28,10 +28,9 @@ module Omniauthable
     end
 
 
-
-
-
-
+    def initialize_from_omniauth_google_oauth2(authhash)
+      self.new(:email => authhash['extra']['raw_info']['email'], :name => authhash['extra']['raw_info']['name'])
+    end
 
 
   end

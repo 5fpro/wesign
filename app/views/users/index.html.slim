@@ -1,0 +1,19 @@
+.span12
+  .link
+    = link_to "後台", admin_root_path
+  - if user_signed_in?
+    | hi
+    .name
+      = current_user.name
+    .binds
+      | 您的帳號已經綁定:
+      = current_user.has_binds.join(", ")
+    .link
+      = link_to "編輯資料", edit_user_path(current_user)
+    .link
+      = link_to "登出", destroy_user_session_path, :class => :btn, :method => :delete
+  - else
+    .link
+      = link_to "FB 登入", user_auth_facebook_path, :class => :btn
+    .link
+      = link_to "Google 登入", user_auth_google_oauth2_path, :class => :btn

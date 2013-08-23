@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:edit, :update]
 
+  def index
+  end
+
   def edit
     @user = current_user
   end
