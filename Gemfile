@@ -76,3 +76,5 @@ gem 'slim', "~> 2.0.1"
 gem 'sinatra', '>= 1.4.3'
 gem 'devise-async', '~> 0.7.0'
 gem "crummy", "~> 1.7.2"
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
