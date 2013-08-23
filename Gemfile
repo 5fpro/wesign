@@ -13,18 +13,22 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.1'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-  #breadcrumbs
+  gem 'therubyracer', :platforms => :ruby
+  gem 'execjs'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano_colors'
+  gem 'rvm-capistrano'
+  gem 'cape'
+
   gem 'meta_request'
-
   gem 'better_errors'
-
   gem 'venus', '~> 0.8.6'
 end
 
@@ -36,9 +40,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
