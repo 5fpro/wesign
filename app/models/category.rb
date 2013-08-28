@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
 
   before_destroy :can_delete
 
-  def can_delete
+  def can_delete?
     return true if petitions_count == 0
   end
   
