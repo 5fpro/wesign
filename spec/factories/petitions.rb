@@ -5,6 +5,9 @@ FactoryGirl.define do
     category do
       FactoryGirl.create :category
     end
+    user do
+      FactoryGirl.create :user
+    end
     sequence(:name){ |n| "petition#{n}" }
     target "foofoo"
     intro "introintrointrointrointro"

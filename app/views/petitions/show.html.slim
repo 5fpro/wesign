@@ -1,0 +1,11 @@
+= "我們要對#{@petition.target}說："
+= "#{@petition.name}"
+br
+| 發起人
+= "#{@petition.user.name}"
+= "於#{@petition.created_at}發起"
+br
+="#{@petition.content}"
+br
+h2 訴求
+="#{@petition.intro}"
