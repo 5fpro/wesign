@@ -1,5 +1,11 @@
+-if @petition.pic?
+  = image_tag @petition.pic.url, :alt => "#{@petition.name}"
+br
 = "我們要對#{@petition.target}說："
 = "#{@petition.name}"
+-if @petition.targeting_count?
+  br
+  = "目標 #{@petition.targeting_count} 人"
 br
 | 發起人
 = "#{@petition.user.name}"

@@ -1,3 +1,5 @@
+-if @petition.pic?
+  = image_tag @petition.medinum.pic.url
 = f.input :pic, :label => '連署圖片', :input_html => { :class => 'span6' }
 | 發起連署身分
 = current_user.name
