@@ -5,6 +5,8 @@ class Category < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
 
+  scope :order_by_weight, order('weight DESC')
+
   before_destroy :can_delete?
 
   def can_delete?
