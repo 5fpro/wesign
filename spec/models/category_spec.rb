@@ -28,6 +28,6 @@ describe Category do
     petition = FactoryGirl.create :petition, :category => category
     petition.destroy
     category.reload
-    category.can_delete.should be_true
+    category.can_delete?.should be_true
   end
 end

@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
 
-  before_destroy :can_delete
+  before_destroy :can_delete?
 
   def can_delete?
     return true if petitions_count == 0
