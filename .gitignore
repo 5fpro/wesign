@@ -20,3 +20,4 @@ config/setting.yml
 
 /public/assets
 /config/setting.yml
+/public/uploads

@@ -9,6 +9,7 @@ FactoryGirl.define do
       FactoryGirl.create :user
     end
     sequence(:name){ |n| "petition#{n}" }
+    pic File.open("#{Rails.root}/spec/fixtures/petition_pic.jpg")
     target "foofoo"
     intro "introintrointrointrointro"
     content "contentcontentcontentcontentcontent"
