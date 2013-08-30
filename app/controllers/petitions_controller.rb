@@ -32,10 +32,6 @@ class PetitionsController < ApplicationController
 
   private
 
-  def method_name
-    
-  end
-
   def find_petition
     @petition = params[:id] ? current_user.petitions.find(params[:id]) : current_user.petitions.new(params[:petition])
   end

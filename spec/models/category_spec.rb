@@ -15,19 +15,11 @@ describe Category do
     category.petitions_count.should == 0
   end
   
-  it "has_many :petitions, :dependent => :nullify" do
-    category = FactoryGirl.create :category
-    petition = FactoryGirl.create :petition, :category => category
-    category.destroy
-    petition.reload
-    petition.category.should == nil
-  end
-  
   it "can delete if category has no petition" do
     category = FactoryGirl.create :category
     petition = FactoryGirl.create :petition, :category => category
     petition.destroy
     category.reload
-    category.can_delete?.should be_true
+    category.destroy.should be_true
   end
 end

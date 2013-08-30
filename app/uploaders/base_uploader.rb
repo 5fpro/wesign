@@ -3,7 +3,11 @@ module BaseUploader
 
   included do
     include CarrierWave::MiniMagick
-    storage :fog
+    if Rails.env.test?
+      storage :file
+    else
+      storage :fog
+    end
   end
 
   def default_url
