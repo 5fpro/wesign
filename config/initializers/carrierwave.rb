@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
     :region                 => Setting.aws_region_carrierwave
   }
   config.fog_directory  = Setting.aws_bucket_carrierwave
-  config.asset_host     = Setting.aws_host_carrierwave
+  config.asset_host     = "http://" + Setting.aws_host_carrierwave
   config.fog_public     = true
 end
 
