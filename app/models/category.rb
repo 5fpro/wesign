@@ -9,14 +9,8 @@ class Category < ActiveRecord::Base
 
   before_destroy :can_delete?
 
-  private
-
   def can_delete?
-    if petitions_count == 0
-      return true
-    else
-      return false
-    end
+    return true if petitions_count == 0
   end
   
 end

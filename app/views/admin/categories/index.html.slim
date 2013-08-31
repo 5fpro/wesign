@@ -22,5 +22,5 @@ table.table.table-bordered.table-striped.table-hover
           = category.petitions_count
         td
           = link_to "編輯連署分類", edit_admin_category_path(category), :class => "btn btn-small btn-info"
-          - if category.petitions_count == 0
+          - if category.can_delete?
             = link_to "刪除連署分類", admin_category_path(category), :method => :delete, :class => "btn btn-small", :confirm => "確定要刪除連署分類 - #{category.name} 嗎？"

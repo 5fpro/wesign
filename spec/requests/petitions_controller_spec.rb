@@ -14,7 +14,7 @@ describe PetitionsController do
     end
 
     it "#create" do
-      petition = { :name => "abc", :user_id => 1, :category_id => 1}
+      petition = { :name => "abc", :user_id => 1, :category_id => 1, :target => "target", :intro => "intro", :content => "content"}
       post "/petitions", :petition => petition
       response.should be_redirect
       Petition.last.name.should == "abc"
