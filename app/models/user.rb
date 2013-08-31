@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   include Omniauthable
 
+  has_many :petitions
+
   # attr_accessible :name
 
 end

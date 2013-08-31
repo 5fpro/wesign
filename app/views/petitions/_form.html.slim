@@ -1,0 +1,18 @@
+-if @petition.pic?
+  = image_tag @petition.pic.url
+= f.input :pic, :label => '連署圖片', :input_html => { :class => 'span6' }
+| 發起連署身分
+= current_user.name
+= f.input :category_id, :as => :select, :collection => collection_for_categories, :label => "連署分類"
+= f.input :target, :label => "連署的對象"
+= f.input :targeting_count, :label => "目標連署人數"
+= f.input :name, :label => "連署標題設定"
+= f.input :content, :label => "議題內容"
+br
+h2 使用者條款 and Policy
+- 20.times do
+  | 使用者條款 and Policy
+
+.form-actions
+  = f.submit :value => "同意以上條款，發起", :disable_with => "發起中"
+  = link_to "取消", root_path
