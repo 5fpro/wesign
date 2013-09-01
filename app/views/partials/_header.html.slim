@@ -1,0 +1,43 @@
+.header
+  .header-container
+    .mobile-menu.dropdown
+      button.dropdown-btn.menu-btn data-toggle="dropdown"
+        .menu-btn-bar
+        .menu-btn-bar
+        .menu-btn-bar
+      ul.dropdown-menu role="menu" aria-labelledby="dLabel"
+        li: a href="#sign-up" data-toggle="modal" 發起連署
+        li: a href="/category" 連署列表
+    h1.logo: a href="/" 台灣連署平台
+    ul.main-nav.hidden-mobile
+      li: a href="#sign-up" data-toggle="modal" 發起連署
+      li: a href="/category" 連署列表
+
+
+
+    ul.header-user-toolbar
+      li.header-user-tool.dropdown.search.hidden-desktop
+        a.dropdown-btn.header-user-tool-btn data-toggle="dropdown" href="#": i.icon-search
+        .dropdown-menu
+          form.search-bar
+            input#search type="text" placeholder="Search"
+            button.icon-search type="submit"
+      / li.header-user-tool
+      /   a.login-btn.header-user-tool-btn href="#sign-up" data-toggle="modal" Sign in
+
+      li.header-user-tool.dropdown.user-account
+        a.dropdown-btn.header-user-tool-btn.hidden-desktop data-toggle="dropdown" href="#": i.icon-user
+        a.dropdown-btn.header-user-tool-btn.hidden-mobile data-toggle="dropdown" href="#"
+          = image_tag "http://placekitten.com/g/24/24"
+          // # TODO user avatar
+          span.dropdown-title= current_user.name
+        ul.dropdown-menu.pull-right role="menu" aria-labelledby="dLabel"
+          li: a href="/user" 我發起的
+          li: a href="/user" 我參與的
+          li: a href="/user" 我的資料
+          li.dropdown-menu-list-divider
+          li
+            = link_to "Sign out", destroy_user_session_path, :method => :delete
+    form.search-bar.hidden-mobile
+      input#search type="text" placeholder="Search"
+      button.icon-search type="submit"
