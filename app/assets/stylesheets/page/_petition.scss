@@ -1,0 +1,281 @@
+// import petition-partials
+@import "partials/petition-owner-info";
+@import "partials/petition-article";
+@import "partials/petition-highlight-article";
+@import "partials/petition-timeline";
+@import "partials/petition-comments";
+
+
+// petition-layout
+
+.petition-header {
+  @include pie-clearfix;
+  @include padding-leader(1);
+  @include trailer(1);
+  background-color: #f7f7f7;
+
+  @include at-breakpoint($ipad) {
+    @include padding-leader(1);
+  }
+}
+
+.petition-content {
+  @include pie-clearfix;
+  clear: both;
+}
+
+.petition-left-col {
+  @include at-breakpoint($ipad) {
+    $gutter-width: 1em;
+    @include span-columns(5, 9);
+  }
+  @include at-breakpoint($desktop) {
+    $gutter-width: 1.5em;
+    @include span-columns(6);
+  }
+}
+
+.petition-right-col {
+  @include pie-clearfix;
+  @include at-breakpoint($ipad) {
+    $gutter-width: 1em;
+    @include span-columns(4 omega, 9);
+  }
+  @include at-breakpoint($desktop) {
+    $gutter-width: 1.5em;
+    @include span-columns(6 omega);
+  }
+}
+
+
+
+// petition-partials
+
+.petition-media {
+  position: relative;
+  text-align: right;
+  @include trailer(1);
+  img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .petition-end-date {
+    float: left;
+    @include adjust-font-size-to(14px);
+  }
+
+  @include at-breakpoint($ipad) {
+    border-bottom: 0;
+    padding-bottom: 0;
+    @include trailer(6);
+  }
+}
+
+
+.petition-affix {
+  @include at-breakpoint($ipad) {
+    position: absolute;
+    top: 49px;
+    &.affix-top {
+      position: absolute;
+    }
+    &.affix {
+      position: fixed;
+      top: -1px;
+    }
+    &.affix-bottom {
+      position: absolute;
+    }
+  }
+  @media (max-height: 350px) {
+    &.affix {
+      position: absolute;
+      top: 49px;
+    }
+    &.affix-bottom {
+      position: relative;
+    }
+  }
+}
+.petition-affix-inner-wrapper {
+  @include at-breakpoint($ipad) {
+    padding: 24px 1.5em 24px;
+    @include background( linear-gradient( rgba(black,.0), rgba(black,.05) ) );
+    border-radius: 0 0 5px 5px;
+    @include box-shadow( inset 0 -2px 5px rgba(black,.05) );
+  }
+}
+
+
+.petition-summary {
+  .petition-target {
+    @include adjust-font-size-to(15px);
+    @include trailer(.3);
+    color: #999;
+    span {
+      color: black;
+      margin: 0 .3em;
+    }
+  }
+  .petition-title {
+    @include adjust-font-size-to(20px, 1);
+    font-weight: bold;
+    @include trailer(.3);
+  }
+  @include at-breakpoint($ipad) {
+
+  }
+  @include at-breakpoint($desktop) {
+    padding-top: 2em;
+    .petition-target {
+      @include adjust-font-size-to(20px);
+      @include trailer(.3);
+    }
+    .petition-title {
+      @include adjust-font-size-to(24px, 4/3);
+    }
+  }
+  .progress-bar-with-text {
+    @include adjust-font-size-to(24px, 2.5);
+    @include border-radius(5px);
+    @include border-box-sizing;
+    background: rgba(#ffc, .7);
+    @include box-shadow( inset 0 0 10px rgba(black, .2), 0 1px 0 rgba(white, 1) );
+    .current-signature {
+      color: rgba(black, .5);
+    }
+    .current-signature-cover {
+      color: rgba(black, .7);
+      text-shadow: 0 1px 0 rgba(white,.5);
+    }
+    .current-progress-bar-with-text {
+      @include border-radius(5px);
+      @include box-shadow( inset -1px 0 0 rgba(black, .3), 2px 0 2px rgba(black, .1) );
+    }
+  }
+}
+
+.petition-goal {
+  text-align: right;
+  font-weight: bold;
+  @include adjust-font-size-to(14px, 1);
+  @include trailer(.5);
+  margin-right: 0.5em;
+  .count {
+    position: relative;
+    letter-spacing: 1px;
+    top: .1em;
+    margin: .3em;
+    font-size: 1.5em;
+    font-style: italic;
+    color: $color-red;
+  }
+}
+
+
+// peittion-plus-icon
+.petition-plus-icon {
+  text-align: center;
+  color: black;
+  opacity: .3;
+  position: relative;
+  @include adjust-font-size-to(36px,2);
+  @include trailer(.3);
+  @include leader(-1.25);
+  @include at-breakpoint($ipad) {
+
+  }
+  @include at-breakpoint($desktop) {
+    @include trailer(.3);
+    @include adjust-font-size-to(44px,2);
+  }
+}
+
+
+// petition-action
+.petition-action {
+  @include trailer(2);
+  @include at-breakpoint($ipad) {
+    margin-bottom: 0;
+  }
+}
+
+.petition-action-item {
+  @include trailer(.75);
+  @include at-breakpoint($desktop) {
+    @include trailer(1);
+  }
+}
+
+.petition-signed {
+  border: 1px dashed #ccc;
+  padding: 6px;
+  .petition-signed-avatar {
+    float: left;
+    margin-right: .5em;
+    img {
+      margin-bottom: 0;
+    }
+  }
+  .petition-signed-comment {
+    @include adjust-font-size-to(24px,3);
+  }
+}
+
+
+.petition-section {
+  @include trailer(4);
+  &.comments {
+    @include trailer(2);
+  }
+}
+.petition-section-title {
+  @include adjust-font-size-to(24px,1);
+  font-weight: bold;
+  @include trailer(1);
+}
+.petition-section-sub-title {
+  margin-left: .5em;
+  font-size: 14px;
+  color: #bbb;
+  font-weight: normal;
+}
+
+
+.petition-login-btn {
+  @include adjust-font-size-to(13px, 2);
+  padding: 0;
+  width: 100%;
+  span {
+    @include adjust-font-size-to(20px, 2);
+    font-weight: bold;
+  }
+  @include at-breakpoint($ipad) {
+  }
+  @include at-breakpoint($desktop) {
+    @include adjust-font-size-to(15px, 2.5);
+    span {
+      @include adjust-font-size-to(30px, 2.5);
+    }
+  }
+}
+
+.petition-social-btn-group {
+  clear: both;
+  @include pie-clearfix;
+  .btn {
+    padding: 0;
+    font-size: 14px;
+    line-height: 30px;
+    @include span-columns(3,6);
+    @include nth-omega(2n);
+  }
+  @include at-breakpoint($desktop) {
+    .btn {
+      font-size: 16px;
+      line-height: 36px;
+    }
+
+  }
+}
+

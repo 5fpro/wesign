@@ -1,0 +1,37 @@
+.post-comment-form-avatar {
+  float: left;
+  margin-right: 1em;
+  img {
+    margin-bottom: 0;
+  }
+}
+
+.post-comment-form-content {
+  overflow: hidden;
+  textarea {
+    @include box-sizing(border-box);
+    @include trailer(0.25);
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    width: 100%;
+    min-height: 96px;
+    resize: none;
+    &:focus {
+      outline: none;
+      background: #ffe;
+    }
+  }
+  .btn {
+    float: right;
+    margin-bottom: 3px;
+    padding: 4px 1em;
+  }
+
+  @include at-breakpoint($ipad) {
+    .btn {
+      padding: 4px 2em;
+    }
+  }
+
+}

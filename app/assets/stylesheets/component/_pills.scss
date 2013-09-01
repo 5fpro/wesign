@@ -1,0 +1,38 @@
+.pills {
+  @include pie-clearfix;
+  li {
+    float: left;
+    a {
+      display: block;
+      padding: 6px 0.5em;
+      color: #444;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .active {
+    color: #ccc;
+    background-color: #444;
+    @include border-radius(4px);
+    & a {
+      color: #ccc;
+    }
+  }
+
+}
+
+.pill-content {
+  display: none;
+  &.active {
+   display: block;
+  }
+  &.fade {
+    opacity: 0;
+    @include transition(.25s);
+  }
+  &.fade.in {
+    opacity: 1;
+  }
+}

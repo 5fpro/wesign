@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.scoped
+    @categories = Category.ordered
   end
 
 end

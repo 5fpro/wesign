@@ -1,0 +1,75 @@
+.tabs {
+  @include pie-clearfix;
+  @include box-shadow(0 5px 10px rgba(0,0,0,0.1));
+  li {
+    display: block;
+    @include box-sizing(border-box);
+
+  }
+  li + li {
+    border-left: 1px solid $tab-border-color;
+  }
+  li.active,
+  li.active + li {
+    border-left: 0;
+  }
+}
+
+
+.tab-item {
+  position: relative;
+  display: block;
+  padding: ($base-line-height/2 - 1px) ($base-line-height/2 - 1px);
+  color: #444;
+  text-align: center;
+  &:hover, &:active {
+    background-color: $tab-hover;
+    text-decoration: none;
+  }
+  .active & {
+    outline: none;
+    background-color: $tab-active;
+    color: $tab-active-text;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 50%;
+      margin-left: -$tab-triangle-size;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: $tab-triangle-size $tab-triangle-size 0 $tab-triangle-size;
+      border-color: $tab-active transparent transparent transparent;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -($tab-triangle-size + 1px);
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: ($tab-triangle-size + 1px) ($tab-triangle-size + 1px) 0 ($tab-triangle-size + 1px);
+      border-color: $tab-border-color transparent transparent transparent;
+    }
+    &:hover:before, &:active:before {
+      border-color: $tab-active transparent transparent transparent;
+    }
+  }
+  @include at-breakpoint($ipad) {
+    padding: ($base-line-height - 1px) ($base-line-height/2 - 1px);
+  }
+}
+
+
+.tab-content {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

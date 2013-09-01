@@ -1,0 +1,55 @@
+.hero {
+  background: #eeeeef image-url("hero.png");
+  clear: both;
+  @include padding-leader(1);
+  @include padding-trailer(1);
+  @include pie-clearfix;
+  @include at-breakpoint($desktop) {
+    @include padding-leader(3);
+    @include padding-trailer(3);
+  }
+  .hero-title {
+    @include adjust-font-size-to(22px);
+    text-align: center;
+    @include trailer(1);
+    @include at-breakpoint($ipad) {
+      @include adjust-font-size-to(36px);
+      @include trailer(2);
+    }
+    @include at-breakpoint($desktop) {
+      @include adjust-font-size-to(48px);
+    }
+  }
+}
+
+.hero-petition-items {
+  $hero-petition: white;
+  .petition-item {
+    border: none;
+    @include box-shadow(0 5px 5px rgba(black,.1) );
+    @include border-box-sizing;
+    border-radius: 5px;
+    margin-bottom: 0;
+    background-color: $hero-petition;
+    &:hover {
+      background-color: $petition-hover;
+    }
+  }
+  .petition-item-title {
+    &:after {
+      @include background-image( linear-gradient( bottom, rgba($hero-petition, 1), rgba($hero-petition, 0) ) );
+    }
+  }
+  .item {
+    margin-bottom: gutter(4);
+    @include at-breakpoint($ipad) {
+      $gutter-width   : 1em;
+      @include isolate-grid(4);
+      margin-bottom: gutter(8);
+    }
+    @include at-breakpoint($desktop) {
+      @include isolate-grid(3);
+    }
+  }
+
+}

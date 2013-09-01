@@ -1,0 +1,29 @@
+.petition-owner-info {
+  @include pie-clearfix;
+  @include trailer(1);
+  .petition-owner-unit {
+    font-size: 13px;
+  }
+  .petition-creat-date {
+    @include adjust-font-size-to(13px);
+    color: #999;
+  }
+
+  @include at-breakpoint($ipad) {
+    @include leader(-5);
+    @include trailer(2);
+  }
+
+}
+
+.petition-owner-avatar {
+  float: left;
+  margin-right: 12px;
+  img {
+    width: 48px;
+    margin-bottom: 0;
+  }
+}
+.petition-owner-name {
+  @include adjust-font-size-to(15px);
+}

@@ -1,0 +1,61 @@
+.petition-success-message {
+  @include leader(2);
+  @include trailer(2);
+  text-align: center;
+  @include at-breakpoint($ipad) {
+    @include leader(4);
+
+  }
+}
+
+.petition-success-title {
+  @include adjust-font-size-to(32px);
+  line-height: 32px;
+  @include trailer(.5);
+}
+
+.petition-success-sub-title {
+  @include trailer(.5);
+}
+
+.petition-social-links {
+  .petition-social-link{
+    width: 100%;
+    @include trailer(0.5);
+    padding: 6px 0;
+  }
+
+  @include at-breakpoint($ipad) {
+    .petition-social-link{
+      width: auto;
+      padding: 6px 1em;
+    }
+    .petition-social-link+ .petition-social-link{
+      margin-left: 1em;
+    }
+  }
+
+}
+
+
+
+.other-petition-list {
+  @include pie-clearfix;
+  @include trailer(2);
+}
+
+.other-petition-list-title {
+  @include trailer(.5);
+}
+
+.other-petition-list-item {
+  @include at-breakpoint($ipad) {
+    @include span-columns(4);
+    @include nth-omega(2n);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(3, 12);
+    @include remove-nth-omega(2n);
+    @include nth-omega(4n);
+  }
+}

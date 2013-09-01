@@ -1,0 +1,13 @@
+$progress-bar-height: 6px;
+.progress-bar {
+  @include transition(.3s .1s);
+  width: 100%;
+  height: $progress-bar-height;
+  background-color: rgba(0,0,0,0.7);
+}
+.current-progress-bar {
+  @include transition(.3s .1s);
+  height: $progress-bar-height;
+  background-color: #B22911;
+  background-image: linear-gradient(-180deg, lighten(#CF3E17, 10%) 0%, #B22911 100%);
+}

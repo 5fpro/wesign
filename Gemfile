@@ -57,6 +57,9 @@ group :development, :test do
   gem 'turn', '~> 0.8.3', :require => false
 end
 
+gem 'compass', '>= 0.12.2'
+gem 'compass-rails', '>= 1.0.3'
+gem "susy"
 gem 'anjlab-bootstrap-rails', '>= 2.3.1.2', :require => 'bootstrap-rails'
 gem 'settingslogic'
 gem 'devise', '~> 2.2.5'

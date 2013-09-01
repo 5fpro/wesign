@@ -1,0 +1,19 @@
+.dropdown {
+  &.open {
+    .dropdown-btn {
+      background-color: $dropdown-btn;
+      a {
+        @include link-colors($dropdown-btn-text);
+      }
+    }
+    .dropdown-menu {
+      background-color: $dropdown-menu;
+      a {
+        @include link-colors($dropdown-text, $dropdown-hover-text);
+        &:hover {
+          background-color: $dropdown-hover-text-bg;
+        }
+      }
+    }
+  }
+}
