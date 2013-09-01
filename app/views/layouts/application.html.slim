@@ -7,4 +7,7 @@ html
     = csrf_meta_tags
   body
     = render :partial => "layouts/user_sign_in"
+    - flash.each do |k, message|
+      div class ="alert-# k"
+        = message
     = yield
