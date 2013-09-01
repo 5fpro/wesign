@@ -8,6 +8,6 @@ html
   body
     = render :partial => "layouts/user_sign_in"
     - flash.each do |k, message|
-      div class ="alert-# k"
+      div class="alert-#{k}"
         = message
     = yield
