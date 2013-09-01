@@ -1,0 +1,28 @@
+.petition-article {
+  // border-bottom: 1px solid;
+  @include trailer(2);
+  color: #666;
+  h3 {
+    color: #444;
+    @include adjust-font-size-to(20px,1);
+    font-weight: bold;
+    @include leader(2);
+    @include trailer(0.5);
+  }
+  ul, ol {
+    list-style: inherit;
+    list-style-position: inside;
+    margin-left: 3px;
+    @include trailer(1);
+  }
+  p {
+
+  }
+}
+
+.petition-article-title {
+  @include adjust-font-size-to(32px,1.5);
+  @include trailer(.5);
+}
+
+

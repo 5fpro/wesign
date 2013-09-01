@@ -1,0 +1,160 @@
+.header {
+  color: $header-text;
+  position: relative;
+  @include pie-clearfix;
+  @include background-image(
+    linear-gradient($header-light, $header)
+  );
+  .search-bar {
+    margin-right: 1.5em;
+    padding-top: 6px;
+    display: inline-block;
+  }
+
+  @include at-breakpoint($desktop) {
+    margin: 0 auto;
+    .search-bar {
+      float: right;
+      display: block;
+    }
+  }
+  // header link colors
+  a {
+    @include link-colors( $header-text, $header-hover-text );
+    @include unstyled-link;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  float: left;
+  margin-left: 12px;
+  @include adjust-font-size-to(20px, 2);
+  img {
+    // width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  a {
+    @include link-colors( $color-white );
+  }
+  @include at-breakpoint($ipad) {
+    text-align: center;
+  }
+  @include at-breakpoint($desktop) {
+    margin-left: 0;
+    border-bottom: none;
+    text-align: left;
+  }
+}
+
+.mobile-menu {
+  float: left;
+  position: static;
+  .dropdown-menu {
+
+  }
+}
+
+.menu-btn {
+  cursor: pointer;
+  display: block;
+  padding: 15px 12px;
+  width: 48px;
+  border: 0;
+  border-right: 1px solid $header-divider-light;
+  @include box-shadow( inset -1px 0 0 $header-divider );
+  background-color: transparent;
+  @include at-breakpoint($desktop) {
+    display: none;
+  }
+}
+
+.menu-btn-bar {
+  $margin-width: 6px;
+  display: block;
+  height: 2px;
+  background-color: $header-text;
+  & + & {
+    margin-top: $margin-width;
+  }
+  @include box-shadow( 0 1px 0 rgba(black, .5) );
+}
+
+
+.main-nav {
+  @include pie-clearfix;
+  float: left;
+  margin-top: 12px;
+  margin-left: 24px;
+  li {
+    float: left;
+    a {
+      display: block;
+      @include adjust-font-size-to(13px, 1);
+    }
+  }
+  li + li {
+    margin-left: 12px;
+    border-left: 1px solid $header-divider;
+    @include box-shadow( inset 1px 0 0 $header-divider-light );
+    padding-left: 12px;
+  }
+
+}
+
+
+.header-user-toolbar {
+  float: right;
+}
+
+.header-user-tool {
+  float: left;
+  & + & {
+    border-left: 1px solid $header-divider;
+    @include box-shadow( inset 1px 0 0 $header-divider-light );
+  }
+  @include at-breakpoint($desktop) {
+    & + & {
+      border-left: 0;
+    }
+  }
+}
+
+.header-user-tool-btn {
+  outline: none;
+  display: block;
+  padding: 12px;
+  @include adjust-font-size-to(13px);
+}
+
+.search {
+  position: static;
+  .dropdown-menu {
+    min-width: 0px;
+    width: 100%;
+    padding: 18px 0;
+  }
+  .search-bar {
+    margin: 0;
+    padding: 0 20px;
+    display: block;
+    float: none;
+    input {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.user-account {
+  .dropdown-menu {
+    a { padding-right: 6em; }
+  }
+  @include at-breakpoint($desktop) {
+    .dropdown-menu {
+      a { padding-right: 0; }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.sign-up {
+  .modal-footer {
+    @include adjust-font-size-to(14px,3/4);
+  }
+
+  @include at-breakpoint($ipad) {
+    .modal-wrapper {
+      top: 96px;
+      max-width: 22.5em;
+    }
+  }
+
+}
+
+.sign-up-btn-group {
+  .btn {
+    @include box-sizing(border-box);
+    width: 100%;
+    padding: 6px;
+  }
+  .btn + .btn {
+    @include leader(.5);
+  }
+}

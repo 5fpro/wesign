@@ -1,0 +1,233 @@
+.group-tabs {
+  margin: auto -2em;
+  @include trailer(1.5);
+  li {
+    width: 50%;
+    float: left;
+    @include box-sizing(border-box);
+  }
+  .tab-message {
+    @include adjust-font-size-to(14px,2/3);
+  }
+  .count {
+    @include adjust-font-size-to(16px,2/3);
+  }
+  @include at-breakpoint($ipad) {
+    .tab-message {
+      @include adjust-font-size-to(22px,1);
+    }
+    .count {
+      @include adjust-font-size-to(36px,2);
+    }
+  }
+
+}
+
+.group-toolbar {
+  @include pie-clearfix;
+  @include trailer(1);
+}
+
+.group-tabs-content {
+  clear: both;
+}
+
+.group-list {
+  @include trailer(1.5);
+  @include pie-clearfix;
+  @include at-breakpoint($ipad) {
+    li {
+      @include span-columns(4);
+      @include nth-omega(2n);
+    }
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      @include span-columns(3,9);
+      @include remove-nth-omega(2n,child,9);
+      @include nth-omega(3n);
+    }
+  }
+}
+
+
+.group-list-pagination {
+  clear: both;
+  @include trailer(2);
+}
+
+
+// -------------- group-info ---------------
+
+.group-info-group {
+  @include at-breakpoint($ipad) {
+    @include pie-clearfix;
+    border-bottom: 1px solid #ccc;
+    @include trailer(1);
+    &:last-child {
+      border: 0;
+      margin-bottom: 0;
+    }
+  }
+  @include at-breakpoint($desktop) {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+.group-info {
+  @include trailer(1);
+  @include pie-clearfix;
+  clear: both;
+  @include at-breakpoint($ipad) {
+    clear: none;
+    @include span-columns(4, 8);
+    @include nth-omega(2n);
+  }
+  @include at-breakpoint($desktop) {
+    @include trailer(2);
+    float: none;
+    width: 100%;
+  }
+}
+
+.group-info-title {
+  @include adjust-font-size-to(20px,1);
+  @include trailer(0.25);
+  color: #444;
+}
+
+.group-info-text {
+  @include adjust-font-size-to(14px,3/4);
+  margin-bottom: 0;
+}
+
+.group-avatar {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  @include at-breakpoint($desktop) {
+    float: none;
+    @include trailer(0.5);
+  }
+
+}
+
+.group-name {
+  @include adjust-font-size-to(20px,1);
+  @include trailer(0.25);
+  border-bottom-color: #aaa;
+  @include at-breakpoint($ipad) {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.group-link-list {
+  overflow: hidden;
+  li {
+    @include ellipsis;
+  }
+  i {
+    color: #999;
+    display: inline-block;
+    margin-right: 6px;
+  }
+}
+
+.group-heed-category {
+  @include trailer(1);
+  @include at-breakpoint($ipad) {
+    @include trailer(2);
+  }
+}
+
+.group-heed-category-list {
+  @include columns(10em 2);
+  @include column-gap(2px);
+  li {
+    margin-bottom: 2px;
+    @include ellipsis;
+  }
+  a {
+    display: block;
+    color: #666;
+    background: #ccc;
+    border-radius: 3px;
+    padding: 3px 7px;
+    &:hover {
+      text-decoration: none;
+      background-color: #ddd;
+    }
+  }
+  @include at-breakpoint($ipad) {
+    @include columns(8em 4);
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      float: left;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+
+
+.group-collapse-info {
+  background-color: #eee;
+  @include border-radius(5px);
+  @include trailer(2);
+  & + & {
+    @include leader(0.25);
+  }
+}
+.group-collapse-info-title {
+  @include adjust-font-size-to(16px,1);
+  a {
+    display: block;
+    @include border-radius(5px);
+    padding: 6px;
+    background-color: #e1e1e1;
+    color: #444;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+    i {
+      @include adjust-font-size-to(14px);
+      color: #aaa;
+      float: right;
+    }
+  }
+
+}
+
+
+.group-collapse-info-list {
+  overflow: hidden;
+  padding: 12px 6px 6px;
+  @include columns(10em 2);
+  @include column-gap(2px);
+  li {
+    margin-bottom: 2px;
+    @include ellipsis;
+  }
+  a {
+    display: block;
+    color: #666;
+    background: #aaa;
+    border-radius: 3px;
+    padding: 3px 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: #ccc;
+    }
+
+  }
+}
+

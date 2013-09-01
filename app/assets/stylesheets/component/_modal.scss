@@ -1,0 +1,117 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 102;
+  overflow: auto;
+  .close {
+    background-color: transparent;
+    border: 0;
+    float: right;
+    margin-top: -3px;
+    padding: 0;
+    @include adjust-font-size-to(24px,1);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.modal-wrapper {
+  @include pie-clearfix;
+  position: relative;
+  // top: 0;
+  // right: 0;
+  // left: 0;
+  z-index: 103;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.modal-content {
+  @include border-radius(5px);
+  background-color: #fff;
+  .fade & {
+    @include transform( scale(.95) );
+    @include transition(.3s);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(black,.3);
+  }
+  .fade.in &{
+    @include transform( scale(1) );
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(black,1);
+  }
+}
+
+.modal-header{
+  padding: 0 1em;
+  border-color: #ccc;
+  @include pie-clearfix;
+  @include padding-leader(1);
+  @include trailing-border(1px,1);
+  @include at-breakpoint($ipad) {
+    padding: 1.5em;
+  }
+}
+
+.modal-title {
+  @include adjust-font-size-to(22px,1);
+  @include at-breakpoint($ipad) {
+    @include adjust-font-size-to(24px,1);
+  }
+}
+
+.modal-sub-title {
+  @include leader(0.35);
+  @include adjust-font-size-to(14px,2/3);
+}
+
+.modal-body {
+  padding: 1.5em 1em;
+  @include pie-clearfix;
+  @include at-breakpoint($ipad) {
+    padding: 1.5em;
+  }
+}
+
+.modal-footer {
+  @include pie-clearfix;
+  padding: 0 1em;
+  @include padding-trailer(1);
+  @include leading-border(1px,1);
+  border-color: #ccc;
+
+
+
+  @include at-breakpoint($ipad) {
+    padding: 1.5em;
+
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background-color: #000000;
+  opacity: .7;
+  &.fade {
+    opacity: 0;
+    @include transition(.3s);
+  }
+  &.fade.in {
+    opacity: .7;
+  }
+}
+
+
+.modal-open {
+  overflow: hidden;
+}

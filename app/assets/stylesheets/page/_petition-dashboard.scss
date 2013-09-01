@@ -1,0 +1,150 @@
+.petition-dashboard {
+  .petition-affix {
+    @include at-breakpoint($ipad) {
+      position: absolute;
+      top: 239px;
+      &.affix-top {
+        position: absolute;
+      }
+      &.affix {
+        position: fixed;
+        top: -1px;
+      }
+      &.affix-bottom {
+        position: absolute;
+      }
+    }
+    @media (max-height: 350px) {
+      &.affix {
+        position: absolute;
+        top: 49px;
+      }
+      &.affix-bottom {
+        position: relative;
+      }
+    }
+  }
+  .petition-affix-inner-wrapper {
+    @include at-breakpoint($ipad) {
+      padding: 24px 1.5em 24px;
+      @include background( linear-gradient( rgba(black,.0), rgba(black,.05) ) );
+      border-radius: 0 0 5px 5px;
+      @include box-shadow( inset 0 -2px 5px rgba(black,.05) );
+    }
+  }
+
+}
+
+.petition-dashboard-tabs {
+  margin: 0 auto;
+  @include trailer(1.5);
+  max-width: 1300px;
+  .tab {
+    float: left;
+    width: 25%;
+  }
+  .tab-item {
+    span[ class^="icon" ] {
+      display: block;
+      @include adjust-font-size-to(22px,1);
+      @include at-breakpoint($desktop) {
+        @include adjust-font-size-to(16px);
+        display: inline-block;
+      }
+    }
+    .tab-item-title {
+      @include adjust-font-size-to(14px);
+      @include at-breakpoint($desktop) {
+        @include adjust-font-size-to(16px);
+        display: inline-block;
+      }
+    }
+    @include at-breakpoint($ipad) {
+      @include padding-leader(1.5);
+      @include padding-trailer(1.5);
+    }
+
+  }
+
+
+}
+
+.petition-dashboard-tab-content {
+  display: none;
+  .petition-header {
+    background-color: transparent;
+    @include padding-leader(0);
+  }
+}
+
+.petition-dashboard-tab-content-title {
+  @include adjust-font-size-to(24px,1);
+  @include trailer(1);
+  border-bottom: 1px solid #999;
+  @include padding-trailer(.5);
+}
+
+
+.petition-first-mail,
+.petition-mail-to-participants,
+.petition-success-message-edit {
+  @include pie-clearfix;
+}
+
+
+.petition-edit-title {
+  @include adjust-font-size-to(24px,1);
+  @include trailer(1);
+  border-bottom: 1px solid #999;
+  @include padding-trailer(.5);
+}
+
+.petition-edit-form {
+  @include trailer(2);
+  label {
+    @include adjust-font-size-to(16px);
+  }
+  .action-group {
+    float: right;
+  }
+  textarea {
+    min-height: 172px;
+  }
+  .btn {
+    padding: 6px 1.5em;
+  }
+  .btn + .btn {
+    margin-left: 0.5em;
+  }
+
+  @include at-breakpoint($ipad) {
+    @include span-columns(4);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(6);
+  }
+}
+
+.petition-edit-tips {
+  @include trailer(2);
+  @include at-breakpoint($ipad) {
+    @include span-columns(4 omega);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(6 omega);
+  }
+}
+
+.petition-edit-tips-title {
+  @include adjust-font-size-to(20px);
+  @include trailer(0.5);
+}
+
+
+
+
+
+
+
+
+

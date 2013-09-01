@@ -1,0 +1,14 @@
+.btn-group {
+  .btn {
+    float: left;
+    border-radius: 0;
+    border-right: $btn-group-split-width $btn-group-split-style $btn-group-split-color;
+    &:first-child {
+      border-radius: $btn-radius 0 0 $btn-radius;
+    }
+    &:last-child {
+      border-radius: 0 $btn-radius $btn-radius 0;
+      border-right: 0;
+    }
+  }
+}

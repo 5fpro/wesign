@@ -1,0 +1,92 @@
+.category-page {
+  .post-btn {
+    color: #333;
+    text-align: center;
+    display: block;
+    padding: 0 1em;
+    @include trailer(1);
+    @include adjust-font-size-to(22px,2);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+
+.category-header {
+  @include pie-clearfix;
+  border-bottom: 3px solid #444;
+  margin-bottom: $base-line-height - 3px;
+  @include padding-trailer(0.5);
+  .search-bar {
+    @include trailer(0.5);
+  }
+  @include at-breakpoint($ipad) {
+    .search-bar {
+      margin-bottom: 0;
+      float: left;
+    }
+    .pills {
+      float: right;
+    }
+  }
+}
+
+.category-toolbar {
+  @include pie-clearfix;
+  @include padding-trailer(1);
+  .toggle-toolbar {
+    float: right;
+  }
+}
+
+.category-petition-list {
+  @include at-breakpoint($ipad) {
+    li {
+      @include span-columns(4);
+      @include nth-omega(2n);
+    }
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      $gutter-width   : 2em;
+      @include span-columns(3,9);
+      @include remove-nth-omega(2n,child,9);
+      @include nth-omega(3n);
+    }
+  }
+
+}
+
+.category-petition-list-pagination {
+  clear: both;
+  @include padding-leader(1.5);
+  @include trailer(2);
+}
+
+
+// category-sidebar
+
+.category-sidebar-title {
+  @include adjust-font-size-to(24px,1);
+  @include trailer(1);
+}
+
+.category-sidebar-petition-list {
+  @include pie-clearfix;
+  > li {
+    @include at-breakpoint($ipad) {
+      @include span-columns(4);
+      @include nth-omega(2n);
+    }
+
+    @include at-breakpoint($desktop) {
+      @include span-columns(4,4);
+      .petition-item-title {
+        white-space: normal;
+      }
+    }
+  }
+
+}

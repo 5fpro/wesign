@@ -1,0 +1,129 @@
+.introduction {
+  @include trailer(1);
+  @include at-breakpoint($ipad) {
+    @include span-columns(4);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(5);
+    position: relative;
+    left: 50px;
+  }
+}
+.introduction-title {
+  @include adjust-font-size-to(22px, 4/3);
+  @include trailer(1/4);
+  @include at-breakpoint($ipad) {
+    @include adjust-font-size-to(36px);
+  }
+}
+
+.introduction-info {
+  @include pie-clearfix;
+  @include adjust-font-size-to(13px, 3/4);
+  @include trailer(0.5);
+  @include at-breakpoint($ipad) {
+    @include adjust-font-size-to(16px, 1);
+    @include trailer(0.5);
+  }
+  .petition-count {
+    float: left;
+    margin-right: .5em;
+  }
+  .signatures {
+    float: left;
+  }
+  .count {
+    margin: 0 0.5em;
+    font-style: italic;
+  }
+}
+
+.introduction-text {
+  @include adjust-font-size-to(13px, 3/4);
+  @include at-breakpoint($ipad) {
+    @include adjust-font-size-to(15px, 1);
+  }
+}
+
+.quick-post-petition-form {
+  @include trailer(1.5);
+  @include at-breakpoint($ipad) {
+    @include span-columns(4 omega);
+  }
+  @include at-breakpoint($desktop) {
+    @include span-columns(4 omega);
+    position: relative;
+    right: 50px;
+  }
+}
+
+.quick-post-petition-form-content {
+  @include pie-clearfix;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 1.5em;
+  .quick-post-petition-title {
+    @include adjust-font-size-to(24px, 1);
+    @include trailing-border(1px, 0.5);
+    border-bottom-color: #aaa;
+    @include trailer(0.75);
+  }
+  .form-group {
+    @include trailer(0.25);
+  }
+  .quick-post-petition-action {
+    @include leader(0.75);
+  }
+  label {
+    @include adjust-font-size-to(14px);
+  }
+  input {
+    @include adjust-font-size-to(14px);
+  }
+  .btn {
+    padding: 4px 0;
+    width: 100%;
+    height: 48px;
+  }
+
+}
+
+.home-petition-display {
+  @include padding-leader(1);
+  clear: both;
+  .pills {
+    @include pie-clearfix;
+    @include trailer(3);
+    text-align: center;
+    li {
+      float: none;
+      display: inline-block;
+      margin-right: 0;
+    }
+  }
+
+}
+
+.home-petition-list {
+  .petition-item {
+    margin-bottom: gutter(4);
+  }
+  @include at-breakpoint($ipad) {
+    .petition-item {
+      margin-bottom: 0;
+    }
+    li {
+      $gutter-width   : 1em;
+      @include isolate-grid(4);
+      margin-bottom: gutter(8);
+    }
+  }
+
+  @include at-breakpoint($desktop) {
+    li {
+      @include isolate-grid(3);
+    }
+  }
+}
+
+

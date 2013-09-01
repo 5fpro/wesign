@@ -1,0 +1,66 @@
+$horizontal-post-comment-form-height: 60px;
+$horizontal-post-comment-form-ipad-height: 72px;
+
+.horizontal-post-comment-form {
+  @include pie-clearfix;
+  @include trailer(.5);
+}
+
+.horizontal-post-comment-form-avatar {
+  float: left;
+  width: $horizontal-post-comment-form-height;
+  margin-right: 1em;
+  img {
+    margin-bottom: 0;
+  }
+  @include at-breakpoint($desktop) {
+    width: $horizontal-post-comment-form-ipad-height;
+  }
+}
+
+.horizontal-post-comment-form-content {
+  overflow: hidden;
+  @include pie-clearfix;
+  textarea {
+    float: left;
+    width: 75%;
+    box-shadow: none;
+    @include box-sizing(border-box);
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #ccc;
+    padding: 2px 3px;
+    font-size: 14px;
+    line-height: 20px;
+    height: $horizontal-post-comment-form-height;
+    resize: none;
+    &:focus {
+      outline: none;
+      background: #ffe;
+    }
+  }
+  input[type="submit"] {
+    float: right;
+    width: 25%;
+    @include box-sizing(border-box);
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #ccc;
+    padding: 0;
+    height: $horizontal-post-comment-form-height;
+    background-color: #d8d8d8;
+    &:active {
+      background-color: #eee;
+    }
+  }
+
+  @include at-breakpoint($desktop) {
+    textarea {
+      @include adjust-font-size-to(16px);
+      height: $horizontal-post-comment-form-ipad-height;
+    }
+    input[type="submit"] {
+      font-size: 20px;
+      height: $horizontal-post-comment-form-ipad-height;
+    }
+  }
+
+}

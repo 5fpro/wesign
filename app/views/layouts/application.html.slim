@@ -1,13 +1,13 @@
 doctype 5
 html lang="zh-TW"
   head
-    = render "layouts/html-head"
+    = render :partial => "layouts/html-head"
   body
-    = render "partials/header"
+    = render :partial => "partials/header"
     - flash.each do |k, message|
       div class="alert-#{k}"
         = message
     = yield
-    = render "partials/footer"
-    / = render "partials/modal-group"
-    = render "layouts/html-foot"
+    = render :partial => "partials/footer"
+    / = render :partial :partial => "partials/modal-group"
+    = render :partial => "layouts/html-foot"

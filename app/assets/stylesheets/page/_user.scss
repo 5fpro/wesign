@@ -1,0 +1,230 @@
+.user-tabs {
+  margin: auto -2em;
+  @include trailer(1.5);
+  li {
+    width: ( 1/3 )*100%;
+    float: left;
+    @include box-sizing(border-box);
+  }
+  .tab-message {
+    @include adjust-font-size-to(14px,2/3);
+  }
+  .count {
+    @include adjust-font-size-to(16px,2/3);
+  }
+  @include at-breakpoint($ipad) {
+    margin: 0;
+    @include trailer(1.5);
+    .tab-message {
+      @include adjust-font-size-to(22px,1);
+    }
+    .count {
+      @include adjust-font-size-to(36px,2);
+    }
+  }
+
+}
+
+
+// list
+.user-toolbar {
+  @include trailer(1);
+}
+
+.user-list {
+  @include trailer(1.5);
+  @include pie-clearfix;
+  @include at-breakpoint($ipad) {
+    li {
+      @include span-columns(4);
+      @include nth-omega(2n);
+    }
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      @include span-columns(3,9);
+      @include remove-nth-omega(2n,child,9);
+      @include nth-omega(3n);
+    }
+  }
+}
+
+.user-list-pagination {
+  clear: both;
+  @include trailer(2);
+}
+
+
+
+// user-info
+.user-info-group {
+  @include trailer(1);
+  &:last-child {
+    @include trailer(2);
+  }
+  @include at-breakpoint($ipad) {
+    @include pie-clearfix;
+    border-bottom: 1px solid #e1e1e1;
+    @include trailer(1);
+    &:last-child {
+      border: 0;
+      @include trailer(1);
+    }
+  }
+  @include at-breakpoint($desktop) {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+.user-info {
+  @include trailer(1);
+  p {
+    margin-bottom: 0;
+  }
+  @include at-breakpoint($ipad) {
+    @include span-columns(4);
+    @include nth-omega(2n);
+  }
+  @include at-breakpoint($desktop) {
+    @include trailer(2);
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.user-info-title {
+  @include adjust-font-size-to(20px,1);
+  @include trailer(0.25);
+  color: #444;
+}
+
+.user-info-text {
+  color: #777;
+  @include adjust-font-size-to(14px,3/4);
+}
+
+.user-info-list {
+  @include columns(10em 2);
+  @include column-gap(2px);
+  li {
+    margin-bottom: 2px;
+    @include ellipsis;
+  }
+  a {
+    display: block;
+    color: #666;
+    background: #aaa;
+    border-radius: 3px;
+    padding: 3px 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: #ccc;
+    }
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      float: left;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+  }
+
+}
+
+.user-avatar {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #ddd;
+  @include at-breakpoint($desktop) {
+    float: none;
+    @include trailer(0.5);
+  }
+}
+
+.user-name {
+  @include adjust-font-size-to(20px,1);
+  padding-bottom: 0;
+  border-bottom: 0;
+  @include at-breakpoint($desktop) {
+    @include trailer(0.25);
+  }
+}
+.user-meta {
+  color: #777;
+  overflow: hidden;
+  li {
+    @include ellipsis;
+  }
+  i {
+    color: #999;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+}
+
+
+.user-collapse-info {
+  background-color: #eee;
+  @include border-radius(5px);
+  & + & {
+    @include leader(0.25);
+  }
+}
+.user-collapse-info-title {
+  @include adjust-font-size-to(16px,1);
+  a {
+    display: block;
+    @include border-radius(5px);
+    padding: 6px;
+    background-color: #e1e1e1;
+    color: #444;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+    i {
+      @include adjust-font-size-to(14px);
+      color: #aaa;
+      float: right;
+    }
+  }
+
+}
+
+
+.user-collapse-info-list {
+  overflow: hidden;
+
+  padding: 12px 6px 6px;
+  @include columns(10em 2);
+  @include column-gap(2px);
+  li {
+    margin-bottom: 2px;
+    @include ellipsis;
+  }
+  a {
+    display: block;
+    color: #666;
+    background: #aaa;
+    border-radius: 3px;
+    padding: 3px 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: #ccc;
+    }
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      float: left;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+  }
+}
+

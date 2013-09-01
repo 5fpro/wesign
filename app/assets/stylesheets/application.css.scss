@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+$legacy-support-for-ie: false;
+$relative-font-sizing: false;
+$grid-background-baseline-height: $base-line-height;
+
+@import "compass";
+@import "susy";
+
+@import "normalize";
+@include establish-baseline;
+@import "layout";
+@import "baseline";
+
+@import "basic/basic";
+
+
+// color
+@import "colors";
+
+// component
+@import "component/progress-bar";
+@import "component/progress-bar-with-text";
+@import "component/petition-item";
+@import "component/timeline-form";
+@import "component/post-comment-form";
+@import "component/horizontal-post-comment-form";
+@import "component/tabs";
+@import "component/pills";
+@import "component/toolbar";
+@import "component/participants";
+@import "component/modal";
+@import "component/search-bar";
+@import "component/dropdown";
+
+
+// partials
+@import "partials/header";
+@import "partials/footer";
+@import "partials/fontello";
+@import "partials/hero";
+@import "partials/sign-up";
+@import "partials/petition-start-up";
+
+
+
+// page
+@import "page/home";
+@import "page/category";
+@import "page/petition";
+@import "page/petition-dashboard";
+@import "page/petition-success-message";
+@import "page/user";
+@import "page/group";
+
+
+
+.open {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.active {
+  display: block;
+}

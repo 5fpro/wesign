@@ -1,0 +1,22 @@
+.toggle-toolbar {
+  @include pie-clearfix;
+  .btn-group {
+    #list-show {
+      background-color: $btn-active;
+    }
+    &.active {
+      #list-show {
+        background-color: $btn-background;
+      }
+      #grid-show {
+        background-color: $btn-active;
+      }
+    }
+  }
+  .btn {
+    padding: 3px 2px 0;
+    line-height: $base-line-height - 3px;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+}

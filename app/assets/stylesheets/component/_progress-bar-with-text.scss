@@ -1,0 +1,36 @@
+.progress-bar-with-text {
+  font-size: 14px;
+  line-height: 21px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: rgba(black, 0.5);
+  text-align: right;
+  .current-signature {
+    margin-right: 0.5em;
+    color: rgba(white,.7);
+    font-weight: bold;
+  }
+}
+.current-progress-bar-with-text {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #B22911;
+  background-image: linear-gradient(-180deg, lighten(#CF3E17, 10%) 0%, #B22911 100%);
+  width: 0%;
+  &.in {
+    @include transition(.3s);
+  }
+  .current-signature-cover {
+    margin-right: 0.5em;
+    font-weight: bold;
+    color: black;
+    opacity: 0;
+  }
+  &.in .current-signature-cover {
+    opacity: 1;
+    @include transition( opaticy .3s);
+  }
+}

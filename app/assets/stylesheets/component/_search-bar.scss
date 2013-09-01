@@ -1,0 +1,32 @@
+.search-bar {
+  @include pie-clearfix;
+  input {
+    display: block;
+    float: left;
+    @include box-sizing(border-box);
+    margin: 0;
+    @include border-radius(30px);
+    border: none;
+    padding: 0 2em 0 12px;
+    height: 36px;
+    color: $color-white;
+    background-color: $header-search-bg;
+    @include adjust-font-size-to(13px);
+    @include input-placeholder-color($header-text);
+    @include box-shadow(0 1px 0 $header-light);
+  }
+  .icon-search {
+    display: block;
+    float: left;
+    margin-left: -32px;
+    // height: 36px;
+    @include box-sizing(border-box);
+    border-left: none;
+    padding: 0px;
+    font-size: 13px;
+    line-height: 34px;
+    color: $header-light;
+    border: 0;
+    background-color: transparent;
+  }
+}
