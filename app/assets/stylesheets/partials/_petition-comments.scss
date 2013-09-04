@@ -1,0 +1,50 @@
+.petition-comments {
+  @include trailer(2);
+}
+.petition-comment {
+  @include padding-trailer(.75);
+  & + & {
+    @include padding-leader(.75);
+    border-top: 1px solid #ccc;
+  }
+}
+
+.petition-comment-owner-avatar {
+  float: left;
+  margin-right: 12px;
+  img {
+    margin-bottom: 0;
+  }
+}
+
+.petition-comment-content {
+  overflow: hidden;
+}
+
+.petition-comment-owner-name {
+  float: left;
+  margin-right: .5em;
+}
+
+.petition-comment-date {
+  // text-align: right;
+  float: left;
+  color: #bbb;
+  @include adjust-font-size-to(14px);
+}
+
+.petition-comment-meta {
+  clear: both;
+  color: #bbb;
+  @include adjust-font-size-to(12px);
+  // @include trailer(0.25);
+}
+.petition-comment-owner-location {
+  margin-right: 6px;
+  border-right: 1px solid #ddd;
+  padding-right: 6px;
+}
+
+.petitoin-comment-text {
+  clear: both;
+}

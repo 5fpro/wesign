@@ -1,0 +1,35 @@
+.participants-title {
+  @include adjust-font-size-to(20px,1);
+  border-bottom-color: #aaa;
+  @include trailer(0.5);
+}
+
+.participants {
+  @include pie-clearfix;
+  li {
+    @include trailer(0.75);
+    @include isolate-grid(2,6);
+    a {
+      display: block;
+    }
+  }
+  img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .participant-name {
+    text-align: center;
+    @include adjust-font-size-to(12px);
+  }
+  @include at-breakpoint($ipad) {
+    li {
+      @include isolate-grid(1,8);
+    }
+
+  }
+  @include at-breakpoint($desktop) {
+    li {
+      @include isolate-grid(1,9);
+    }
+  }
+}

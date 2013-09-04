@@ -1,0 +1,127 @@
+$form-control-padding: 5px;
+$form-control-border-color: #ddd;
+$form-horizontal-label-heigth: 1px + $form-control-padding;
+
+
+input {
+  @include box-sizing(border-box);
+  height: 36px;
+  &:focus {
+      outline: none;
+      background: #ffe;
+  }
+}
+
+textarea {
+  @include box-sizing(border-box);
+   &:focus {
+    outline: none;
+    background: #ffe;
+  }
+}
+
+select {
+  @include box-sizing(border-box);
+  border: 1px solid $form-control-border-color;
+  height: 36px;
+}
+
+.form-control {
+  @include box-sizing(border-box);
+  border: 1px solid $form-control-border-color;
+  padding: $form-control-padding;
+  @include adjust-font-size-to($base-font-size);
+  &:focus {
+    outline: none;
+    background: #ffe;
+  }
+}
+
+.form-horizontal {
+  .form-group {
+    @include pie-clearfix;
+  }
+  .form-group + .form-group {
+    @include leader(.5);
+  }
+  label, .form-label {
+    // color: #999;
+    display: block;
+    @include adjust-font-size-to($base-font-size - 2);
+  }
+  textarea {
+    // min-height: 96px;
+  }
+  .form-controls {
+    img {
+      margin-bottom: 0;
+      margin-right: 12px;
+      float: left;
+    }
+  }
+  .form-control {
+    width: 100%;
+  }
+  .form-description {
+    @include leader(0.25);
+    @include adjust-font-size-to(12px,2/3);
+    color: #aaa;
+  }
+  .form-controuls-item {
+    overflow: hidden;
+  }
+
+  @include at-breakpoint($ipad) {
+    .form-group + .form-group {
+      @include leader(1);
+    }
+    label, .form-label {
+      // @include adjust-font-size-to($base-font-size);
+      padding: $form-horizontal-label-heigth 0;
+      margin-right: 1em;
+      float: left;
+      text-align: right;
+    }
+    .form-controls {
+      overflow: hidden;
+    }
+  }
+
+
+}
+
+
+.form-vertical {
+  .form-group {
+    @include pie-clearfix;
+  }
+  .form-group + .form-group {
+    @include leader(.5);
+  }
+  label, .form-label {
+    // color: #999;
+    display: block;
+    @include adjust-font-size-to($base-font-size - 2);
+  }
+  textarea {
+    min-height: 120px;
+  }
+  .form-controls {
+    img {
+      margin-bottom: 0;
+      margin-right: 12px;
+      float: left;
+    }
+  }
+  .form-control {
+    width: 100%;
+  }
+  .form-description {
+    @include leader(0.25);
+    @include adjust-font-size-to(12px,2/3);
+    color: #aaa;
+  }
+  .form-controuls-item {
+    overflow: hidden;
+  }
+}

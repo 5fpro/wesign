@@ -1,0 +1,163 @@
+.petition-timeline {
+  @include pie-clearfix;
+  position: relative;
+}
+
+.timeline-bar {
+  position: absolute;
+  top: 6px;
+  bottom: 48px;
+  left: 0;
+  z-index: -1;
+  width: 2px;
+  background-color: #ccc;
+}
+
+
+.petiton-timeline-start {
+  clear: both;
+  position: relative;
+  @include leader(1);
+  margin-left: 1em;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -19px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+    background-color: #777;
+  }
+}
+
+.petition-timeline-mark {
+  $timeline-mark-margin-left: 6px;
+  max-width: 260px;
+  position: relative;
+  clear: both;
+  float: left;
+  margin-left: -$timeline-mark-margin-left;
+  @include trailer(1.5);
+  padding: 0 2em 0 1.5em;
+  @include ellipsis;
+  @include adjust-font-size-to(16px,1.5);
+  background-color: #666;
+  color: white;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 19px 24px 19px 0;
+    border-color: transparent #fdfdfd transparent transparent;
+  }
+  .timeline-bar {
+    background-color: #444;
+    top: 0;
+    bottom: 0;
+    left: $timeline-mark-margin-left;
+    z-index: 1;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -3px;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #444;
+    }
+  }
+
+  &:first-child {
+    .timeline-bar {
+      top: 14px;
+      bottom: 0;
+      &:before {
+        top: 0px;
+      }
+    }
+  }
+
+  @include at-breakpoint($ipad) {
+    max-width: none;
+    padding: 0 3em 0 1.5em;
+  }
+}
+
+.petition-timeline-item,
+.petition-timeline-post-form  {
+  clear: both;
+  position: relative;
+  @include leader(1);
+  @include trailer(1.5);
+  margin-left: 1em;
+}
+
+.petiton-timeline-date,
+.petiton-timeline-post-form-title {
+  position: relative;
+  @include trailer(0.25);
+  color: #bbb;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -19px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+    background-color: #777;
+  }
+}
+
+.petition-timeline-item-title {
+  @include adjust-font-size-to(20px);
+  @include trailer(0.25);
+  font-weight: bold;
+}
+
+.petition-timeline-item-content {
+  color: #666;
+  img {
+    @include leader(0.25);
+    @include trailer(0.25);
+  }
+}
+
+.petition-timeline-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  @include trailer(.25);
+}
+
+.petition-timeline-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: teal;
+}
+
+
+// timeline-post =========================
+.petiton-timeline-post-form-title {
+  color: #444;
+}
+
+.petiton-timeline-post-content {
+  border: 1px solid #ddd;
+  @include trailer(0.5);
+}
+
+

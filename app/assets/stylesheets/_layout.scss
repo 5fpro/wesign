@@ -1,0 +1,153 @@
+// 基本設定
+$total-columns  : 6;
+$column-width   : 4.5em;
+$gutter-width   : 2em;
+$grid-padding   : 2em;
+
+// add media
+$iphone-wide: 440px;
+$ipad-columns     : 8;
+$ipad-break       : 671px;
+$ipad: $ipad-break $ipad-columns;
+$desktop-columns  : 12;
+$desktop-break    : 981px;
+$desktop: $desktop-break $desktop-columns;
+
+body {
+  overflow-y: scroll;
+}
+
+// debug-grid
+// body {
+//   @include baseline-grid-background;
+// }
+// .container {
+//   @include susy-grid-background;
+//   @include at-breakpoint($ipad) {
+//     @include susy-grid-background;
+//   }
+//   @include at-breakpoint($desktop) {
+//     @include susy-grid-background;
+//   }
+// }
+
+.container {
+  @include container;
+  // overflow-x: hidden;
+  // clear: both;
+}
+
+.row {
+  @include pie-clearfix;
+}
+
+.header {
+}
+
+.content {
+  @include pie-clearfix;
+  @include padding-leader(1);
+  @include padding-trailer(1);
+}
+
+.main, .sidebar {
+  @include pie-clearfix;
+}
+
+.category-page {
+  .main {
+
+  }
+  .sidebar {
+
+  }
+}
+
+.user-page {
+  .sidebar {
+
+  }
+  .main {
+
+  }
+}
+
+.hidden-phone {
+  display: none !important;
+}
+
+.only-open-phone {
+  display: block !important;
+}
+
+.hidden-mobile {
+  display: none !important;
+}
+
+
+@include at-breakpoint($ipad) {
+  .container {
+    @include container;
+  }
+  .content {
+    @include padding-leader(2);
+  }
+  .user-page {
+    .sidebar {
+
+    }
+    .main {
+
+    }
+  }
+  .hidden-phone {
+    display: block !important;
+  }
+  .only-open-phone {
+    display: none !important;
+  }
+}
+
+
+@include at-breakpoint($desktop) {
+  .container {
+    @include container;
+  }
+  .header-container {
+    @include pie-clearfix;
+    @include container;
+  }
+  .content {
+    @include padding-leader(2);
+  }
+  .category-page {
+    .main {
+      @include span-columns(9);
+    }
+    .sidebar {
+      @include span-columns(3 omega);
+    }
+  }
+  .user-page, .group-page {
+    .main {
+      @include span-columns(9 omega);
+    }
+    .sidebar {
+      @include span-columns(3);
+    }
+
+  }
+  .hidden-phone {
+    display: block !important;
+  }
+  .hidden-mobile {
+    display: block !important;
+  }
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+
+
+

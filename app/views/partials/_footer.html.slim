@@ -1,0 +1,36 @@
+.footer
+  .action
+    a.post-btn href="" 發起連署
+  .container
+    .row
+      .footer-item-group
+        h3.footer-item-title 連署分類
+        ul.footer-item-list
+          - @categories.each do |category|
+            li
+              = link_to category.name, "#"
+        ul.footer-item-list
+          - @categories.each do |category|
+            li
+              = link_to category.name, "#"
+      .footer-item-group
+        .footer-item
+          h3.footer-item-title 關於我們
+          p.footer-item-content = "# TODO 待補"
+          a.mail-to herf="" 聯繫我們
+    .row
+      .footer-item-group
+        h3.footer-item-title 其他服務
+        ul.footer-web-guide
+          li: a href="" Blog
+          li: a href="" 教學
+          li: a href="" Privacy
+          li: a href="" Guildline
+          li: a href="" Bug Report
+      .footer-item-group.footer-item-group-last
+        h3.footer-item-title 贊助廠商
+        / ul.footer-social-link-group
+        /   - 8.times do
+        /     li.social-link: a href=""= image_tag lorem_image("96x32&text=logo")
+
+    / .copyright © 2013, Cange. All Rights Reserved.

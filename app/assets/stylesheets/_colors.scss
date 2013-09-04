@@ -1,0 +1,35 @@
+$color-red: #a00;
+$color-white: #eeeeef;
+$color-black: #393333;
+
+// nav header
+$header: $color-black;
+$header-light: lighten($header, 7%);
+$header-text: rgba(white, .6);
+$header-hover-text: $color-white;
+$header-divider: darken($color-black, 5%);
+$header-divider-light: lighten($header-light, 5%);
+$header-search-bg: darken( $header, 10%);
+
+// dropdown
+$dropdown-btn: black;
+$dropdown-btn-text: white;
+$dropdown-menu: black;
+$dropdown-text: $header-text;
+$dropdown-hover-text: $color-white;
+$dropdown-hover-text-bg: $color-black;
+
+
+// petition item
+$petition: #f9f9f9;
+$petition-hover: #ffe;
+$petition-border: darken($petition, 7%);
+$petition-text: darken($petition, 60%);
+$petition-meta-text: darken($petition, 50%);
+
+// tab
+$tab-border-color: #ccc;
+$tab-hover: lighten($color-black, 60%);
+$tab-active: lighten($color-black, 10%);
+$tab-active-text: $color-white;
+$tab-triangle-size: 11px;
