@@ -1,4 +1,5 @@
 defaults: &defaults
+  sentry_dsn: "https://059e64ea43754095ae80ad48a26cb376:4793dba2489f4e38bea9f1bac1864693@app.getsentry.com/12510"
 # --- venus:omniauth START ---
   providers: ["facebook", "twitter", "google_oauth2"]
   facebook_token: "267188576687915"
