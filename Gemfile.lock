@@ -120,6 +120,11 @@ GEM
     hashie (2.0.5)
     highline (1.6.19)
     hike (1.2.3)
+    hipchat (0.11.0)
+      httparty
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.5)
     journey (1.0.4)
@@ -147,6 +152,7 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     multi_json (1.7.9)
+    multi_xml (0.5.5)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
     nested_form (0.3.2)
@@ -326,6 +332,7 @@ DEPENDENCIES
   devise-async (~> 0.7.0)
   factory_girl_rails
   fog
+  hipchat (~> 0.11.0)
   jquery-rails
   jquery-ui-rails (~> 4.0.4)
   kaminari (~> 0.14.1)

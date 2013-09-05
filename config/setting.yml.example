@@ -1,4 +1,7 @@
+# -*- encoding : utf-8 -*-
 defaults: &defaults
+  hipchat_room: "連署平台"
+  hipchat_token: "67e8030352b96ac963ff7b5e13657c"
   sentry_dsn: "https://059e64ea43754095ae80ad48a26cb376:4793dba2489f4e38bea9f1bac1864693@app.getsentry.com/12510"
 # --- venus:omniauth START ---
   providers: ["facebook", "twitter", "google_oauth2"]
