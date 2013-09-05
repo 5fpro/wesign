@@ -81,3 +81,5 @@ gem 'devise-async', '~> 0.7.0'
 gem "crummy", "~> 1.7.2"
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem 'sentry-raven', '~> 0.6.0'
+gem 'hipchat', '~> 0.11.0'
