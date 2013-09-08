@@ -1,2 +1,3 @@
 = render :partial => "partials/sign-up"
-= render :partial => "petitions/petition-start-up"
+- if user_signed_in?
+  = render :partial => "petitions/petition-start-up"
