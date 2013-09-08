@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  <% if @petition.errors.any? %>
+    var errors = $('#petition-start-up .errors');
+    <% @petition.errors.full_messages.each do |msg| %>
+      errors.append('<div class="alert alert-error"><%= escape_javascript( msg ) %></div>').find(".alert").fadeOut(2000);
+    <% end %>
+  <% else %>
+    $("form.new_petition")[0].reset();
+    $("form.new_petition").find("[data-dismiss=modal]").click();
+  <% end %>
+});
