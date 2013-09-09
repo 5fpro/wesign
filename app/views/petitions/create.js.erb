@@ -7,5 +7,7 @@ $(document).ready(function(){
   <% else %>
     $("form.new_petition")[0].reset();
     $("form.new_petition").find("[data-dismiss=modal]").click();
+    var url = "<%= petition_path(@petition) %>";    
+    $(location).attr('href',url);
   <% end %>
 });

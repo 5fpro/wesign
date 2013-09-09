@@ -1,6 +1,9 @@
 .footer
   .action
-    a.post-btn href="#petition-start-up" data-toggle="modal" 發起連署
+    - if user_signed_in?
+      = link_to "發起連署", "#petition-start-up", :data => { :toggle => "modal" }, :class => "post-btn"
+    - else
+      = link_to "發起連署", "#sign-up", :data => { :toggle => "modal" }, :class => "post-btn"
   .container
     .row
       .footer-item-group
