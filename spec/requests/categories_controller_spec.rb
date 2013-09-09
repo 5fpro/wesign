@@ -7,4 +7,23 @@ describe CategoriesController do
     response.should be_success
     response.body.should include(category.name)
   end
+
+  describe "user sign in and sign out" do
+    it "user sign in" do
+      @user = FactoryGirl.create :user
+      signin_user(@user)
+      get '/'
+      response.should be_success
+      response.body.should match(@user.name)
+      response.body.should match("#petition-start-up")
+      response.body.should_not match("#sign-up")
+    end
+
+    it "user sign out" do
+      get '/'
+      response.should be_success
+      response.body.should match("登入以發起連署")
+      response.body.should match("#sign-up")
+    end
+  end
 end

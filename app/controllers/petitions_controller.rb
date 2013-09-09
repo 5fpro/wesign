@@ -11,12 +11,21 @@ class PetitionsController < ApplicationController
 
   def create
     if @petition.save
-      redirect_to root_path, :flash => { :success => "已新增" }
+      respond_to do |f|
+        f.html { redirect_to root_path, :flash => { :success => "已發起連署" } }
+        f.js { render }
+      end
     else
-      flash[:error] = @petition.errors.full_messages
-      render :new
+      respond_to do |f|
+        f.html { 
+          flash[:error] = @petition.errors.full_messages
+          render :new
+        }
+        f.js { render }
+      end
     end
   end
+
 
   def edit
   end
