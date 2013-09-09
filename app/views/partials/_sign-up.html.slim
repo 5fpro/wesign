@@ -7,9 +7,9 @@
         .modal-sub-title.hidden-phone 使用第三方註冊與登入
       .modal-body
         .sign-up-btn-group
-          button.btn Facebook
-          button.btn Google
-          button.btn Yahoo!
+          = link_to "Facebook", user_auth_facebook_path, :class => :btn, :type => :button
+          = link_to "Google", user_auth_google_oauth2_path, :class => :btn, :type => :button
+          button.btn Yahoo! # TODO
       .modal-footer
         .user-term
           a href="" 使用者條款
