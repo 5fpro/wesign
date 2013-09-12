@@ -1,4 +1,5 @@
 class PetitionsController < ApplicationController
+  layout 'petition_layout'
   before_filter :authenticate_user!, :except => [:show]
   before_filter :find_petition, :except => [:show]
 

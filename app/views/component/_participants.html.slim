@@ -1,0 +1,7 @@
+h3.participants-title 最近參與連署者
+ul.participants
+  - ( rand(30) + 50 ).times do
+    li.participant: a href=""
+      = image_tag lorem_image("64")
+      h4.participant-name= zh_lorem_name
+.participants-message ... 還有#{ rand(1000) }位連署者

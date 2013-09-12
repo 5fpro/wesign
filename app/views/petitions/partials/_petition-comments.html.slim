@@ -1,0 +1,16 @@
+ul.petition-comments
+  - 5.times do
+    li.petition-comment
+      .petition-comment-owner-avatar: a href=""= image_tag lorem_image("48")
+      .petition-comment-content
+        .petition-comment-owner-name: a href=""= zh_lorem_name
+        .petition-comment-date= lorem_date
+        .petition-comment-meta
+          span.petition-comment-owner-location
+            i.icon-location
+            |台北市
+          span.petition-comment-owner-job
+            i.icon-user
+            |自由業
+        .petitoin-comment-text= zh_lorem_paragraph
+

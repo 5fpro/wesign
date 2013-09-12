@@ -1,17 +1,63 @@
--if @petition.pic?
-  = image_tag @petition.pic.url, :alt => "#{@petition.name}"
-br
-= "我們要對#{@petition.target}說："
-= "#{@petition.name}"
--if @petition.targeting_count?
-  br
-  = "目標 #{@petition.targeting_count} 人"
-br
-| 發起人
-= "#{@petition.user.name}"
-= "於#{@petition.created_at}發起"
-br
-="#{@petition.content}"
-br
-h2 訴求
-="#{@petition.intro}"
+- content_for :petition_header do
+  .petition-header
+    .container
+      .petition-left-col
+        .petition-media
+          -if @petition.pic?
+            = image_tag @petition.pic.url, :alt => "#{@petition.name}"
+      .petition-right-col
+        .petition-affix
+          .petition-affix-inner-wrapper
+            .petition-summary
+              .petition-target
+                | 我們要對
+                span= @petition.target
+                | 說:
+              .petition-title= @petition.name
+              -if @petition.targeting_count?
+                = render :partial => "component/progress-bar-with-text"
+                .petition-goal
+                  | 目標
+                  span.count= @petition.targeting_count
+                  | 人
+            .petition-plus-icon
+              .icon-plus
+            .petition-action
+              .petition-action-item
+                /= render :partial => "petitions/partials/signed" # TODO 判斷是否已連署此 petition 去顯示不同 partial
+                -if user_signed_in?
+                  = render :partial => "petitions/partials/horizontal-post-comment-form"
+                -else
+                  = link_to "#sign-up", :data => { :toggle => "modal"}, :class => "btn petition-login-btn" do
+                    span 你！
+                    |登入或註冊連署！
+              .petition-social-btn-group
+                .btn.btn-share
+                  span.icon-facebook
+                  |分享到臉書上
+                .btn.btn-share
+                  spna.icon-mail
+                  |寫信通知朋友
+
+.petition-left-col
+  = render :partial => "petitions/partials/petition-owner-info"
+  .petition-section
+    = render :partial => "petitions/partials/petition-article"
+    = render :partial => "petitions/partials/petition-highlight-article"
+  .petition-section
+    .petition-section-title 最新消息
+    / = render :partial => "petitions/partials/petition-timeline" # TODO timeline
+  .petition-section.comments
+    .petition-section-title 連署留言
+    / = render :partial => "petitions/partials/petition-comments" # TODO comment
+  .petition-section
+    -if user_signed_in?
+      .petition-section-title
+        |發佈留言
+      = render :partial => "component/post-comment-form"
+    -else      
+      .petition-section-title
+        |發佈留言
+        span.petition-section-sub-title 請先登入您的賬號
+      a.btn.petition-login-btn href="#sign-up" data-toggle="modal" Login or Sign up
+
