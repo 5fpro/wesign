@@ -23,16 +23,9 @@
     @include padding-trailer(1.5);
   }
   .post-btn {
-    color: black;
-    display: inline-block;
     width: 100px;
-    text-align: center;
     padding: 11px 6px;
-    border: 1px solid;
-    &:hover {
-      text-decoration: none;
-      color: #888;
-    }
+    color: white;
   }
   .mail-to {
     display: inline-block;

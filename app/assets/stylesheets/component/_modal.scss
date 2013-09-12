@@ -6,7 +6,8 @@
   left: 0;
   right: 0;
   z-index: 102;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
   .close {
     background-color: transparent;
     border: 0;

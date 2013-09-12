@@ -5,15 +5,13 @@
 @import "partials/petition-timeline";
 @import "partials/petition-comments";
 
-
 // petition-layout
 
 .petition-header {
   @include pie-clearfix;
   @include padding-leader(1);
   @include trailer(1);
-  background-color: #f7f7f7;
-
+  background: #eeeeef image-url("mesh-bw.png") center center no-repeat;
   @include at-breakpoint($ipad) {
     @include padding-leader(1);
   }
@@ -57,6 +55,7 @@
   @include trailer(1);
   img {
     width: 100%;
+    height: auto;
     margin-bottom: 0;
   }
   .petition-end-date {
@@ -208,7 +207,7 @@
 }
 
 .petition-signed {
-  border: 1px dashed #ccc;
+  border: 1px dashed #bbb;
   padding: 6px;
   .petition-signed-avatar {
     float: left;
@@ -221,7 +220,6 @@
     @include adjust-font-size-to(24px,3);
   }
 }
-
 
 .petition-section {
   @include trailer(4);

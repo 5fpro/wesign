@@ -26,7 +26,7 @@ $horizontal-post-comment-form-ipad-height: 72px;
     width: 75%;
     box-shadow: none;
     @include box-sizing(border-box);
-    border-radius: 3px 0 0 3px;
+    border-radius: 5px 0 0 5px;
     border: 1px solid #ccc;
     padding: 2px 3px;
     font-size: 14px;
@@ -42,14 +42,10 @@ $horizontal-post-comment-form-ipad-height: 72px;
     float: right;
     width: 25%;
     @include box-sizing(border-box);
-    border-radius: 0 3px 3px 0;
-    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    border: none;
     padding: 0;
     height: $horizontal-post-comment-form-height;
-    background-color: #d8d8d8;
-    &:active {
-      background-color: #eee;
-    }
   }
 
   @include at-breakpoint($desktop) {
