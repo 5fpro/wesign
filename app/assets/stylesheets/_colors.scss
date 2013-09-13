@@ -19,11 +19,11 @@ $dropdown-text: $header-text;
 $dropdown-hover-text: $color-white;
 $dropdown-hover-text-bg: $color-black;
 
-
 // petition item
 $petition: #f9f9f9;
 $petition-hover: #ffe;
-$petition-border: darken($petition, 7%);
+$petition-border: darken($petition, 10%);
+$petition-border-top: darken($petition, 80%);
 $petition-text: darken($petition, 60%);
 $petition-meta-text: darken($petition, 50%);
 
@@ -33,3 +33,13 @@ $tab-hover: lighten($color-black, 60%);
 $tab-active: lighten($color-black, 10%);
 $tab-active-text: $color-white;
 $tab-triangle-size: 11px;
+
+// search input
+$search: $color-white;
+$search-border: darken( $color-white, 10% );
+$search-text: #444;
+
+// btn
+$btn-color: white;
+$btn-background: lighten(black, 30%);
+$btn-side-color: black;

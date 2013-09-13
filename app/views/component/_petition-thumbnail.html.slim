@@ -1,0 +1,7 @@
+a.petition-item href="/petition"
+  = render "/component/photo-with-progress-bar"
+  .petition-item-content
+    .petition-item-title= zh_lorem_words 20 + rand(5)
+    ul.petition-item-meta
+      li.start-by= "by " + zh_lorem_name
+      li.sign-count= "共有#{rand(10000)}人簽署"

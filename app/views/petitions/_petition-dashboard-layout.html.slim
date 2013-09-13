@@ -1,0 +1,14 @@
+doctype 5
+html lang="zh-TW"
+  head
+    = render "/html-head"
+  body
+
+    = render "/partials/header"
+
+    .petition-dashboard
+      = yield
+
+    = render "/partials/footer"
+    = render "/partials/modal-group"
+    = render "/html-foot"

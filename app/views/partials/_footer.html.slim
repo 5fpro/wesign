@@ -1,14 +1,10 @@
 .footer
   .action
-    = render_new_petition_link :class => "post-btn"
+    = render_new_petition_link :class => "post-btn btn btn-action"
   .container
     .row
       .footer-item-group
         h3.footer-item-title 連署分類
-        ul.footer-item-list
-          - @categories.each do |category|
-            li
-              = link_to category.name, "#"
         ul.footer-item-list
           - @categories.each do |category|
             li

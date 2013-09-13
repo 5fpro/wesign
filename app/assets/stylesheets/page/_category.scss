@@ -1,6 +1,6 @@
 .category-page {
   .post-btn {
-    color: #333;
+    background: #a00;
     text-align: center;
     display: block;
     padding: 0 1em;
@@ -10,34 +10,70 @@
       text-decoration: none;
     }
   }
-
 }
 
 
 .category-header {
   @include pie-clearfix;
-  border-bottom: 3px solid #444;
-  margin-bottom: $base-line-height - 3px;
-  @include padding-trailer(0.5);
+  $border-bottom: 1px;
+  $offset: 5px;
+  padding-bottom: rhythm(3/4) - $offset;
+  border-bottom: $border-bottom solid #ccc;
+  margin-bottom: rhythm(3/4) - $border-bottom + $offset;
   .search-bar {
     @include trailer(0.5);
-  }
-  @include at-breakpoint($ipad) {
-    .search-bar {
+    input {
+      width: 100%;
+    }
+    @include at-breakpoint($ipad) {
       margin-bottom: 0;
       float: left;
+      width: columns(4);
     }
-    .pills {
-      float: right;
+    @include at-breakpoint($desktop) {
+      $gutter-width: 2em;
+      width: columns(3, 9);
     }
   }
 }
 
 .category-toolbar {
-  @include pie-clearfix;
-  @include padding-trailer(1);
-  .toggle-toolbar {
+  @include at-breakpoint($ipad) {
+    margin-top: 2px;
     float: right;
+  }
+  .pills {
+    background: #eeeeef;
+    @include border-radius(4px);
+    border: 1px solid #ccc;
+    padding: 1px;
+    margin-bottom: 6px;
+    @include at-breakpoint($ipad) {
+      float: left;
+      margin: 0;
+      margin-left: 12px;
+    }
+    li {
+      $border-radius: 2px;
+      background: none;
+      a {
+        @include adjust-font-size-to(13px);
+        padding: 0 13px;
+        @include border-radius(0);
+        background: white;
+        color: #999;
+      }
+      &:first-child a {
+        @include border-radius($border-radius 0 0 $border-radius);
+      }
+      &:last-child a {
+        @include border-radius(0 $border-radius $border-radius 0);
+      }
+      &.active a {
+        background: #ccc;
+        color: $color-black;
+      }
+    }
   }
 }
 
