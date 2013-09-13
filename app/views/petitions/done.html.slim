@@ -1,0 +1,15 @@
+.petition-success-message
+  .petition-success-title 感謝你完成連署
+  .petition-success-sub-title 告訴更多朋友為何你關心
+  .petition-social-links
+    a.btn.btn-share
+      span.icon-facebook
+      |分享到臉書上
+    a.btn.btn-share
+      spna.icon-mail
+      |寫信通知朋友
+.other-petition-list
+  .other-petition-list-title 以下連署也需要您的支持:
+  ul.grid-show
+    - 4.times do
+      li.other-petition-list-item= render "/component/petition-item"

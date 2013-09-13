@@ -1,0 +1,16 @@
+.btn {
+  @include ellipsis;
+}
+.btn-action {
+  @include background(
+      linear-gradient(#fea000, #ff5a00)
+  );
+  color: white;
+}
+
+.btn-share {
+  @include box-sizing(border-box);
+  background: #eceef5;
+  color: #3662a0;
+  border: 1px solid #3662a0;
+}

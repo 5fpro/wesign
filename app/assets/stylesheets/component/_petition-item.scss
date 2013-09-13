@@ -4,16 +4,32 @@ $petition-padding: 10px;
   @include pie-clearfix;
   position: relative;
   display: block;
-  @include trailer(1);
+  @include trailer(2);
   padding: $petition-padding;
   padding-bottom: 0;
-  @include border-radius(5px);
+  @include border-radius(0px);
   background-color: $petition;
   border: 1px solid $petition-border;
+  &:before {
+    $border: 5px;
+    position: absolute;
+    top: - $border;
+    left: -1px;
+    width: 100%;
+    content: "";
+    display: block;
+    border-top: $border solid $petition-border-top;
+    border-left: 1px solid $petition-border-top;
+    border-right: 1px solid $petition-border-top;
+  }
   .photo-with-progress-bar {
     overflow: hidden;
     position: relative;
+    padding-top: 3 / 4 * 100%;
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       margin-bottom: 0;
     }
@@ -65,6 +81,7 @@ $petition-padding: 10px;
     }
     .progress-bar {
       height: $progress-bar-height * 2;
+      background: black;
     }
     .current-progress-bar {
       height: $progress-bar-height * 2;
@@ -155,18 +172,22 @@ $petition-padding: 10px;
     @include border-radius(0);
     padding: 0;
     border: none;
+    &:before {
+      display: none;
+    }
     margin-bottom: 0;
-    border-top: 1px solid darken($petition, 10%);
-    @include padding-leader(1);
-    @include padding-trailer(.5);
     background-color: transparent;
     &:hover {
       background-color: $petition-hover;
     }
     .photo-with-progress-bar {
+      padding-top: 0px;
       float: right;
       width: 30%;
       margin-left: 5px;
+      img {
+        position: static;
+      }
       .hover-message span {
         @include adjust-font-size-to(13px);
         @include at-breakpoint($ipad) {
@@ -179,9 +200,14 @@ $petition-padding: 10px;
         float: left;
         margin-left: 0;
         margin-right: 10px;
-        width: 132px;
+        width: 25%;
       }
     }
+  }
+  li + li .petition-item {
+    border-top: 1px solid darken($petition, 10%);
+    @include padding-leader(1);
+    @include padding-trailer(.5);
   }
   .petition-item-content {
     // overflow: hidden;

@@ -22,7 +22,6 @@ describe CategoriesController do
     it "user sign out" do
       get '/'
       response.should be_success
-      response.body.should match("登入以發起連署")
       response.body.should match("#sign-up")
     end
   end

@@ -1,0 +1,16 @@
+a.petition-item href="/petition"
+  = render "/component/photo-with-progress-bar"
+  .petition-item-content
+    .petition-count-and-target
+      span.count= "#{rand(10000)} 人"
+      | 對
+      span.target= zh_lorem_words(rand(5)+2)
+      | 說：
+    .petition-item-title= zh_lorem_sentences(3)
+    .petition-item-meta
+      .sign 連署 →
+      .date-and-by
+        span.date= lorem_date("%Y/%m/%d")
+        span.start-by= "by " + zh_lorem_name
+
+

@@ -1,9 +1,9 @@
-$progress-bar-height: 6px;
+$progress-bar-height: 8px;
 .progress-bar {
   @include transition(.3s .1s);
   width: 100%;
   height: $progress-bar-height;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.4);
 }
 .current-progress-bar {
   @include transition(.3s .1s);

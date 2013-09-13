@@ -1,0 +1,97 @@
+.petition-dashboard-tabs
+  ul.tabs
+    li.tab.active
+      a.tab-item href="#petition" data-toggle="tab"
+        span.icon-eye
+        .tab-item-title.hidden-phone 檢視與修改
+
+    li.tab
+      a.tab-item href="#edit-first-mail" data-toggle="tab"
+        span.icon-edit
+        .tab-item-title.hidden-phone 編輯第一封信
+
+    li.tab
+      a.tab-item href="#mail-to-participants" data-toggle="tab"
+        span.icon-mail
+        .tab-item-title.hidden-phone 寄信給連署人
+
+    li.tab
+      a.tab-item href="#petition-success-message" data-toggle="tab"
+        span.icon-award
+        .tab-item-title.hidden-phone 完成連署感想
+
+.petition-dashboard-tabs-content
+  .container
+    .petition-dashboard-tab-content#petition.active
+      .petition-dashboard-tab-content-title 檢視與編輯您的連署
+      = render "partials/petition"
+
+    .petition-dashboard-tab-content#edit-first-mail
+      .petition-dashboard-tab-content-title 編輯您的第一封信
+      .petition-first-mail
+        form.petition-edit-form.form-vertical
+          .form-group
+            label 標題
+            .form-controls
+              input.form-control type="text"
+          .form-group
+            label 內容
+            .form-controls
+              textarea.form-control
+          .form-group
+            .action-group
+              button.btn type="submit" 送出
+              button.btn type="submit" 取消
+
+        .petition-edit-tips
+          .petition-edit-tips-title 小提示
+          .petition-edit-tips-content
+            - 2.times do
+              p= zh_lorem_paragraphs(2)
+
+    .petition-dashboard-tab-content#mail-to-participants
+      .petition-dashboard-tab-content-title 寄信給連署人
+      .petition-mail-to-participants
+        form.petition-edit-form.form-vertical
+          .form-group
+            label 標題
+            .form-controls
+              input.form-control type="text"
+          .form-group
+            label 內容
+            .form-controls
+              textarea.form-control
+          .form-group
+            .action-group
+              button.btn type="submit" 送出
+              button.btn type="reset" 取消
+
+        .petition-edit-tips
+          .petition-edit-tips-title 小提示
+          .petition-edit-tips-content
+            - 2.times do
+              p= zh_lorem_paragraphs(1)
+
+    .petition-dashboard-tab-content#petition-success-message
+      .petition-dashboard-tab-content-title 說出你完成連署的感想
+      .petition-success-message-edit
+        form.petition-edit-form.form-vertical
+          .form-group
+            label 標題
+            .form-controls
+              input.form-control type="text"
+          .form-group
+            label 內容
+            .form-controls
+              textarea.form-control
+          .form-group
+            .action-group
+              button.btn type="submit" 送出
+              button.btn type="reset" 取消
+
+        .petition-edit-tips
+          .petition-edit-tips-title 小提示
+          .petition-edit-tips-content
+            - 2.times do
+              p= zh_lorem_paragraphs(1)
+

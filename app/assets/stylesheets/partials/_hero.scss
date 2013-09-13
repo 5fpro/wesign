@@ -1,5 +1,5 @@
 .hero {
-  background: #eeeeef image-url("hero.png");
+  background: #eceef5 image-url("hero.png");
   clear: both;
   @include padding-leader(1);
   @include padding-trailer(1);
@@ -9,6 +9,7 @@
     @include padding-trailer(3);
   }
   .hero-title {
+    color: #3662a0;
     @include adjust-font-size-to(22px);
     text-align: center;
     @include trailer(1);
@@ -25,10 +26,9 @@
 .hero-petition-items {
   $hero-petition: white;
   .petition-item {
-    border: none;
+    border-color: lighten($color-black, 50%);
     @include box-shadow(0 5px 5px rgba(black,.1) );
     @include border-box-sizing;
-    border-radius: 5px;
     margin-bottom: 0;
     background-color: $hero-petition;
     &:hover {

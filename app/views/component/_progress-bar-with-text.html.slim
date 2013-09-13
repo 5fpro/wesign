@@ -1,0 +1,6 @@
+- @progress = rand(18) + 80
+.progress-bar-with-text
+  span.current-signature= "#{@progress}%" 
+  .current-progress-bar-with-text style="width: #{@progress}%"
+    .current-progress-bar-with-text-wrapper
+      span.current-signature-cover= "#{@progress}%" 

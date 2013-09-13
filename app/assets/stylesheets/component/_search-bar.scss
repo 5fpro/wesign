@@ -9,11 +9,11 @@
     border: none;
     padding: 0 2em 0 12px;
     height: 36px;
-    color: $color-white;
-    background-color: $header-search-bg;
+    color: $search-text;
+    background-color: $search;
     @include adjust-font-size-to(13px);
-    @include input-placeholder-color($header-text);
-    @include box-shadow(0 1px 0 $header-light);
+    @include input-placeholder-color($search-text);
+    border: 1px solid $search-border;
   }
   .icon-search {
     display: block;
@@ -25,8 +25,23 @@
     padding: 0px;
     font-size: 13px;
     line-height: 34px;
-    color: $header-light;
+    color: $search-text;
     border: 0;
     background-color: transparent;
+  }
+}
+
+.header .search-bar {
+  input {
+    color: $color-white;
+    background-color: $header-search-bg;
+    @include adjust-font-size-to(13px);
+    @include input-placeholder-color($header-text);
+    @include box-shadow(0 1px 0 $header-light);
+    @include border-radius(30px);
+    border: none;
+  }
+  .icon-search {
+    color: $header-light;
   }
 }
