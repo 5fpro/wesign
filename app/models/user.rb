@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Omniauthable
+  include Gravtastic
+  gravtastic :email
 
   devise :async
 
@@ -10,10 +13,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :title, :body
-  include Omniauthable
 
   has_many :petitions
 
   # attr_accessible :name
 
+
+  def pic_url(size = 100)
+    return "http://graph.facebook.com/#{fb_id}/picture?width=#{size}&height=#{size}" if fb_id.present?
+    gravatar_url :size => size
+  end
 end
