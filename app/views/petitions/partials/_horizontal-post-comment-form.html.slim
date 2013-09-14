@@ -1,5 +1,6 @@
 form.horizontal-post-comment-form
-  .horizontal-post-comment-form-avatar= image_tag "http://placekitten.com/g/72/72"
+  .horizontal-post-comment-form-avatar
+    = image_tag current_user.pic_url(72)
   //# TODO user avatar
   .horizontal-post-comment-form-content
     textarea placeholder="順便留下您想要說的話..."

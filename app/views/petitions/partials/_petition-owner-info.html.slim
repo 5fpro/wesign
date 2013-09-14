@@ -1,6 +1,6 @@
 .petition-owner-info
   .petition-owner-unit 發起人
-  .petition-owner-avatar= image_tag "http://placekitten.com/g/48/48"
-  //# TODO user avatar
+  .petition-owner-avatar
+    = image_tag @petition.user.pic_url(48)
   h3.petition-owner-name= @petition.user.name
   .petition-creat-date= "於 #{@petition.created_at} 發起"
