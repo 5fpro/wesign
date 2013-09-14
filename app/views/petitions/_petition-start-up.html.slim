@@ -11,24 +11,23 @@
           .petition-start-up-form.form-vertical
             / .petition-start-up-form-title 發起請願前，請您先填寫以下資料。
             .form-group
-              label 發起連署身份
+              label 連署身份
               .form-controls
-                = image_tag "http://placekitten.com/g/60/60"
-                //# TODO user avatar
+                = image_tag current_user.pic_url(60)
                 = current_user.name
             .form-group
               label 連署分類
               .form-controls
                 .form-controuls-item
-                  = f.input_field :category_id, :as => :select, :collection => collection_for_categories, :class => "form-control"
+                  = f.input_field :category_id, :as => :select, :collection => collection_for_categories, :class => "form-control", :include_blank => "點選以選擇分類"
             .form-group
-              label 連署的對象
+              label 連署對象
               .form-controls
-                = f.input_field :target, :label => false, :class => "form-control"
+                = f.input_field :target, :label => false, :class => "form-control", :placeholder => "請輸入你所訴求的對象名稱, 例如: 馬英九"
             .form-group
-              label 連署標題設定
+              label 連署標題
               .form-controls
-                = f.input_field :name, :label => false, :class => "form-control"
+                = f.input_field :name, :label => false, :class => "form-control", :placeholder => "罷免馬英九"
             .form-group
               label 議題內容
               .form-controls
@@ -36,11 +35,11 @@
             .form-group
               label 連署訴求
               .form-controls
-                = f.input_field :intro, :rows => 3, :label => false, :class => "form-control"
+                = f.input_field :intro, :rows => 3, :label => false, :class => "form-control", :placeholder => "請馬英九下台一鞠躬"
             .form-group
-              label 目標連署人數
+              label 目標人數
               .form-controls
-                = f.input_field :targeting_count, :label => false, :class => "form-control"
+                = f.input_field :targeting_count, :label => false, :class => "form-control", :placeholder => "請填寫半型數字, 例如 10000"
 
           .petition-start-up-user-terms
             .petition-start-up-user-terms-title 使用者條款 and Policy
