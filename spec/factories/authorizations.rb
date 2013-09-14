@@ -3,9 +3,12 @@
 FactoryGirl.define do
   factory :authorization do
     provider "MyString"
-    uid "MyString"
+    sequence(:uid){ |n| "12341234#{n}" }
     auth_type "MyString"
     auth_id 1
-    auth_data "MyText"
+    factory :authorization_fb do 
+      provider "facebook"
+      auth{  FactoryGirl.create :user }
+    end
   end
 end
