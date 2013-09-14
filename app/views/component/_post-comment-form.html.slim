@@ -1,6 +1,6 @@
 form.post-comment-form
-  .post-comment-form-avatar= image_tag "http://placekitten.com/g/48/48" 
-  //# TODO user avatar
+  .post-comment-form-avatar
+    = image_tag current_user.pic_url(48)
   .post-comment-form-content
     textarea placeholder="輸入你想要留言的訊息"
     button.btn type="submit" value="" 送出
