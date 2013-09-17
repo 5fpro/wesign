@@ -24,9 +24,10 @@
               .icon-plus
             .petition-action
               .petition-action-item
-                /= render :partial => "petitions/partials/signed" # TODO 判斷是否已連署此 petition 去顯示不同 partial
-                -if user_signed_in?
+                -if user_signed_in? && current_user.petition_users.find_by_petition_id(@petition) == nil
                   = render :partial => "petitions/partials/horizontal-post-comment-form"
+                -elsif user_signed_in? && current_user.petition_users.find_by_petition_id(@petition)
+                  = render :partial => "petitions/partials/signed"
                 -else
                   = link_to "#sign-up", :data => { :toggle => "modal"}, :class => "btn petition-login-btn" do
                     span 你！

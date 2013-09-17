@@ -1,7 +1,7 @@
 class PetitionsController < ApplicationController
   layout 'petition_layout'
-  before_filter :authenticate_user!, :except => [:show]
-  before_filter :find_petition, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :petition_user]
+  before_filter :find_petition, :except => [:show, :petition_user]
 
   def show
     @petition = Petition.find(params[:id])
@@ -37,6 +37,17 @@ class PetitionsController < ApplicationController
     else
       flash[:error] = @petition.errors.full_messages
       render :edit
+    end
+  end
+
+  def petition_user
+    @petition = Petition.find(params[:id])
+    @user = current_user
+    if request.post?
+      PetitionUser.create({:petition => @petition, :user => @user, :comment => params[:comment]})
+      redirect_to petition_path(@petition), :flash => { :success => "連署成功" }
+    else
+      redirect_to petition_path(@petition), :flash => { :error => "連署失敗" }
     end
   end
 

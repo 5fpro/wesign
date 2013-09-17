@@ -1,6 +1,7 @@
-form.horizontal-post-comment-form
-  .horizontal-post-comment-form-avatar= image_tag "http://placekitten.com/g/72/72"
-  //# TODO user avatar
-  .horizontal-post-comment-form-content
-    textarea placeholder="順便留下您想要說的話..."
-    input.btn-action type="submit" value="加入"
+= simple_nested_form_for @petition, :url => petition_user_petition_path(@petition), :method => :post do |f|
+  .horizontal-post-comment-form
+    .horizontal-post-comment-form-avatar= image_tag "http://placekitten.com/g/72/72"
+    //# TODO user avatar
+    .horizontal-post-comment-form-content
+      = text_area_tag :comment, nil, :placeholder => "順便留下您想要說的話..."
+      = f.submit "加入", :class => "btn-action"
