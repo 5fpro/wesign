@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   include Omniauthable
 
   has_many :petitions
+  has_many :petition_users, :dependent => :destroy
+  has_many :petitions, :through => :petition_users
 
   # attr_accessible :name
 
