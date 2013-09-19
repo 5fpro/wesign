@@ -12,8 +12,13 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   include Omniauthable
 
-  has_many :petitions
+  has_many :created_petitions, :class_name => "Petition", :foreign_key => "user_id"
+  has_many :petition_users, :dependent => :destroy
 
   # attr_accessible :name
+
+  def sign?(petition)
+    petition_users.map(&:petition_id).include?(petition.id)
+  end
 
 end

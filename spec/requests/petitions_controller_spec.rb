@@ -44,6 +44,18 @@ describe PetitionsController do
         response.body.should match(@petition.name)
       end
 
+      it "user can sign petition" do
+        post "/petitions/#{@petition.id}/sign", :comment => "abc123xyz"
+        petition_user = PetitionUser.last
+        petition_user.petition.should == @petition
+        petition_user.user.should == @user
+        petition_user.comment.should == "abc123xyz"
+        get "/petitions/#{@petition.id}"
+        response.body.should match("你已參加此連署")
+        PetitionUser.last.petition.should == @petition
+        PetitionUser.last.comment.should == "abc123xyz"
+      end
+
     end
   end
 
