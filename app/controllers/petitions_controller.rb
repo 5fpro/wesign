@@ -41,6 +41,7 @@ class PetitionsController < ApplicationController
   end
 
   def sign
+    @petition = Petition.find(params[:id])
     @petition_user = @petition.petition_users.new(params[:petition_user])
     @petition_user.user = current_user
     @petition_user.comment = params[:comment]
