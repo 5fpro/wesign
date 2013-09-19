@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20130917062009) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "petition_users", ["petition_id", "user_id"], :name => "index_petition_users_on_petition_id_and_user_id", :unique => true
+  add_index "petition_users", ["petition_id", "user_id"], :name => "index_petition_users_on_petition_id_and_user_id"
   add_index "petition_users", ["petition_id"], :name => "index_petition_users_on_petition_id"
   add_index "petition_users", ["user_id"], :name => "index_petition_users_on_user_id"
 

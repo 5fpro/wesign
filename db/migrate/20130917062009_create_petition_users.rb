@@ -8,6 +8,6 @@ class CreatePetitionUsers < ActiveRecord::Migration
     end
     add_index :petition_users, :petition_id
     add_index :petition_users, :user_id
-    add_index :petition_users, [:petition_id, :user_id], :unique => true
+    add_index :petition_users, [:petition_id, :user_id]
   end
 end

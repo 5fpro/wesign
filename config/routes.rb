@@ -20,7 +20,7 @@ CompaignTw::Application.routes.draw do
   root :to => 'categories#index'
   resources :categories
   resources :petitions do
-    post :petition_user, :action => :petition_user, :on => :member
+    post :sign, :on => :member
   end
   resources :users
 

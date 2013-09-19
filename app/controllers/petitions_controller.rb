@@ -40,20 +40,21 @@ class PetitionsController < ApplicationController
     end
   end
 
-  def petition_user
-    @petition = Petition.find(params[:id])
-    @user = current_user
-    if request.post?
-      PetitionUser.create({:petition => @petition, :user => @user, :comment => params[:comment]})
+  def sign
+    @petition_user = @petition.petition_users.new(params[:petition_user])
+    @petition_user.user = current_user
+    @petition_user.comment = params[:comment]
+    if @petition_user.save
       redirect_to petition_path(@petition), :flash => { :success => "連署成功" }
     else
-      redirect_to petition_path(@petition), :flash => { :error => "連署失敗" }
+      flash[:error] = @petition_user.errors.full_messages
+      redirect_to petition_path(@petition)
     end
   end
 
   private
 
   def find_petition
-    @petition = params[:id] ? current_user.petitions.find(params[:id]) : current_user.petitions.new(params[:petition])
+    @petition = params[:id] ? current_user.created_petitions.find(params[:id]) : current_user.created_petitions.new(params[:petition])
   end
 end
