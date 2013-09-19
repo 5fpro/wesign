@@ -19,7 +19,9 @@ CompaignTw::Application.routes.draw do
 
   root :to => 'categories#index'
   resources :categories
-  resources :petitions
+  resources :petitions do
+    post :sign, :on => :member
+  end
   resources :users
 
   namespace :admin do

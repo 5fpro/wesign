@@ -1,7 +1,7 @@
 class PetitionsController < ApplicationController
   layout 'petition_layout'
-  before_filter :authenticate_user!, :except => [:show]
-  before_filter :find_petition, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :petition_user]
+  before_filter :find_petition, :except => [:show, :petition_user]
 
   def show
     @petition = Petition.find(params[:id])
@@ -40,9 +40,21 @@ class PetitionsController < ApplicationController
     end
   end
 
+  def sign
+    @petition_user = @petition.petition_users.new(params[:petition_user])
+    @petition_user.user = current_user
+    @petition_user.comment = params[:comment]
+    if @petition_user.save
+      redirect_to petition_path(@petition), :flash => { :success => "連署成功" }
+    else
+      flash[:error] = @petition_user.errors.full_messages
+      redirect_to petition_path(@petition)
+    end
+  end
+
   private
 
   def find_petition
-    @petition = params[:id] ? current_user.petitions.find(params[:id]) : current_user.petitions.new(params[:petition])
+    @petition = params[:id] ? current_user.created_petitions.find(params[:id]) : current_user.created_petitions.new(params[:petition])
   end
 end
