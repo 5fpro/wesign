@@ -1,7 +1,7 @@
 class PetitionsController < ApplicationController
   layout 'petition_layout'
-  before_filter :authenticate_user!, :except => [:show, :petition_user]
-  before_filter :find_petition, :except => [:show, :petition_user]
+  before_filter :authenticate_user!, :except => [:show, :sign]
+  before_filter :find_petition, :except => [:show, :sign]
 
   def show
     @petition = Petition.find(params[:id])
