@@ -1,6 +1,6 @@
 .modal.fade#petition-start-up.petition-start-up tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
   .modal-wrapper.container
-    = simple_form_for @petition || Petition.new, :url => petitions_path(:format => :js), :method => :post, :remote => true do |f|
+    = simple_form_for @form_petition || Petition.new, :url => petitions_path(:format => :js), :method => :post, :remote => true do |f|
       .modal-content
         .modal-header
           button.close type="button" data-dismiss="modal" aria-hidden="true" ×
