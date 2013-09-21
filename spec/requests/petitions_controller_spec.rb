@@ -28,7 +28,7 @@ describe PetitionsController do
 
       it "#edit" do
         get "/petitions/#{@petition.id}/edit"
-        response.body.index(@petition.name).should > 0
+        response.body.should match(@petition.name)
       end
 
       it "#update" do

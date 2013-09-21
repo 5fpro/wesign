@@ -1,19 +1,50 @@
--if @petition.pic?
-  = image_tag @petition.pic.url
-= f.input :pic, :label => '連署圖片', :input_html => { :class => 'span6' }
-| 發起連署身分
-= current_user.name
-= f.input :category_id, :as => :select, :collection => collection_for_categories, :label => "連署分類"
-= f.input :target, :label => "連署的對象"
-= f.input :targeting_count, :label => "目標連署人數"
-= f.input :name, :label => "連署標題設定"
-= f.input :content, :label => "議題內容"
-= f.input :intro, :label => "訴求"
-br
-h2 使用者條款 and Policy
-- 20.times do
-  | 使用者條款 and Policy
+.modal.fade#petition-start-up.petition-start-up tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  .modal-wrapper.container
+    = simple_form_for @petition || Petition.new, :url => petitions_path(:format => :js), :method => :post, :remote => true do |f|
+      .modal-content
+        .modal-header
+          button.close type="button" data-dismiss="modal" aria-hidden="true" ×
+          .modal-title 發起連署
+          / .modal-sub-title.hidden-phone 台灣連署平台使用第三方註冊與登入
+        .modal-body
+          .errors
+          .petition-start-up-form.form-vertical
+            / .petition-start-up-form-title 發起請願前，請您先填寫以下資料。
+            .form-group
+              label 連署身份
+              .form-controls
+                = image_tag current_user.pic_url(60)
+                = current_user.name
+            .form-group
+              label 連署分類
+              .form-controls
+                .form-controuls-item
+                  = f.input_field :category_id, :as => :select, :collection => collection_for_categories, :class => "form-control", :include_blank => "點選以選擇分類"
+            .form-group
+              label 連署對象
+              .form-controls
+                = f.input_field :target, :class => "form-control", :placeholder => "請輸入你所訴求的對象名稱, 例如: 馬英九"
+            .form-group
+              label 連署標題
+              .form-controls
+                = f.input_field :name, :class => "form-control", :placeholder => "反對核四興建"
+            .form-group
+              label 議題內容
+              .form-controls
+                = f.input_field :content, :rows => 3, :class => "form-control", :placeholder => ""
+            .form-group
+              label 連署訴求
+              .form-controls
+                = f.input_field :intro, :rows => 3, :class => "form-control", :placeholder => ""
+            .form-group
+              label 目標人數
+              .form-controls
+                = f.input_field :targeting_count, :class => "form-control", :placeholder => "請填寫半型數字, 例如 10000"
 
-.form-actions
-  = f.submit :value => "同意以上條款，發起", :disable_with => "發起中"
-  = link_to "取消", root_path
+          .petition-start-up-user-terms
+            .petition-start-up-user-terms-title 使用者條款 and Policy
+            .petition-start-up-user-terms-content
+              - 20.times do
+                | 使用者條款 and Policy
+            .petition-start-up-action
+              = f.submit :value => "同意以上條款，發起", :disable_with => "送出中", :class => :btn
