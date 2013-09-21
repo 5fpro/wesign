@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130917062009) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
+    t.string   "fb_id"
     t.string   "name"
     t.string   "phone"
     t.string   "location"
@@ -108,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130917062009) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["fb_id"], :name => "index_users_on_fb_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

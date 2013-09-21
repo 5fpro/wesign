@@ -1,5 +1,3 @@
-= link_to "發起連署", new_petition_path
-
 - @categories.each do |category|
   = "#{category.name}下的所有連署"
   - category.petitions.each do |petition|

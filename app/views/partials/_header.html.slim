@@ -29,8 +29,7 @@
         li.header-user-tool.dropdown.user-account
           a.dropdown-btn.header-user-tool-btn.hidden-desktop data-toggle="dropdown" href="#": i.icon-user
           a.dropdown-btn.header-user-tool-btn.hidden-mobile data-toggle="dropdown" href="#"
-            = image_tag "http://placekitten.com/g/24/24"
-            // # TODO user avatar
+            = image_tag current_user.pic_url(24)
             span.dropdown-title= current_user.name
           ul.dropdown-menu.pull-right role="menu" aria-labelledby="dLabel"
             li: a href="/user" 我發起的
