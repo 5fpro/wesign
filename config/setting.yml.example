@@ -4,7 +4,7 @@ defaults: &defaults
   hipchat_token: "67e8030352b96ac963ff7b5e13657c"
   sentry_dsn: "https://059e64ea43754095ae80ad48a26cb376:4793dba2489f4e38bea9f1bac1864693@app.getsentry.com/12510"
 # --- venus:omniauth START ---
-  providers: ["facebook", "twitter", "google_oauth2"]
+  providers: ["facebook", "google_oauth2"]
   facebook_token: "267188576687915"
   facebook_secret: "84f72292e1f6b299f4a668f12ed1a7f2"
   facebook_auth_options:
