@@ -56,6 +56,18 @@ describe PetitionsController do
         PetitionUser.last.comment.should == "abc123xyz"
       end
 
+      it "progress should be calculate" do
+        @petition.update_column :targeting_count ,10
+        get "/petitions/#{@petition.id}"
+        response.body.should match("0%")
+        Petition.update_counters @petition.id, :signs_count => 5
+        get "/petitions/#{@petition.id}"
+        response.body.should match("50%")
+        Petition.update_counters @petition.id, :signs_count => 10
+        get "/petitions/#{@petition.id}"
+        response.body.should match("100%")
+      end
+
     end
   end
 
