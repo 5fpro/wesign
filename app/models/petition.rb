@@ -15,7 +15,30 @@ class Petition < ActiveRecord::Base
     if targeting_count.present?
       (Float(signs_count.to_i) / targeting_count.to_i * 100).ceil
     else
-      # TODO
+      if signs_count.to_i < 10000
+        arr = [20, 50, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1500, 2000, 2500, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
+        arr.each do |value|
+          return (Float(signs_count.to_i) / value.to_i * 100).ceil if signs_count.to_i <= value * 0.8
+        end
+      else
+        value = (signs_count.to_i / 10000 + 1).ceil * 10000
+        (Float(signs_count.to_i) / value.to_i * 100).ceil
+      end
+    end
+  end
+
+  def percentage_targeting_count
+    if targeting_count.present?
+      targeting_count
+    else
+      if signs_count.to_i < 10000
+        arr = [20, 50, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1500, 2000, 2500, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]
+        arr.each do |value|
+          return value if signs_count.to_i <= value * 0.8
+        end
+      else
+        (signs_count.to_i / 10000 + 1).ceil * 10000
+      end
     end
   end
 

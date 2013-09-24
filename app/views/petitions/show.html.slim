@@ -14,12 +14,11 @@
                 span= @petition.target
                 | 說:
               .petition-title= @petition.name
-              -if @petition.targeting_count?
-                = render :partial => "component/progress-bar-with-text"
-                .petition-goal
-                  | 目標
-                  span.count= @petition.targeting_count
-                  | 人
+              = render :partial => "component/progress-bar-with-text"
+              .petition-goal
+                | 目標
+                span.count= @petition.percentage_targeting_count
+                | 人
             .petition-plus-icon
               .icon-plus
             .petition-action
