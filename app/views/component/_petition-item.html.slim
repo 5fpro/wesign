@@ -1,16 +1,16 @@
-a.petition-item href="/petition"
-  = render "/component/photo-with-progress-bar"
+= link_to petition_path(petition), :class => "petition-item"
+  = render :partial => "/component/photo-with-progress-bar", :locals => { :petition => petition }
   .petition-item-content
     .petition-count-and-target
       span.count= "#{rand(10000)} 人"
       | 對
-      span.target= zh_lorem_words(rand(5)+2)
+      span.target= petition.target
       | 說：
-    .petition-item-title= zh_lorem_sentences(3)
+    .petition-item-title= petition.content
     .petition-item-meta
       .sign 連署 →
       .date-and-by
-        span.date= lorem_date("%Y/%m/%d")
-        span.start-by= "by " + zh_lorem_name
+        span.date= petition.created_at
+        span.start-by= "by " + petition.user.name
 
 
