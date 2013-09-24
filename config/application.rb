@@ -76,5 +76,7 @@ module CompaignTw
     config.action_mailer.default_url_options = { :host => setting["host"] }
     config.action_mailer.delivery_method = :amazon_ses
 
+    Time::DATE_FORMATS.merge!(:default => "%Y/%m/%d")
+
   end
 end
