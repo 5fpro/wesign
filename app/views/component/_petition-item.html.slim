@@ -2,7 +2,7 @@
   = render :partial => "/component/photo-with-progress-bar", :locals => { :petition => petition }
   .petition-item-content
     .petition-count-and-target
-      span.count= "#{rand(10000)} 人"
+      span.count= "#{petition.signs_count} 人"
       | 對
       span.target= petition.target
       | 說：
