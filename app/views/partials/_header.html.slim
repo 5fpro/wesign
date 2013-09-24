@@ -32,8 +32,8 @@
             = image_tag current_user.pic_url(24)
             span.dropdown-title= current_user.name
           ul.dropdown-menu.pull-right role="menu" aria-labelledby="dLabel"
-            li: a href="/user" 我發起的
-            li: a href="/user" 我參與的
+            li = link_to "我發起的", created_user_petitions_path(current_user.id)
+            li = link_to "我參與的", user_petitions_path(current_user.id)
             li: a href="/user" 我的資料
             li.dropdown-menu-list-divider
             li
