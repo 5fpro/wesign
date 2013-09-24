@@ -10,8 +10,8 @@
         li= render :partial => "component/petition-item", :locals => { :petition => petition }
 
 .category-header
-  form.search-bar
-    input#search type="text" placeholder="環保"
+  = simple_form_for :search, :url => petitions_path, :method => :get, :html => { :class => "search-bar" } do |f|
+    input.search-input type="text" name="q" value="#{params[:q]}" placeholder="環保"
     button.icon-search type="submit"
 
   .category-toolbar
@@ -28,7 +28,7 @@
   .pills-content
     .pill-content#urgent.active
       ul.category-petition-list
-        - @petitions.each do |petition|
+        - @petitions.for_index_page(params[:q]).each do |petition|
           li= render :partial => "component/petition-item", :locals => { :petition => petition }
       .category-petition-list-pagination
         = paginate @petitions
