@@ -1,0 +1,50 @@
+.user-info-group
+  .user-info
+    = image_tag @user.pic_url(108), :class=>"user-avatar"
+    .user-name= @user.name
+    ul.user-meta
+      li
+        i.icon-user
+        |學生
+      li
+        i.icon-location
+        |台北市
+      li: a href=""
+        i.icon-facebook-squared
+        |facebook
+      li: a href=""
+        i.icon-mail-alt
+        = @user.email
+  .user-info
+    h2.user-info-title 自我介紹
+    p.user-info-text= "zh_lorem_paragraphs(2)"
+
+.user-info-group
+  .user-info.hidden-phone
+    h2.user-info-title 所屬團體
+    ul.user-info-list
+      - 5.times do
+        li: a href="/group"= "zh_lorem_words( rand(2)+2 )"
+
+  .user-info.hidden-phone
+    h2.user-info-title 關注分類
+    ul.user-info-list
+      - 5.times do
+        li: a href="/group"= "zh_lorem_words( rand(2)+2 )"
+
+  .user-collapse-info.only-open-phone
+    h2.user-collapse-info-title: a.collapsed data-toggle="collapse" data-target="#user-join-group-list"
+      |所屬團體
+      i.icon-down-open
+    ul.user-collapse-info-list#user-join-group-list.collapse
+      - 5.times do
+        li: a href="/group"= "zh_lorem_words( rand(2)+2 )"
+  .user-collapse-info.only-open-phone
+    h2.user-collapse-info-title: a.collapsed data-toggle="collapse" data-target="#user-heed-category-list"
+      |關注的分類
+      i.icon-down-open
+    ul.user-collapse-info-list#user-heed-category-list.collapse
+      - 5.times do
+        li: a href="/category"= "zh_lorem_words( rand(2)+2 )"
+
+
