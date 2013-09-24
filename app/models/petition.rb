@@ -11,4 +11,16 @@ class Petition < ActiveRecord::Base
   
   mount_uploader :pic, PicUploader
 
+  scope :recent, order("id DESC")
+  scope :for_index_page, lambda{ |q| recent.search(q) }
+
+  def self.search(q)
+    petitions = scoped
+    if q.present?
+      q = "%#{q}%"
+      petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ?OR content LIKE ?", q, q, q, q)
+    end
+    petitions
+  end
+
 end

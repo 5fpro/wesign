@@ -32,6 +32,7 @@ module CompaignTw
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.i18n.default_locale = "zh-TW"
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -74,6 +75,8 @@ module CompaignTw
     setting = YAML.load(File.open("#{Rails.root}/config/setting.yml"))[Rails.env]
     config.action_mailer.default_url_options = { :host => setting["host"] }
     config.action_mailer.delivery_method = :amazon_ses
+
+    Time::DATE_FORMATS.merge!(:default => "%Y/%m/%d")
 
   end
 end

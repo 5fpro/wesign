@@ -78,6 +78,12 @@ describe PetitionsController do
       @petition.name.should == "abc"
     end
 
+    it "#index" do
+      get "/petitions"
+      response.should be_success
+      response.body.should match(@petition.name)
+    end
+
     it "#show" do
       get "/petitions/#{@petition.id}"
       response.should be_success

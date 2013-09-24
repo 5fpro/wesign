@@ -1,7 +1,12 @@
 class PetitionsController < ApplicationController
-  layout 'petition_layout'
-  before_filter :authenticate_user!, :except => [:show, :sign]
-  before_filter :find_petition, :except => [:show, :sign]
+  layout 'petition_layout', :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show, :sign]
+  before_filter :find_petition, :except => [:index, :show, :sign]
+
+  def index
+    @petitions = Petition.page(params[:page]).per(12)
+    render :layout => "petition_index_layout"
+  end
 
   def show
     @petition = Petition.find(params[:id])
@@ -26,7 +31,6 @@ class PetitionsController < ApplicationController
       end
     end
   end
-
 
   def edit
     @form_petition = @petition

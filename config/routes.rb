@@ -22,7 +22,14 @@ CompaignTw::Application.routes.draw do
   resources :petitions do
     post :sign, :on => :member
   end
-  resources :users
+  resources :users do
+    resources :petitions do
+      collection do
+        match '/created' => 'users#created', :as => "created"
+        match '/linked' => 'users#linked', :as => "linked"
+      end
+    end
+  end
 
   namespace :admin do
     devise_for :users
