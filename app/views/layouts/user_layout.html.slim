@@ -1,0 +1,14 @@
+doctype 5
+html lang="zh-TW"
+  head
+    = render :partial => "layouts/html-head"
+  body
+
+    = render :partial => "partials/header"
+    .content.user-page
+      .container
+        = yield :sidebar
+        .main= yield
+    = render :partial => "partials/footer"
+    = render :partial => "partials/modal-group"
+    = render :partial => "layouts/html-foot"

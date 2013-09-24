@@ -34,7 +34,6 @@ class PetitionsController < ApplicationController
     end
   end
 
-
   def edit
     @form_petition = @petition
   end
