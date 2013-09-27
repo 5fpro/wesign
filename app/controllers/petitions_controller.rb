@@ -5,6 +5,8 @@ class PetitionsController < ApplicationController
 
   def show
     @petition = Petition.find(params[:id])
+    @progress = @petition.progress
+    @progress_bar = @petition.progress_until_max
   end
 
   def new
