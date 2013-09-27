@@ -27,12 +27,7 @@ class Petition < ActiveRecord::Base
   end
 
   def percentage_progress
-    if targeting_count.present? || signs_count.to_i < 10000
-      (Float(signs_count.to_i) / percentage_targeting_count * 100).ceil
-    else
-      value = (signs_count.to_i / 10000 + 1).ceil * 10000
-      (Float(signs_count.to_i) / value.to_i * 100).ceil
-    end
+    (Float(signs_count.to_i) / percentage_targeting_count * 100).ceil
   end
 
   def percentage_progress_for_show

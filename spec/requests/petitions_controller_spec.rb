@@ -56,46 +56,6 @@ describe PetitionsController do
         PetitionUser.last.comment.should == "abc123xyz"
       end
 
-      describe "progress should be calculate" do
-        
-        before do
-          @petition = FactoryGirl.create :petition, :user => @user
-        end
-
-        it "has targeting_count" do
-          @petition.update_column :targeting_count ,10
-          get "/petitions/#{@petition.id}"
-          response.body.should match("0%")
-          Petition.update_counters @petition.id, :signs_count => 5
-          get "/petitions/#{@petition.id}"
-          response.body.should match("50%")
-          Petition.update_counters @petition.id, :signs_count => 10
-          get "/petitions/#{@petition.id}"
-          response.body.should match("100%")
-        end
-
-        it "has no targeting_count & signs_count < 10000" do
-          @petition.update_column :targeting_count ,nil
-          get "/petitions/#{@petition.id}"
-          response.body.should match("目標<span class=\"count\">20</span>人")
-          Petition.update_counters @petition.id, :signs_count => 235
-          get "/petitions/#{@petition.id}"
-          response.body.should match("目標<span class=\"count\">300</span>人")
-          Petition.update_counters @petition.id, :signs_count => 6743
-          get "/petitions/#{@petition.id}"
-          response.body.should match("目標<span class=\"count\">9000</span>人")
-        end
-
-        it "has no targeting_count & signs_count > 10000" do
-          @petition.update_column :targeting_count ,nil
-          get "/petitions/#{@petition.id}"
-          response.body.should match("目標<span class=\"count\">20</span>人")
-          Petition.update_counters @petition.id, :signs_count => 23500
-          get "/petitions/#{@petition.id}"
-          response.body.should match("目標<span class=\"count\">30000</span>人")
-        end
-      end
-
     end
   end
 
