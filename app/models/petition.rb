@@ -11,7 +11,7 @@ class Petition < ActiveRecord::Base
   
   mount_uploader :pic, PicUploader
 
-  def percentage_targeting_count
+  def real_targeting_count
     if targeting_count.present?
       targeting_count.to_i
     else
@@ -26,12 +26,12 @@ class Petition < ActiveRecord::Base
     end
   end
 
-  def percentage_progress
-    (Float(signs_count.to_i) / percentage_targeting_count * 100).ceil
+  def progress
+    (Float(signs_count.to_i) / real_targeting_count * 100).ceil
   end
 
-  def percentage_progress_for_show
-    percentage_progress.to_i > 100 ? 100 : percentage_progress
+  def progress_until_max
+    progress.to_i > 100 ? 100 : progress
   end
 
 end
