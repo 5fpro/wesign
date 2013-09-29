@@ -4,7 +4,7 @@ class PetitionsController < ApplicationController
   before_filter :find_petition, :except => [:index, :show, :sign]
 
   def index
-    @petitions = Petition.page(params[:page]).per(12)
+    @petitions = Petition.search(params[:q]).page(params[:page]).per(12)
     render :layout => "petition_index_layout"
   end
 

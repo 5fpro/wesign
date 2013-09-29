@@ -11,8 +11,9 @@ class Petition < ActiveRecord::Base
   
   mount_uploader :pic, PicUploader
 
+  scope :urgent, order("id DESC") # TODO
   scope :recent, order("id DESC")
-  scope :for_index_page, lambda{ |q| recent.search(q) }
+  scope :hot, order("signs_count DESC")
 
   def real_targeting_count
     if targeting_count.present?
