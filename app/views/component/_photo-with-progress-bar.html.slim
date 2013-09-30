@@ -3,4 +3,5 @@
     span 進行中
   = image_tag petition.pic.url, :alt => "#{petition.name}"
   .progress-bar
-    .current-progress-bar style="width: #{rand(100)}%"
+    - @progress_bar = petition.progress_until_max
+    .current-progress-bar style="width: #{@progress_bar}%"
