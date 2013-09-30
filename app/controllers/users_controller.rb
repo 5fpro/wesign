@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   layout 'user_layout'
   before_filter :authenticate_user!, :only => [:edit, :update]
+  before_filter :find_petitions, :only => [:created, :linked]
 
   def index
   end
@@ -20,15 +21,16 @@ class UsersController < ApplicationController
   end
 
   def created
-    @user = User.find(params[:user_id])
-    @created_petitions = @user.created_petitions.page(params[:page]).per(5)
-    ids = PetitionUser.where(:user_id => @user.id).map(&:petition_id)
-    @linked_petitions = Petition.where(:id => ids).page(params[:page]).per(5)
   end
 
   def linked
+  end
+
+  private
+
+  def find_petitions
     @user = User.find(params[:user_id])
-    ids = PetitionUser.where(:user_id => @user.id).map(&:petition_id)
-    @linked_petitions = Petition.where(:id => ids)
+    @created_petitions = @user.created_petitions.page(params[:page]).per(5)
+    @linked_petitions = PetitionUser.linked_petitions(@user).page(params[:page]).per(5)
   end
 end
