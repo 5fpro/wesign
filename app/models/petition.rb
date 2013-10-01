@@ -15,11 +15,12 @@ class Petition < ActiveRecord::Base
   scope :recent, order("id DESC")
   scope :hot, order("signs_count DESC")
 
-  def self.search(q)
+  def self.search(querys = {})
     petitions = scoped
-    if q.present?
-      q = "%#{q}%"
+    if querys[:q].present?
+      q = querys[:q]
       petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ?OR content LIKE ?", q, q, q, q)
+    else
     end
     petitions
   end
