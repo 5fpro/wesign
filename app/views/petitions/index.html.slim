@@ -8,6 +8,7 @@
     ul.category-sidebar-petition-list
       - @petitions.limit(4).each do |petition|
         li= render :partial => "component/petition-item", :locals => { :petition => petition }
+      / # TODO 側邊欄熱門連署的邏輯？
 
 .category-header
   = simple_form_for :search, :url => petitions_path, :method => :get, :html => { :class => "search-bar" } do |f|

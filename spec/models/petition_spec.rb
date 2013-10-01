@@ -13,6 +13,14 @@ describe Petition do
     Timeline.count.should == 0
   end
 
+  it "can search" do
+    petition = FactoryGirl.create :petition, :name => "baa"
+    petition2 = FactoryGirl.create :petition, :target => "baa"
+    petition3 = FactoryGirl.create :petition, :name => "sfwerf"
+    @petitions = Petition.search(:q => "baa")
+    @petitions.count.should == 2
+  end
+
   describe "progress should be calculate" do
     
     before do

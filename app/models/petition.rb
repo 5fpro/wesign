@@ -20,7 +20,6 @@ class Petition < ActiveRecord::Base
     if querys[:q].present?
       q = querys[:q]
       petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ?OR content LIKE ?", q, q, q, q)
-    else
     end
     petitions
   end
