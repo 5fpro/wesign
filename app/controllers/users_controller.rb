@@ -34,6 +34,6 @@ class UsersController < BaseController
   def find_petitions
     @user = User.find(params[:user_id])
     @created_petitions = @user.created_petitions.page(params[:page]).per(5)
-    @linked_petitions = PetitionUser.linked_petitions(@user).page(params[:page]).per(5)
+    @linked_petitions = @user.linked_petitions.page(params[:page]).per(5)
   end
 end
