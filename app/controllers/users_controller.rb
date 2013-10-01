@@ -1,13 +1,14 @@
-class UsersController < ApplicationController
-  layout 'user_layout'
+class UsersController < BaseController
   before_filter :authenticate_user!, :only => [:edit, :update]
   before_filter :find_petitions, :only => [:created, :linked]
 
   def index
+    render :layout => "user_layout"
   end
 
   def edit
     @user = current_user
+    render :layout => "user_layout"
   end
 
   def update
@@ -21,9 +22,11 @@ class UsersController < ApplicationController
   end
 
   def created
+    render :layout => "user_layout"
   end
 
   def linked
+    render :layout => "user_layout"
   end
 
   private

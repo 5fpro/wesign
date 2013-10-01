@@ -25,7 +25,7 @@
 
 
 .user-tabs-content
-  .tab-content#user-join-list.active
+  .tab-content#user-join-list
     .user-toolbar
       = render :partial => "component/toggle-toolbar"
     ul.user-list.list-show
@@ -37,7 +37,7 @@
   .tab-content#user-signed-list
     = render :partial => "component/participants"
 
-  .tab-content#user-petition-list
+  .tab-content#user-petition-list.active
     .user-toolbar
       = render :partial => "component/toggle-toolbar"
     ul.user-list.list-show

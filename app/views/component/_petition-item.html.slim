@@ -1,5 +1,5 @@
 = link_to petition_path(petition), :class => "petition-item"
-  = render :partial => "/component/photo-with-progress-bar", :locals => { :petition => petition }
+  = render :partial => "component/photo-with-progress-bar", :locals => { :petition => petition }
   .petition-item-content
     .petition-count-and-target
       span.count= "#{petition.signs_count} 人"

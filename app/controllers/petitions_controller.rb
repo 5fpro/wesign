@@ -1,5 +1,4 @@
-class PetitionsController < ApplicationController
-  layout 'petition_layout', :except => [:index]
+class PetitionsController < BaseController
   before_filter :authenticate_user!, :except => [:index, :show, :sign]
   before_filter :find_petition, :except => [:index, :show, :sign]
 
@@ -12,6 +11,7 @@ class PetitionsController < ApplicationController
     @petition = Petition.find(params[:id])
     @progress = @petition.progress
     @progress_bar = @petition.progress_until_max
+    render :layout => "petition_layout"
   end
 
   def new
