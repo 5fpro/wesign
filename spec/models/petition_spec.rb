@@ -15,7 +15,7 @@ describe Petition do
 
   it "can search" do
     petition = FactoryGirl.create :petition, :name => "baa"
-    petition2 = FactoryGirl.create :petition, :target => "baa"
+    petition2 = FactoryGirl.create :petition, :target => "baadfagae"
     petition3 = FactoryGirl.create :petition, :name => "sfwerf"
     @petitions = Petition.search(:q => "baa")
     @petitions.count.should == 2

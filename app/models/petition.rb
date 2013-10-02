@@ -18,8 +18,8 @@ class Petition < ActiveRecord::Base
   def self.search(querys = {})
     petitions = scoped
     if querys[:q].present?
-      q = querys[:q]
-      petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ?OR content LIKE ?", q, q, q, q)
+      q = "%#{querys[:q]}%"
+      petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ? OR content LIKE ?", q, q, q, q)
     end
     petitions
   end

@@ -6,11 +6,11 @@
       | 對
       span.target= petition.target
       | 說：
-    .petition-item-title= petition.content
+    .petition-item-title= simple_format(petition.content)
     .petition-item-meta
       .sign 連署 →
       .date-and-by
-        span.date= petition.created_at
+        span.date= petition.created_at.to_s(:date)
         span.start-by= "by " + petition.user.name
 
 
