@@ -1,0 +1,47 @@
+- content_for :title do
+  title wesign - 連署列表
+
+- content_for :sidebar do
+  .sidebar
+    = render_new_petition_link :class => "btn post-btn"
+    h2.category-sidebar-title.hide 熱門連署
+    ul.category-sidebar-petition-list
+      - @petitions.limit(4).each do |petition|
+        li= render :partial => "component/petition-item", :locals => { :petition => petition }
+      / # TODO 側邊欄熱門連署的邏輯？
+
+.category-header
+  = simple_form_for :search, :url => petitions_path, :method => :get, :html => { :class => "search-bar" } do |f|
+    input.search-input type="text" name="q" value="#{params[:q]}" placeholder="環保"
+    button.icon-search type="submit"
+
+  .category-toolbar
+    ul.pills
+      li.active: a href="#urgent" data-toggle="tab" 緊急
+      li: a href="#poplar" data-toggle="tab" 熱門
+      li: a href="#recent" data-toggle="tab" 最新
+
+    ul.pills
+      li.active: a href="#urgent" data-toggle="tab" 格狀
+      li: a href="#poplar" data-toggle="tab" 列表
+
+.category-content
+  .pills-content
+    .pill-content#urgent.active
+      ul.category-petition-list
+        - @petitions.urgent.each do |petition|
+          li= render :partial => "component/petition-item", :locals => { :petition => petition }
+      .category-petition-list-pagination
+        = paginate @petitions
+    .pill-content#poplar
+      ul.category-petition-list.list-show
+        - @petitions.hot.each do |petition|
+          li= render :partial => "component/petition-item", :locals => { :petition => petition }
+      .category-petition-list-pagination
+        = paginate @petitions
+    .pill-content#recent
+      ul.category-petition-list.list-show
+        - @petitions.recent.each do |petition|
+          li= render :partial => "component/petition-item", :locals => { :petition => petition }
+      .category-petition-list-pagination
+        = paginate @petitions

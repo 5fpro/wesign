@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class CategoriesController < BaseController
 
   def index
     @categories = Category.ordered

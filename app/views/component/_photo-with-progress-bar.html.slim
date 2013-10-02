@@ -1,6 +1,7 @@
 .photo-with-progress-bar
   .hover-message
     span 進行中
-  = image_tag lorem_image("640x480", :random_color => true, :text => (lorem_words 2) )
+  = image_tag petition.pic.url, :alt => "#{petition.name}"
   .progress-bar
-    .current-progress-bar style="width: #{rand(100)}%"
+    - @progress_bar = petition.progress_until_max
+    .current-progress-bar style="width: #{@progress_bar}%"
