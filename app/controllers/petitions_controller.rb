@@ -4,14 +4,14 @@ class PetitionsController < BaseController
 
   def index
     @petitions = Petition.search(:q => params[:q]).page(params[:page]).per(12)
-    render :layout => "petition_index_layout"
+    render :layout => "petition_index"
   end
 
   def show
     @petition = Petition.find(params[:id])
     @progress = @petition.progress
     @progress_bar = @petition.progress_until_max
-    render :layout => "petition_layout"
+    render :layout => "petition"
   end
 
   def new

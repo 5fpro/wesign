@@ -3,12 +3,12 @@ class UsersController < BaseController
   before_filter :find_petitions, :only => [:created, :linked]
 
   def index
-    render :layout => "user_layout"
+    render :layout => "user"
   end
 
   def edit
     @user = current_user
-    render :layout => "user_layout"
+    render :layout => "user"
   end
 
   def update
@@ -22,11 +22,11 @@ class UsersController < BaseController
   end
 
   def created
-    render :layout => "user_layout"
+    render :layout => "user"
   end
 
   def linked
-    render :layout => "user_layout"
+    render :layout => "user"
   end
 
   private
