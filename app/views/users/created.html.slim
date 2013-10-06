@@ -1,0 +1,47 @@
+- content_for :title do
+  title wesign - 使用者頁面
+
+- content_for :sidebar do
+  .sidebar
+    = render :partial => "users/partials/user-info"
+
+
+.user-tabs
+  ul.tabs
+    li
+      a.tab-item href="#user-join-list" data-toggle="tab"
+        .tab-message 參與過
+        .count = @linked_petitions.count
+
+    li
+      a.tab-item href="#user-signed-list" data-toggle="tab"
+        .tab-message 連署人數
+        .count #{ rand(9)+1 },000
+
+    li.active
+      a.tab-item href="#user-petition-list" data-toggle="tab"
+        .tab-message 發起
+        .count = @created_petitions.count
+
+
+.user-tabs-content
+  .tab-content#user-join-list
+    .user-toolbar
+      = render :partial => "component/toggle-toolbar"
+    ul.user-list.list-show
+      - @linked_petitions.each do |petition|
+        li=render :partial => "component/petition-item", :locals => {:petition => petition}
+    .user-list-pagination
+      = paginate @linked_petitions
+
+  .tab-content#user-signed-list
+    = render :partial => "component/participants"
+
+  .tab-content#user-petition-list.active
+    .user-toolbar
+      = render :partial => "component/toggle-toolbar"
+    ul.user-list.list-show
+      - @created_petitions.each do |petition|
+        li=render :partial => "component/petition-item", :locals => {:petition => petition}
+    .user-list-pagination
+      = paginate @created_petitions

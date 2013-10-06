@@ -11,6 +11,19 @@ class Petition < ActiveRecord::Base
   
   mount_uploader :pic, PicUploader
 
+  scope :urgent, order("id DESC") # TODO
+  scope :recent, order("id DESC")
+  scope :hot, order("signs_count DESC")
+
+  def self.search(querys = {})
+    petitions = scoped
+    if querys[:q].present?
+      q = "%#{querys[:q]}%"
+      petitions = petitions.where("name LIKE ? OR target LIKE ? OR intro LIKE ? OR content LIKE ?", q, q, q, q)
+    end
+    petitions
+  end
+
   def real_targeting_count
     if targeting_count.present?
       targeting_count.to_i

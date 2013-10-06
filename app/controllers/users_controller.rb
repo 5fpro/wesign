@@ -1,11 +1,14 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
   before_filter :authenticate_user!, :only => [:edit, :update]
+  before_filter :find_petitions, :only => [:created, :linked]
 
   def index
+    render :layout => "user"
   end
 
   def edit
     @user = current_user
+    render :layout => "user"
   end
 
   def update
@@ -16,5 +19,21 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages
       render :edit
     end
+  end
+
+  def created
+    render :layout => "user"
+  end
+
+  def linked
+    render :layout => "user"
+  end
+
+  private
+
+  def find_petitions
+    @user = User.find(params[:user_id])
+    @created_petitions = @user.created_petitions.page(params[:page]).per(5)
+    @linked_petitions = @user.linked_petitions.page(params[:page]).per(5)
   end
 end
