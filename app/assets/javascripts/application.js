@@ -56,3 +56,14 @@ jQuery(window).load(function() {
   // _sidebar.data('bs.affix').options.offset.top = $('.petition-affix').offset().top
   _sidebar.data('bs.affix').options.offset.bottom = $('.footer').outerHeight(true) + 48
 })
+
+$(document).ready(function() {
+  $("[data-content-sync]").each(function(){
+    var dom = $(this);
+    var target = $("[data-content-target="+dom.attr("data-content-sync")+"]");
+    dom.on("change", function() {
+      target.val($(dom).val());
+    });
+  });
+})
+
