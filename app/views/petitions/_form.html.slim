@@ -23,7 +23,7 @@
             .form-group
               label 連署對象
               .form-controls
-                = f.input_field :target, :class => "form-control", :placeholder => "請輸入你所訴求的對象名稱, 例如: 馬英九"
+                = f.input_field :target, "data-content-target" => "target", :class => "form-control", :placeholder => "請輸入你所訴求的對象名稱, 例如: 馬英九"
             .form-group
               label 連署標題
               .form-controls
@@ -31,7 +31,7 @@
             .form-group
               label 議題內容
               .form-controls
-                = f.input_field :content, :rows => 3, :class => "form-control", :placeholder => ""
+                = f.input_field :content, "data-content-target" => "content", :rows => 3, :class => "form-control", :placeholder => ""
             .form-group
               label 連署訴求
               .form-controls
