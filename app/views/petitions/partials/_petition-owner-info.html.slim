@@ -3,4 +3,4 @@
   .petition-owner-avatar
     = image_tag @petition.user.pic_url(48)
   h3.petition-owner-name= @petition.user.name
-  .petition-creat-date= "於 #{@petition.created_at} 發起"
+  .petition-creat-date= "於 #{@petition.created_at.to_s(:date)} 發起"
