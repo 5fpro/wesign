@@ -1,4 +1,65 @@
-- @categories.each do |category|
-  = "#{category.name}下的所有連署"
-  - category.petitions.each do |petition|
-    = link_to petition.name, petition_path(petition), :target => "_blank"
+.content.intro-background
+  .container
+    .introduction
+      h1.introduction-title 台灣連署平台<br>馬上展開你的連署！
+      .introduction-info
+        .petition-count
+          | 目前共有
+          span.count= @petitions_count
+          | 個議題
+        .signatures
+          | 以及
+          span.count= @petition_signs_count
+          | 人次參與連署
+    form.quick-post-petition-form.form-vertical
+      .quick-post-petition-form-content
+        h2.quick-post-petition-title 快速發起連署
+        .form-group
+          label 我要對
+          input.form-control type="text" placeholder="連署的對象"
+        .form-group
+          label 說
+          input.form-control type="text" placeholder="連署的內容"
+        .quick-post-petition-action
+          button.btn.btn-action data-toggle="modal" data-target="#petition-start-up" type="submit" 發起
+
+.hero
+  .container
+    h2.hero-title 重大議題需要你的幫忙
+    .hero-petition-items.grid-show
+      - @petitions.sample(4).each do |petition|
+        .item=render :partial => "component/petition-item", :locals => {:petition => petition}
+      / TODO 待確認邏輯，目前為隨機
+
+.content
+  .container
+    .home-petition-display
+      ul.pills
+        li.active: a href="#urgent" data-toggle="tab" 緊急
+        li: a href="#hot" data-toggle="tab" 熱門
+        li: a href="#recent" data-toggle="tab" 最新
+        / li: a href="#map" data-toggle="tab" MAP
+        / li: a href="#tags" data-toggle="tab" TAGS
+        / TODO 待確認邏輯
+      .pills-content
+        .pill-content.fade.in#urgent.active
+          ul.home-petition-list
+            - @petitions.urgent.limit(12).each do |petition|
+              li= render :partial => "component/petition-item", :locals => { :petition => petition }
+        .pill-content.fade#hot
+          ul.home-petition-list
+            - @petitions.hot.limit(12).each do |petition|
+              li= render :partial => "component/petition-item", :locals => { :petition => petition }
+        .pill-content.fade#recent
+          ul.home-petition-list
+            - @petitions.recent.limit(12).each do |petition|
+              li= render :partial => "component/petition-item", :locals => { :petition => petition }
+        / .pill-content.fade#map
+        /   ul.home-petition-list
+        /     - 12.times do
+        /       li= render "/component/petition-item"
+        / .pill-content.fade#tags
+        /   ul.home-petition-list
+        /     - 12.times do
+        /       li= render "/component/petition-item"
+        / TODO 待確認邏輯
