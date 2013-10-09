@@ -58,12 +58,10 @@ jQuery(window).load(function() {
 })
 
 $(document).ready(function() {
-  $("[data-content-sync]").each(function(){
-    var dom = $(this);
-    var target = $("[data-content-target="+dom.attr("data-content-sync")+"]");
-    dom.on("change", function() {
-      target.val($(dom).val());
-    });
+  $(".quick-post-petition-action").on("click", function() {
+    var sync_target = $('[data-content="target"]')
+    var sync_content = $('[data-content="content"]')
+    $("#petition_target").val($(sync_target).val());
+    $("#petition_content").val($(sync_content).val());
   });
 })
-
