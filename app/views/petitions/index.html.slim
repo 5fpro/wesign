@@ -6,7 +6,7 @@
     = render_new_petition_link :class => "btn post-btn"
     h2.category-sidebar-title.hide 熱門連署
     ul.category-sidebar-petition-list
-      - @petitions.limit(4).each do |petition|
+      - @petitions.limit(3).each do |petition|
         li= render :partial => "component/petition-item", :locals => { :petition => petition }
       / # TODO 側邊欄熱門連署的邏輯？
 
