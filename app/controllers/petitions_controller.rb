@@ -19,18 +19,10 @@ class PetitionsController < BaseController
 
   def create
     if @petition.save
-      respond_to do |f|
-        f.html { redirect_to root_path, :flash => { :success => "已發起連署" } }
-        f.js { render }
-      end
+      redirect_to petition_path(@petition), :flash => { :success => "已發起連署" }
     else
-      respond_to do |f|
-        f.html { 
-          flash[:error] = @petition.errors.full_messages
-          render :new
-        }
-        f.js { render }
-      end
+      flash[:error] = @petition.errors.full_messages
+      render :new
     end
   end
 
