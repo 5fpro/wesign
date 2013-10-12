@@ -8,5 +8,6 @@ FactoryGirl.define do
     user do
       FactoryGirl.create :user
     end
+    comment "test"
   end
 end
