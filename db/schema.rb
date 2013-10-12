@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917062009) do
+ActiveRecord::Schema.define(:version => 20131012064214) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(:version => 20130917062009) do
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["weight"], :name => "index_categories_on_weight"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "content"
+    t.boolean  "deleted",          :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], :name => "index_comments_on_commentable_type_and_commentable_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "petition_users", :force => true do |t|
     t.integer  "petition_id"
