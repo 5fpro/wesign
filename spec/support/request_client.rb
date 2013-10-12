@@ -7,7 +7,7 @@ module RequestClient
 
   def signin_user(user = nil)
     user ||= FactoryGirl.create(:user)
-    data = { email: @user.email, password: @user.password }
+    data = { email: user.email, password: user.password }
     post '/users/sign_in', :user => data
     @current_user = user if response.status == 302
   end
