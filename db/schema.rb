@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917062009) do
+ActiveRecord::Schema.define(:version => 20131012081920) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -77,15 +77,20 @@ ActiveRecord::Schema.define(:version => 20130917062009) do
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "timelines", :force => true do |t|
+    t.string   "timeline_type"
     t.integer  "petition_id"
     t.datetime "happened_at"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "link"
+    t.string   "image_link"
+    t.string   "youtube_link"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "timelines", ["petition_id"], :name => "index_timelines_on_petition_id"
+  add_index "timelines", ["timeline_type"], :name => "index_timelines_on_timeline_type"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
