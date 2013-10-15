@@ -1,0 +1,60 @@
+.petition-header
+  .petition-left-col
+    .petition-media
+      -if @petition.pic?
+            = image_tag @petition.pic.url, :alt => "#{@petition.name}", :width => "640", :height => "480"
+  .petition-right-col
+    .petition-affix
+      .petition-affix-inner-wrapper
+        .petition-summary
+          .petition-target
+            | 我們要對
+            span = @petition.target
+            | 說:
+          .petition-title = @petition.name
+          = render "/component/progress-bar-with-text"
+          .petition-goal
+            | 目標
+            span.count = @petition.real_targeting_count
+            | 人
+
+        .petition-plus-icon
+          .icon-plus
+
+        .petition-action
+          .petition-action-item
+            -if user_signed_in?
+              -if current_user.sign?(@petition)
+                = render :partial => "petitions/partials/signed"
+              -else
+                = render :partial => "petitions/partials/horizontal-post-comment-form"
+          .petition-social-btn-group
+            .btn.btn-share
+              span.icon-facebook
+              |分享到臉書上
+            .btn.btn-share
+              spna.icon-mail
+              |寫信通知朋友
+
+.petition-content
+  .petition-left-col
+    = render :partial => "petitions/partials/petition-owner-info"
+    .petition-section
+      = render :partial => "petitions/partials/petition-article"
+      = render :partial => "petitions/partials/petition-highlight-article"
+    .petition-section
+      .petition-section-title 最新消息
+      / = render :partial => "petitions/partials/petition-timeline" # TODO timeline
+    .petition-section.comments
+      .petition-section-title 連署留言
+      / = render :partial => "petitions/partials/petition-comments" # TODO comment
+    .petition-section
+      -if user_signed_in?
+        .petition-section-title
+          |發佈留言
+        = render :partial => "component/post-comment-form"
+      -else      
+        .petition-section-title
+          |發佈留言
+          span.petition-section-sub-title 請先登入您的賬號
+        a.btn.petition-login-btn href="#sign-up" data-toggle="modal" Login or Sign up

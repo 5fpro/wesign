@@ -24,7 +24,7 @@
   .container
     .petition-dashboard-tab-content#petition.active
       .petition-dashboard-tab-content-title 檢視與編輯您的連署
-      = render "partials/petition"
+      = render :partial => "petitions/partials/petition", :object => @petition
 
     .petition-dashboard-tab-content#edit-first-mail
       .petition-dashboard-tab-content-title 編輯您的第一封信
@@ -47,7 +47,7 @@
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
             - 2.times do
-              p= zh_lorem_paragraphs(2)
+              p= "zh_lorem_paragraphs(2)"
 
     .petition-dashboard-tab-content#mail-to-participants
       .petition-dashboard-tab-content-title 寄信給連署人
@@ -70,7 +70,7 @@
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
             - 2.times do
-              p= zh_lorem_paragraphs(1)
+              p= "zh_lorem_paragraphs(1)"
 
     .petition-dashboard-tab-content#petition-success-message
       .petition-dashboard-tab-content-title 說出你完成連署的感想
@@ -93,5 +93,5 @@
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
             - 2.times do
-              p= zh_lorem_paragraphs(1)
+              p= "zh_lorem_paragraphs(1)"
 
