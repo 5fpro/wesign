@@ -34,7 +34,7 @@ class PetitionsController < BaseController
 
   def update
     if @petition.update_attributes params[:petition]
-      redirect_to root_path, :flash => { :success => "已更新" }
+      redirect_to request.referer || root_path, :flash => { :success => "已更新" }
     else
       flash[:error] = @petition.errors.full_messages
       render :edit

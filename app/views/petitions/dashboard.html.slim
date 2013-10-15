@@ -29,25 +29,25 @@
     .petition-dashboard-tab-content#edit-first-mail
       .petition-dashboard-tab-content-title 編輯您的第一封信
       .petition-first-mail
-        form.petition-edit-form.form-vertical
-          .form-group
-            label 標題
-            .form-controls
-              input.form-control type="text"
-          .form-group
-            label 內容
-            .form-controls
-              textarea.form-control
-          .form-group
-            .action-group
-              button.btn type="submit" 送出
-              button.btn type="submit" 取消
+        = simple_form_for @petition, :url => petition_path(@petition) do |f|
+          input name="redirect_to" type="hidden" value="#{request.referer}"
+          .petition-edit-form.form-vertical
+            .form-group
+              label 標題
+              .form-controls
+                = f.input_field :signed_mail_title, :class => "form-control", :placeholder => "請輸入信件標題，如：感謝您加入「要求行政院通過xx法案」"
+            .form-group
+              label 內容
+              .form-controls
+                = f.input_field :signed_mail_body, :rows => 3, :class => "form-control", :placeholder => ""
+            .form-group
+              .action-group
+                = f.submit :value => "送出", :class => :btn
 
         .petition-edit-tips
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
-            - 2.times do
-              p= "zh_lorem_paragraphs(2)"
+            p 其他使用者加入您的連署後，將會收到這封信
 
     .petition-dashboard-tab-content#mail-to-participants
       .petition-dashboard-tab-content-title 寄信給連署人
@@ -69,17 +69,12 @@
         .petition-edit-tips
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
-            - 2.times do
-              p= "zh_lorem_paragraphs(1)"
+            p 您可以在這裡寫信給已加入連署的使用者
 
     .petition-dashboard-tab-content#petition-success-message
       .petition-dashboard-tab-content-title 說出你完成連署的感想
       .petition-success-message-edit
         form.petition-edit-form.form-vertical
-          .form-group
-            label 標題
-            .form-controls
-              input.form-control type="text"
           .form-group
             label 內容
             .form-controls
@@ -92,6 +87,4 @@
         .petition-edit-tips
           .petition-edit-tips-title 小提示
           .petition-edit-tips-content
-            - 2.times do
-              p= "zh_lorem_paragraphs(1)"
-
+            p 請寫下您的感言！將會被同步到該連署的留言板上
