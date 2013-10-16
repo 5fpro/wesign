@@ -21,6 +21,7 @@ CompaignTw::Application.routes.draw do
   resources :categories
   resources :petitions do
     post :sign, :on => :member
+    resources :comments, :only => [ :index, :create]
   end
   resources :users do
     resources :petitions do

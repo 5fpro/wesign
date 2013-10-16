@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :linked_petition_users, :class_name => "PetitionUser", :foreign_key => "user_id"
   has_many :linked_petitions, :through => :linked_petition_users, :source => :petition
   has_many :petition_users, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   # attr_accessible :name
 
