@@ -1,6 +1,7 @@
-form.post-comment-form
-  .post-comment-form-avatar
-    = image_tag current_user.pic_url(48)
-  .post-comment-form-content
-    textarea placeholder="輸入你想要留言的訊息"
-    button.btn type="submit" value="" 送出
+= simple_form_for @comment, :url => petition_comments_path(@petition) do |f|
+  .post-comment-form
+    .post-comment-form-avatar
+      = image_tag current_user.pic_url(48)
+    .post-comment-form-content
+      = f.input_field :content, :rows => 3, :placeholder => "輸入你想要留言的訊息"
+      = f.submit "送出", :class => "btn"
