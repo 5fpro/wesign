@@ -5,8 +5,10 @@ html lang="zh-TW"
   body
 
     = render :partial => "partials/header"
-
+    = render :partial => "partials/flash", :locals => {:flash => flash}
+    
     .petition-dashboard
+
       = yield
 
     = render :partial => "partials/footer"

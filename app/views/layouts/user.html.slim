@@ -3,8 +3,8 @@ html lang="zh-TW"
   head
     = render :partial => "layouts/html-head"
   body
-
     = render :partial => "partials/header"
+    = render :partial => "partials/flash", :locals => {:flash => flash}
     .content.user-page
       .container
         = yield :sidebar
