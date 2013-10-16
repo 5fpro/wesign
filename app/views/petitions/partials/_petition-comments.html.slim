@@ -1,25 +1,24 @@
 ul.petition-comments
   - if @comments.count > 0
     - @comments.each do |comment|
-      - if comment.created_at.present?
-        li.petition-comment
-          .petition-comment-owner-avatar
-            = image_tag comment.user.pic_url(48)
+      li.petition-comment
+        .petition-comment-owner-avatar
+          = image_tag comment.user.pic_url(48)
+          / # TODO 帶連結
+        .petition-comment-content
+          .petition-comment-owner-name
+            = comment.user.name
             / # TODO 帶連結
-          .petition-comment-content
-            .petition-comment-owner-name
-              = comment.user.name if comment.created_at.present?
-              / # TODO 帶連結
-            .petition-comment-date = comment.created_at.to_s(:datetime)
-            .petition-comment-meta
-              span.petition-comment-owner-location
-                i.icon-location
-                |台北市
-                / # TODO 留言者所在地
-              span.petition-comment-owner-job
-                i.icon-user
-                |自由業
-                / # TODO 留言者職業
-            .petitoin-comment-text = comment.content
+          .petition-comment-date = comment.created_at.to_s(:datetime)
+          .petition-comment-meta
+            span.petition-comment-owner-location
+              i.icon-location
+              |台北市
+              / # TODO 留言者所在地
+            span.petition-comment-owner-job
+              i.icon-user
+              |自由業
+              / # TODO 留言者職業
+          .petitoin-comment-text = comment.content
   - else
     | 目前暫無留言
