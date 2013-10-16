@@ -1,5 +1,5 @@
 class PetitionsController < BaseController
-  before_filter :authenticate_user!, :except => [:index, :show, :sign]
+  before_filter :authenticate_user!, :except => [:index, :show, :dashboard, :sign]
   before_filter :find_petition, :except => [:index, :show, :dashboard, :sign]
   before_filter :find_petition_progress, :only => [:show, :dashboard]
 

@@ -14,13 +14,13 @@ module ApplicationHelper
   end
 
   def render_user_avatar(user, px)
-    link_to created_user_petitions_path(user.id) do
+    link_to user_path(user.id) do
       image_tag user.pic_url(px)
     end
   end
 
   def render_user_name(user)
-    link_to "#{user.name}", created_user_petitions_path(user.id)
+    link_to "#{user.name}", user_path(user.id)
   end
 
 end
