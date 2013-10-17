@@ -36,11 +36,7 @@ class UsersController < BaseController
   private
 
   def find_petitions
-    if params[:user_id].present?
-      @user = User.find(params[:user_id])
-    else
-      @user = User.find(params[:id])
-    end
+    @user = params[:user_id] ? User.find(params[:user_id]) : User.find(params[:id])
     @created_petitions = @user.created_petitions.page(params[:page]).per(5)
     @linked_petitions = @user.linked_petitions.page(params[:page]).per(5)
   end
