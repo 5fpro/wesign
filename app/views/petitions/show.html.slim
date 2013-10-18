@@ -50,7 +50,7 @@
     / = render :partial => "petitions/partials/petition-timeline" # TODO timeline
   .petition-section.comments
     .petition-section-title 連署留言
-    / = render :partial => "petitions/partials/petition-comments" # TODO comment
+    = render :partial => "petitions/partials/petition-comments"
   .petition-section
     -if user_signed_in?
       .petition-section-title
