@@ -3,12 +3,14 @@ html lang="zh-TW"
   head
     = render :partial => "layouts/html-head"
   body
+
     = render :partial => "partials/header"
     = render :partial => "partials/flash", :locals => {:flash => flash}
-    .content.user-page
-      .container
-        = yield :sidebar
-        .main= yield
+    
+    .petition-dashboard
+
+      = yield
+
     = render :partial => "partials/footer"
     = render :partial => "partials/modal-group"
     = render :partial => "layouts/html-foot"

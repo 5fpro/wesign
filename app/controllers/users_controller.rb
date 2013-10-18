@@ -1,6 +1,6 @@
 class UsersController < BaseController
   before_filter :authenticate_user!, :only => [:edit, :update]
-  before_filter :find_petitions, :only => [:created, :linked]
+  before_filter :find_petitions, :only => [:show, :created, :linked]
 
   def index
     render :layout => "user"
@@ -21,6 +21,10 @@ class UsersController < BaseController
     end
   end
 
+  def show
+    render :linked, :layout => "user"
+  end
+
   def created
     render :layout => "user"
   end
@@ -32,7 +36,7 @@ class UsersController < BaseController
   private
 
   def find_petitions
-    @user = User.find(params[:user_id])
+    @user = params[:user_id] ? User.find(params[:user_id]) : User.find(params[:id])
     @created_petitions = @user.created_petitions.page(params[:page]).per(5)
     @linked_petitions = @user.linked_petitions.page(params[:page]).per(5)
   end
