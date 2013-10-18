@@ -42,6 +42,7 @@ describe PetitionsController do
         get "/petitions/#{@petition.id}"
         response.should be_success
         response.body.should match(@petition.name)
+        response.body.should match(user_path(@petition.user.id))
       end
 
       it "user can sign petition" do

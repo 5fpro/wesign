@@ -4,9 +4,7 @@ html lang="zh-TW"
     = render :partial => "layouts/html-head"
   body
     = render :partial => "partials/header"
-    - flash.each do |k, message|
-      div class="alert-#{k}"
-        = message
+    = render :partial => "partials/flash", :locals => {:flash => flash}
     = yield
     = render :partial => "partials/footer"
     = render :partial => "partials/modal-group"

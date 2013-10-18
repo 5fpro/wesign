@@ -1,6 +1,7 @@
 class PetitionsController < BaseController
-  before_filter :authenticate_user!, :except => [:index, :show, :sign]
-  before_filter :find_petition, :except => [:index, :show, :sign]
+  before_filter :authenticate_user!, :except => [:index, :show, :dashboard, :sign]
+  before_filter :find_petition, :except => [:index, :show, :dashboard, :sign]
+  before_filter :find_petition_progress, :only => [:show, :dashboard]
 
   def index
     @petitions = Petition.search(:q => params[:q]).page(params[:page]).per(12)
@@ -8,9 +9,6 @@ class PetitionsController < BaseController
   end
 
   def show
-    @petition = Petition.find(params[:id])
-    @progress = @petition.progress
-    @progress_bar = @petition.progress_until_max
     render :layout => "petition"
   end
 
@@ -19,11 +17,15 @@ class PetitionsController < BaseController
 
   def create
     if @petition.save
-      redirect_to petition_path(@petition), :flash => { :success => "已發起連署" }
+      redirect_to dashboard_petition_path(@petition), :flash => { :success => "已發起連署" }
     else
       flash[:error] = @petition.errors.full_messages
       render :new
     end
+  end
+
+  def dashboard
+    render :layout => "dashboard"
   end
 
   def edit
@@ -32,7 +34,7 @@ class PetitionsController < BaseController
 
   def update
     if @petition.update_attributes params[:petition]
-      redirect_to root_path, :flash => { :success => "已更新" }
+      redirect_to request.referer || root_path, :flash => { :success => "已更新" }
     else
       flash[:error] = @petition.errors.full_messages
       render :edit
@@ -56,5 +58,11 @@ class PetitionsController < BaseController
 
   def find_petition
     @petition = params[:id] ? current_user.created_petitions.find(params[:id]) : current_user.created_petitions.new(params[:petition])
+  end
+
+  def find_petition_progress
+    @petition = Petition.find(params[:id])
+    @progress = @petition.progress
+    @progress_bar = @petition.progress_until_max
   end
 end

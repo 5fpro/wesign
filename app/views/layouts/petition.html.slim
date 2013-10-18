@@ -5,6 +5,7 @@ html lang="zh-TW"
   body
     = render :partial => "partials/header"
     = yield :petition_dashboard
+    = render :partial => "partials/flash", :locals => {:flash => flash}
     = yield :petition_header
     .petition-content
       .container
