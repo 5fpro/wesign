@@ -3,12 +3,10 @@ ul.petition-comments
     - @comments.each do |comment|
       li.petition-comment
         .petition-comment-owner-avatar
-          = image_tag comment.user.pic_url(48)
-          / # TODO 帶連結
+          = render_user_avatar(comment.user, 48)
         .petition-comment-content
           .petition-comment-owner-name
-            = comment.user.name
-            / # TODO 帶連結
+            = render_user_name(comment.user)
           .petition-comment-date = comment.created_at.to_s(:datetime)
           .petition-comment-meta
             span.petition-comment-owner-location
