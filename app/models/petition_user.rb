@@ -5,4 +5,12 @@ class PetitionUser < ActiveRecord::Base
   
   validates_uniqueness_of :petition_id, :scope => [:user_id]
 
+
+  after_create :create_comment
+
+  private
+
+  def create_comment
+    petition.comments.create! :user => user, :commentable => self, :content => comment if comment.present?
+  end
 end
