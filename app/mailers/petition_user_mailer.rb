@@ -7,4 +7,11 @@ class PetitionUserMailer < ActionMailer::Base
     @petition = petition_user.petition
     mail(:to => @user.email, :subject => @petition.signed_mail_title)
   end
+
+  def petition_mail_user(petition_mail_id, user_id)
+    @petition_mail = PetitionMail.find petition_mail_id
+    @petition = @petition_mail.petition
+    @user = User.find user_id
+    mail(:to => @user.email, :subject => @petition_mail.title)
+  end
 end

@@ -31,6 +31,7 @@ class PetitionsController < BaseController
 
   def dashboard
     @comment = Comment.new
+    @petition_mail = PetitionMail.new
     render :layout => "dashboard"
   end
 
