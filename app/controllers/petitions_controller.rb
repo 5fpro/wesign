@@ -30,6 +30,7 @@ class PetitionsController < BaseController
   end
 
   def dashboard
+    @comment = Comment.new
     render :layout => "dashboard"
   end
 

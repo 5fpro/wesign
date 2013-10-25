@@ -30,6 +30,7 @@ defaults: &defaults
   aws_bucket_carrierwave: "5fpro-development"
   aws_access_key_id: "AKIAI5BPERPZBKSTZAJA"
   aws_secret_access_key: ""
+  aws_ses_render_mail: ""
   app_name: ""
   host: "localhost"
   admin_emails: 
