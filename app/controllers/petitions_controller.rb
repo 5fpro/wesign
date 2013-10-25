@@ -11,6 +11,7 @@ class PetitionsController < BaseController
     @petition = Petition.find(params[:id])
     @progress = @petition.progress
     @progress_bar = @petition.progress_until_max
+    @timelines = @petition.timelines
     render :layout => "petition"
   end
 
