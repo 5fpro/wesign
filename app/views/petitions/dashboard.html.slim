@@ -75,15 +75,15 @@
     .petition-dashboard-tab-content#petition-success-message
       .petition-dashboard-tab-content-title 說出你完成連署的感想
       .petition-success-message-edit
-        form.petition-edit-form.form-vertical
-          .form-group
-            label 內容
-            .form-controls
-              textarea.form-control
-          .form-group
-            .action-group
-              button.btn type="submit" 送出
-              button.btn type="reset" 取消
+        = simple_form_for @comment, :url => petition_comments_path(@petition) do |f|
+          .petition-edit-form.form-vertical
+            .form-group
+              label 內容
+              .form-controls
+                = f.input_field :content, :rows => 3, :class => "form-control", :placeholder => "輸入你想要留言的訊息"
+            .form-group
+              .action-group
+                = f.submit "送出", :class => "btn"
 
         .petition-edit-tips
           .petition-edit-tips-title 小提示
