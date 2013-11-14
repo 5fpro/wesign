@@ -2,6 +2,7 @@ class PetitionsController < BaseController
   before_filter :authenticate_user!, :except => [:index, :show, :dashboard, :sign]
   before_filter :find_petition, :except => [:index, :show, :dashboard, :sign]
   before_filter :find_petition_progress, :only => [:show, :dashboard]
+  before_filter :find_comments, :only => [:show, :dashboard]
 
   def index
     @petitions = Petition.search(:q => params[:q]).page(params[:page]).per(12)
@@ -10,8 +11,6 @@ class PetitionsController < BaseController
 
   def show
     @petition = Petition.find(params[:id])
-    @comments = @petition.comments
-    @comment = Comment.new
     @progress = @petition.progress
     @progress_bar = @petition.progress_until_max
     render :layout => "petition"
@@ -30,6 +29,7 @@ class PetitionsController < BaseController
   end
 
   def dashboard
+    @petition_mail = PetitionMail.new
     render :layout => "dashboard"
   end
 
@@ -69,5 +69,10 @@ class PetitionsController < BaseController
     @petition = Petition.find(params[:id])
     @progress = @petition.progress
     @progress_bar = @petition.progress_until_max
+  end
+
+  def find_comments
+    @comment = Comment.new
+    @comments = @petition.comments
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012064214) do
+ActiveRecord::Schema.define(:version => 20131025134545) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(:version => 20131012064214) do
 
   add_index "comments", ["commentable_type", "commentable_id"], :name => "index_comments_on_commentable_type_and_commentable_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "petition_mails", :force => true do |t|
+    t.integer  "petition_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "petition_mails", ["petition_id"], :name => "index_petition_mails_on_petition_id"
 
   create_table "petition_users", :force => true do |t|
     t.integer  "petition_id"
@@ -90,15 +100,20 @@ ActiveRecord::Schema.define(:version => 20131012064214) do
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "timelines", :force => true do |t|
+    t.string   "timeline_type"
     t.integer  "petition_id"
     t.datetime "happened_at"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "link"
+    t.string   "image_link"
+    t.string   "youtube_link"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "timelines", ["petition_id"], :name => "index_timelines_on_petition_id"
+  add_index "timelines", ["timeline_type"], :name => "index_timelines_on_timeline_type"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -6,6 +6,7 @@ class Petition < ActiveRecord::Base
   has_many :petition_users, :dependent => :destroy
   has_many :users, :through => :petition_users
   has_many :comments, :as => :commentable
+  has_many :petition_mails
   accepts_nested_attributes_for :petition_users, :allow_destroy => true
   
   validates_presence_of :name, :category_id, :user_id, :target, :intro, :content
