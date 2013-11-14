@@ -1,7 +1,4 @@
-# -*- encoding : utf-8 -*-
 defaults: &defaults
-  hipchat_room: "連署平台"
-  hipchat_token: "67e8030352b96ac963ff7b5e13657c"
   sentry_dsn: "https://059e64ea43754095ae80ad48a26cb376:4793dba2489f4e38bea9f1bac1864693@app.getsentry.com/12510"
 # --- venus:omniauth START ---
   providers: ["facebook", "google_oauth2"]
@@ -9,10 +6,6 @@ defaults: &defaults
   facebook_secret: "84f72292e1f6b299f4a668f12ed1a7f2"
   facebook_auth_options:
     :scope: "email"
-#  twitter_token: ""
-#  twitter_secret: ""
-#  twitter_auth_options:
-#    :scope: "email"
   google_oauth2_token: "435467283040.apps.googleusercontent.com"
   google_oauth2_secret: "mbH4YxQuRRakaKDyyxGkwVTA"
   google_oauth2_auth_options:
@@ -20,18 +13,18 @@ defaults: &defaults
 # --- venus:omniauth END ---
   sidekiq: 
     redis: "redis://127.0.0.1:6379/0"
-    namespace: "compaign-tw"
+    namespace: "fight4"
   redis: 
     host: localhost
     port: 6379
     db: 0
-  aws_host_carrierwave: "5fpro-development.s3-website-ap-northeast-1.amazonaws.com"
+  aws_host_carrierwave: "assets-develop.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
   aws_region_carrierwave: "ap-northeast-1"
-  aws_bucket_carrierwave: "5fpro-development"
-  aws_access_key_id: "AKIAI5BPERPZBKSTZAJA"
-  aws_secret_access_key: ""
-  aws_ses_render_mail: ""
-  app_name: ""
+  aws_bucket_carrierwave: "assets-develop.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
+  aws_access_key_id: "AKIAIPQAGTLTTUBCQ2IQ"
+  aws_secret_access_key: "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"
+  aws_ses_render_mail: "no-reply@fight4.tw"
+  app_name: "fight4"
   host: "localhost"
   admin_emails: 
     - ""
@@ -45,12 +38,12 @@ test:
 
 production:
   <<: *defaults
+  host: "fight4.tw"
+  aws_host_carrierwave: "assets.fight4.tw.s3-website-ap-northeast-1.amazonaws.com"
+  aws_bucket_carrierwave: "assets.fight4.tw.s3-website-ap-northeast-1.amazonaws.com"
 
 staging:
   <<: *defaults
   host: "fight4.us"
-  aws_host_carrierwave: "5fpro-development.s3-website-ap-northeast-1.amazonaws.com"
-  aws_region_carrierwave: "ap-northeast-1"
-  aws_bucket_carrierwave: "5fpro-development"
-  aws_access_key_id: "AKIAI5BPERPZBKSTZAJA"
-  aws_secret_access_key: ""
+  aws_host_carrierwave: "assets.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
+  aws_bucket_carrierwave: "assets.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
