@@ -68,14 +68,11 @@ end
 after "deploy:finalize_update", "deploy:symlink_files"
 after "deploy", "deploy:cleanup"
 
-settings = YAML.load_file(File.dirname(__FILE__) + "/setting.yml")[rails_env]
-if settings["hipchat_token"].to_s.length > 0
-  require 'hipchat/capistrano'
-  set :hipchat_token, settings["hipchat_token"]
-  set :hipchat_room_name, settings["hipchat_room"]
-  set :hipchat_announce, true
-  set :hipchat_color, 'purple'
-  set :hipchat_success_color, 'green'
-  set :hipchat_failed_color, 'red'
-  set :hipchat_message_format, 'text'
-end
+require 'hipchat/capistrano'
+set :hipchat_token, "67e8030352b96ac963ff7b5e13657c"
+set :hipchat_room_name, "連署平台"
+set :hipchat_announce, true
+set :hipchat_color, 'purple'
+set :hipchat_success_color, 'green'
+set :hipchat_failed_color, 'red'
+set :hipchat_message_format, 'text'

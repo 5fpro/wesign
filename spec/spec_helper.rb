@@ -39,5 +39,6 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
   config.include RequestClient, :type => :request
+  config.include Sidekiq
 
 end

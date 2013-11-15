@@ -22,7 +22,8 @@ CompaignTw::Application.routes.draw do
   resources :petitions do
     post :sign, :on => :member
     get :dashboard, :on => :member
-    resources :comments, :only => [ :index, :create]
+    resources :comments, :only => [ :index, :create ]
+    resources :petition_mail, :only => [ :create ]
   end
   resources :users do
     resources :petitions do
