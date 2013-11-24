@@ -20,7 +20,7 @@ defaults: &defaults
     db: 0
   aws_host_carrierwave: "assets-develop.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
   aws_region_carrierwave: "ap-northeast-1"
-  aws_bucket_carrierwave: "assets-develop.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
+  aws_bucket_carrierwave: "assets-develop.fight4.us"
   aws_access_key_id: "AKIAIPQAGTLTTUBCQ2IQ"
   aws_secret_access_key: "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"
   aws_ses_render_mail: "no-reply@fight4.tw"
@@ -40,21 +40,17 @@ production:
   <<: *defaults
   host: "fight4.tw"
   aws_host_carrierwave: "assets.fight4.tw.s3-website-ap-northeast-1.amazonaws.com"
-  aws_bucket_carrierwave: "assets.fight4.tw.s3-website-ap-northeast-1.amazonaws.com"
+  aws_bucket_carrierwave: "assets.fight4.tw"
 
 staging:
   <<: *defaults
   host: "fight4.us"
   aws_host_carrierwave: "assets.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
-  aws_bucket_carrierwave: "assets.fight4.us.s3-website-ap-northeast-1.amazonaws.com"
+  aws_bucket_carrierwave: "assets.fight4.us"
   providers: ["facebook", "google_oauth2"]
   facebook_token: "290664697741851"
   facebook_secret: "e8d8e56df05787feeac7d61403ba9e7a"
   facebook_auth_options:
-    :scope: "email"
-  twitter_token: "iTH1zkagfTMqNJfqF9Dsg"
-  twitter_secret: "uVfpPm2aboMTcCuf033N9OCEikYGwTk5rkPliPAC8"
-  twitter_auth_options:
     :scope: "email"
   google_oauth2_token: "435467283040-ci0sfutqp88gj9n59gpat1pdtcmr7chc.apps.googleusercontent.com"
   google_oauth2_secret: "duVpqzu2YHka1oUIVI7A9HRz"
