@@ -16,4 +16,23 @@ module RequestClient
     @current_user
   end
 
+  def create_user_by_omniauth
+    init_omniauth_env
+    get "/users/auth/facebook/callback", nil, @request_env
+  end
+
+  def signin_user_by_omniauth
+    create_user_by_omniauth
+    authorization = Authorization.find_by_uid omniauth_env['uid']
+    @current_user = authorization.auth
+  end
+
+  def init_omniauth_env
+    @request_env = { "omniauth.auth" => OmniAuth.config.mock_auth[:facebook] }
+  end
+
+  def omniauth_env
+    @request_env["omniauth.auth"]
+  end
+  
 end

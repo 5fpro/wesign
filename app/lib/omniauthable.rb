@@ -14,7 +14,10 @@ module Omniauthable
       if u = self.find_by_email(instance.email)
         instance = u
       else
-        instance.save
+        def instance.password_required?
+          false
+        end
+        instance.save!
       end
       instance.bind_service(authhash)
       instance
@@ -50,11 +53,5 @@ module Omniauthable
   def has_binds
     authorizations.map(&:provider)
   end
-
-
-  def password_required?
-    false
-  end
-
 
 end

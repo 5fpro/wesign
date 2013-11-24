@@ -38,4 +38,25 @@ describe UsersController do
       @user.phone.should_not == "02-34567890"
     end
   end
+
+  describe "signin by omniauth" do
+    before do
+      signin_user_by_omniauth
+    end
+
+    it "should signin ok" do
+      get "/users/#{current_user.id}/edit"
+      response.should be_success
+      current_user.id.should == User.last.id
+    end
+
+    it "should signout ok" do
+      signout_user_id = current_user.id
+      signout
+      get "/users/#{signout_user_id}/edit"
+      response.should be_redirect
+      current_user.should be_nil
+    end
+
+  end
 end
