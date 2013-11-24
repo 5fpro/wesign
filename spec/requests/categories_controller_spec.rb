@@ -17,12 +17,14 @@ describe CategoriesController do
       response.body.should match(@user.name)
       response.body.should match("#petition-start-up")
       response.body.should_not match("#sign-up")
+      response.body.should_not match("請先登入以發起連署")
     end
 
     it "user sign out" do
       get '/'
       response.should be_success
       response.body.should match("#sign-up")
+      response.body.should match("請先登入以發起連署")
     end
   end
 end

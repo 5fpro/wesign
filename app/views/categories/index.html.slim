@@ -21,7 +21,10 @@
           label 說
           input.form-control type="text" placeholder="連署的內容" data-content="content"
         .quick-post-petition-action
-          button.btn.btn-action data-toggle="modal" data-target="#petition-start-up" type="submit" 發起
+          - if user_signed_in?
+            button.btn.btn-action data-toggle="modal" data-target="#petition-start-up" type="submit" 發起
+          - else
+            button.btn.btn-action data-toggle="modal" data-target="#sign-up" type="submit" 請先登入以發起連署
 
 .hero
   .container
