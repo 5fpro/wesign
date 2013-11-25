@@ -33,5 +33,35 @@ describe TimelinesController do
       response.should be_redirect
       petition.timelines.count.should == 0
     end
+
+    describe "success" do
+      before{ signin_user user }
+
+      it "type: post" do
+        post "/petitions/#{petition.id}/timelines", :timeline => data
+        get "/petitions/#{petition.id}"
+        response.should be_success
+      end
+
+      it "type: url" do
+        data[:content] = "http://google.com.tw asdasd asdasd"
+        post "/petitions/#{petition.id}/timelines", :timeline => data
+        get "/petitions/#{petition.id}"
+        response.should be_success
+        response.body.should match("<a href=\"http://google.com.tw\"")
+      end
+
+      it "type: youtube" do
+        data[:content] = "https://www.youtube.com/watch?v=BS2bxWoWGDM asdasd asdasd"
+        post "/petitions/#{petition.id}/timelines", :timeline => data
+        get "/petitions/#{petition.id}"
+        response.should be_success
+        response.body.should match("embed/BS2bxWoWGDM")
+      end
+
+      pending "image"
+      pending "event"
+
+    end
   end
 end

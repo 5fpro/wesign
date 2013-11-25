@@ -1,0 +1,7 @@
+.petition-timeline-item
+  .petiton-timeline-date= timeline.happened_at.to_s(:date)
+  .petition-timeline-item-title= timeline.title
+  .petition-timeline-item-content
+    .out-link
+      = link_to timeline.link, timeline.link, :target => "_blank"
+    = simple_format timeline.render_content

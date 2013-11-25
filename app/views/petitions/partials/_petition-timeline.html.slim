@@ -2,7 +2,8 @@
   .petition-timeline-post-form
     .petiton-timeline-post-form-title 發佈最新消息
     = render :partial => "component/timeline-form"
-
+  - @petition.timelines.recent.each do |timeline|
+    = render :partial => "component/timeline-#{timeline.timeline_type}", :as => :timeline, :object => timeline
   / .petition-timeline-item
   /   .petiton-timeline-date= lorem_date("%Y/%m/%d")
   /   .petition-timeline-item-title= zh_lorem_words( rand(3) + 5)
@@ -24,29 +25,10 @@
   /     .out-link: a href=""= zh_lorem_sentence
   /     = zh_lorem_paragraph
 
-  / .petition-timeline-item
-  /   .petiton-timeline-date= lorem_date("%Y/%m/%d")
-  /   .petition-timeline-item-title= zh_lorem_words( rand(3) + 5)
-  /   .petition-timeline-item-content
-  /     .petition-timeline-video-wrapper
-  /       iframe.petition-timeline-video  src="//www.youtube.com/embed/ScNNfyq3d_w" frameborder="0" allowfullscreen
-  /     = zh_lorem_paragraph
-
-  / .petition-timeline-item
-  /   .petiton-timeline-date= lorem_date("%Y/%m/%d")
-  /   .petition-timeline-item-title= zh_lorem_words( rand(3) + 5)
-  /   .petition-timeline-item-content
-  /     = zh_lorem_paragraph
-
   / .petition-timeline-mark
   /   .timeline-bar
   /   | #{lorem_date("%Y/%m/%d")} 已達成 #{ rand(11) + 1},000 人連署
 
-  / .petition-timeline-item
-  /   .petiton-timeline-date= lorem_date("%Y/%m/%d")
-  /   .petition-timeline-item-title= zh_lorem_words( rand(3) + 5)
-  /   .petition-timeline-item-content
-  /     = zh_lorem_paragraph
 
   / .petition-timeline-item
   /   .petiton-timeline-date= lorem_date("%Y/%m/%d")

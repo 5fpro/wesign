@@ -8,6 +8,8 @@ class Timeline < ActiveRecord::Base
   validates_presence_of :happened_at
   validates_presence_of :title
 
+  scope :recent, order("happened_at DESC")
+
   before_validation do
     self.happened_at = Time.now unless happened_at.present?
   end
@@ -28,6 +30,16 @@ class Timeline < ActiveRecord::Base
 
   def type_of?(type_value)
     timeline_type.to_s == type_value.to_s
+  end
+
+  def render_content
+    return content.to_s.gsub(link, "") if link?
+    return content.to_s.gsub(youtube_link, "") if youtube?
+    content
+  end
+
+  def youtube_id
+    youtube_link.scan(/(youtube.com.*(?:\/|v=)(\w+))/)[0][1] rescue ""
   end
 
   private
@@ -58,7 +70,7 @@ class Timeline < ActiveRecord::Base
     reg = /(http[s]?:\/\/([^\s]+))/i
     res = content.to_s.scan(reg)
     if res.size > 0
-      self.link = "https://#{res[0][0]}"
+      self.link = res[0][0]
       return true
     end
     return false
