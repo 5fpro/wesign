@@ -76,3 +76,9 @@ set :hipchat_color, 'purple'
 set :hipchat_success_color, 'green'
 set :hipchat_failed_color, 'red'
 set :hipchat_message_format, 'text'
+
+
+set :sidekiq_cmd, "bundle exec sidekiq"
+set :sidekiqctl_cmd, "bundle exec sidekiqctl"
+
+require 'sidekiq/capistrano'
