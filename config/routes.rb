@@ -20,6 +20,7 @@ CompaignTw::Application.routes.draw do
   root :to => 'categories#index'
   resources :categories
   resources :petitions do
+    resources :timelines
     post :sign, :on => :member
     get :dashboard, :on => :member
     resources :comments, :only => [ :index, :create ]
