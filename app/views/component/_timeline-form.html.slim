@@ -1,11 +1,11 @@
-form.timeline-form
-  input.timeline-form-title type="text" placeholder="Title"
-  .timeline-form-toolbar
-    a.timeline-form-tool.icon-bold  href="#"
-    a.timeline-form-tool.icon-italic  href="#"
-    a.timeline-form-tool.icon-link  href="#"
-    / a.timeline-form-tool.icon-videocam  href="#"
-    a.timeline-form-tool.icon-picture  href="#"
-  textarea.timeline-form-textarea
-.timeline-form-action
-  button.btn 發佈
+= simple_form_for Timeline.new, :url => petition_timelines_path(@petition), :method => :post do |f|
+  = f.input_field :title, :class => "timeline-form-title", :placeholder => "標題"
+  / .timeline-form-toolbar
+  /   a.timeline-form-tool.icon-bold  href="#"
+  /   a.timeline-form-tool.icon-italic  href="#"
+  /   a.timeline-form-tool.icon-link  href="#"
+  /   a.timeline-form-tool.icon-videocam  href="#"
+  /   a.timeline-form-tool.icon-picture  href="#"
+  = f.input_field :content, :class => "timeline-form-textarea", :rows => ""
+  .timeline-form-action
+    = f.submit :value => "發佈", :class => :btn

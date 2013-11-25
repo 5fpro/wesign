@@ -29,6 +29,7 @@ group :development do
   gem 'meta_request'
   gem 'better_errors'
   gem 'venus', '~> 0.8.6'
+  gem 'xray-rails'
 end
 
 # To use ActiveModel has_secure_password
