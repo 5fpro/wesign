@@ -6,6 +6,7 @@ class Timeline < ActiveRecord::Base
 
   validates_presence_of :petition_id
   validates_presence_of :happened_at
+  validates_presence_of :title
 
   before_validation do
     self.happened_at = Time.now unless happened_at.present?
